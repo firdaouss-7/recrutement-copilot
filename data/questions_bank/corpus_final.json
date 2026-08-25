@@ -1,0 +1,2168 @@
+[
+  {
+    "id": "q_architecture_ordinateur_001",
+    "texte": "Comment simplifiez-vous une fonction logique complexe à plusieurs variables pour minimiser le nombre de portes NAND ou NOR nécessaires dans un circuit intégré, et quelle est la différence de propagation entre ces deux familles ?",
+    "type": "technique",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_architecture_ordinateur_002",
+    "texte": "Pour la conception d'une unité arithmétique et logique (ALU), dans quel cas privilégieriez-vous un additionneur à propagation de retenue (Carry Lookahead Adder) par rapport à un additionneur en cascade (Ripple Carry Adder), et quel en est l'impact sur la surface en puces ?",
+    "type": "technique",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_architecture_ordinateur_003",
+    "texte": "Comment concevez-vous la logique de détection des risques d'aléa (Hazards) dans un processeur pipeliné à 5 étages, et quelle stratégie privilégiez-vous entre l'insertion de bulles (stalling) et la retransmission de données (data forwarding) ?",
+    "type": "technique",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_architecture_ordinateur_004",
+    "texte": "Lors du franchissement de domaines d'horloge (Clock Domain Crossing) entre deux sous-systèmes asynchrones, quelle structure de synchronisation mettez-vous en place pour prévenir les problèmes de métastabilité et éviter la perte de données ?",
+    "type": "technique",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_architecture_ordinateur_005",
+    "texte": "Vous observez une violation de Hold Time sur un chemin critique entre deux Flip-Flops après l'étape de routage. Quelle démarche exacte suivez-vous pour corriger ce problème sans créer une violation de Setup Time ?",
+    "type": "situationnelle",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_architecture_ordinateur_006",
+    "texte": "Comment réagissez-vous lorsqu'un membre de l'équipe propose une architecture de cache set-associative à haute associativité pour améliorer le taux de succès (hit rate), alors que cela dégrade considérablement la consommation critique et la fréquence maximale d'horloge du SoC ?",
+    "type": "comportementale",
+    "domaine": "architecture_ordinateur"
+  },
+  {
+    "id": "q_base_donnees_001",
+    "texte": "Dans une base de données relationnelle sous forte charge, quelle stratégie adoptez-vous pour éliminer les redondances jusqu'à la 3NF sans trop pénaliser les performances des requêtes de lecture complexes ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_002",
+    "texte": "Dans quel cas réel avez-vous dû pousser la modélisation jusqu'à la Forme Normale de Boyce-Codd (BCNF), et quel impact cela a-t-il eu sur vos clés primaires composées ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_003",
+    "texte": "Comment vous y prenez-vous pour identifier une dépendance fonctionnelle transitive dans un schéma existant qui viole la 3NF ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_004",
+    "texte": "Face à une table de plusieurs dizaines de millions de lignes, quelle approche privilégiez-vous entre une sous-requête corrélée et une jointure avec agrégation pour minimiser le coût d'exécution ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_005",
+    "texte": "Comment optimisez-vous une requête analytique SQL qui effectue des jointures multiples (LEFT JOIN) et des agrégations sur de gros volumes quand vous constatez des débordements sur disque ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_006",
+    "texte": "Une requête d'un développeur junior met plusieurs minutes à s'exécuter à cause de sous-requêtes imbriquées dans la clause WHERE. Comment lui expliquez-vous la façon de la réécrire efficacement ?",
+    "type": "comportementale",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_007",
+    "texte": "Dans un système bancaire subissant des écritures concurrentes massives, quel niveau d'isolement de transaction choisissez-vous pour éviter les lectures fantômes sans provoquer d'interblocages systématiques ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_008",
+    "texte": "Comment gérez-vous le compromis entre le respect strict de la durabilité (D dans ACID) et les exigences de latence très faible lors du réglage des commits de transactions ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_009",
+    "texte": "Votre base de données de production vient de bloquer sur un deadlock critique impactant les paiements en ligne. Quelles actions immédiates entreprenez-vous pour analyser et résoudre le problème ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_010",
+    "texte": "Dans quelles situations précises privilégiez-vous un index Hash par rapport à un index B-Tree traditionnel sur PostgreSQL ou MySQL ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_011",
+    "texte": "Comment interprétez-vous le plan d'exécution d'une requête SQL lent lorsqu'un index B-Tree existant est complètement ignoré par l'optimiseur au profit d'un Sequential Scan ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_012",
+    "texte": "Une table d'historique de commandes ralentit considérablement l'application. Quelle démarche de diagnostic et d'indexation couvrante (covering index) mettez-vous en œuvre ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_013",
+    "texte": "Quels critères techniques vous amènent à choisir une base de données Orientée Document plutôt qu'une base Clé-Valeur pour stocker des profils utilisateurs complexes ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_014",
+    "texte": "Dans quel contexte applicatif recommanderiez-vous une base orientée graphe (comme Neo4j) à la place d'une base orientée colonnes (Column-family) ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_015",
+    "texte": "Votre équipe souhaite migrer un composant NoSQL vers du SQL classique pour simplifier le reporting. Comment évaluez-vous la pertinence de ce choix et communiquez-vous votre recommandation ?",
+    "type": "comportementale",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_016",
+    "texte": "Comment différenciez-vous le sharding horizontal de la réplication Read-Replica lorsque vous devez dimensionner une base de données subissant une forte croissance des écritures ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_017",
+    "texte": "Quel protocole de consensus ou stratégie de réplication choisissez-vous pour éviter le phénomène de Split-Brain lors du basculement automatique d'un cluster master-replica ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_018",
+    "texte": "Lors d'une coupure réseau entre deux datacenters, votre cluster sous sharding commence à rejeter certaines transactions. Comment gérez-vous l'incident en direct pour limiter la perte de données ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_019",
+    "texte": "En vertu du théorème CAP, comment expliquez-vous le choix de sacrifier la cohérence forte au profit de la disponibilité dans un système de panier d'achat distribué ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_020",
+    "texte": "Comment gérez-vous la lecture de données obsolètes (stale reads) côté application lorsque vous utilisez une base NoSQL offrant une cohérence éventuelle (eventual consistency) ?",
+    "type": "technique",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_021",
+    "texte": "Vous devez concevoir la base de données d'un système IoT recevant des millions de métriques par seconde. Quelle architecture de stockage et quelle stratégie de partitionnement retenez-vous ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_022",
+    "texte": "Comment sensibilisez-vous des développeurs d'une équipe produit aux impacts des requêtes N+1 générées par les ORM sur la base de données ?",
+    "type": "comportementale",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_023",
+    "texte": "Lors d'une maintenance en production, la réplication asynchrone accuse un retard significatif (lag). Quelle décision prenez-vous concernant le basculement prévu ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_024",
+    "texte": "Quelle approche adoptez-vous pour effectuer une mise à jour de schéma (migration de base de données) à chaud sans aucune interruption de service (zero-downtime) ?",
+    "type": "situationnelle",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_base_donnees_025",
+    "texte": "Racontez une expérience où une décision d'architecture de base de données que vous aviez prise s'est avérée inadaptée à moyen terme, et comment vous avez redressé la barre.",
+    "type": "comportementale",
+    "domaine": "base_donnees"
+  },
+  {
+    "id": "q_bureautique_001",
+    "texte": "Dans un tableur, comment construisez-vous une formule combinant INDEX et EQUIV (ou XLOOKUP) pour effectuer une recherche multidirectionnelle, et dans quel cas privilégierez-vous l'écriture d'une macro VBA pour automatiser ce traitement ?",
+    "type": "technique",
+    "domaine": "bureautique"
+  },
+  {
+    "id": "q_bureautique_002",
+    "texte": "Dans Word ou Google Docs, comment configurez-vous un document maître destiné à du travail collaboratif multi-auteurs pour garantir un suivi des modifications fluide tout en protégeant les styles et la mise en page globale ?",
+    "type": "technique",
+    "domaine": "bureautique"
+  },
+  {
+    "id": "q_bureautique_003",
+    "texte": "Vous devez présenter un bilan trimestriel complexe devant un comité de direction. Comment structurez-vous votre support de présentation et vos visuels pour faire passer les messages clés sans surcharger les diapositives de données brutes ?",
+    "type": "situationnelle",
+    "domaine": "bureautique"
+  },
+  {
+    "id": "q_bureautique_004",
+    "texte": "Sur Microsoft 365 ou Google Workspace, quelle stratégie de gestion des droits d'accès et de partage (interne/externe) appliquez-vous pour sécuriser un dossier contenant des données confidentielles tout en permettant la coédition ?",
+    "type": "technique",
+    "domaine": "bureautique"
+  },
+  {
+    "id": "q_cloud_devops_mlops_001",
+    "texte": "Pouvez-vous expliquer la différence entre un pod, un deployment et un service dans Kubernetes, et comment ils interagissent ensemble pour exposer une application conteneurisée ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_002",
+    "texte": "Comment configurez-vous un Ingress Controller dans Kubernetes pour gérer le routage HTTP/HTTPS de plusieurs microservices tout en gérant le renouvellement automatique des certificats TLS ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_003",
+    "texte": "Dans quel contexte choisiriez-vous une stratégie de déploiement Canary plutôt qu'un Rolling Update ou un Blue/Green pour la mise à jour d'un modèle ML critique ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_004",
+    "texte": "Quelle est la différence fondamentale entre un PersistentVolume et un PersistentVolumeClaim dans Kubernetes, et comment gérez-vous le Reclaim Policy lorsqu'un volume est libéré ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_005",
+    "texte": "Comment combinez-vous les ResourceQuotas, LimitRanges et la configuration RBAC pour isoler efficacement les environnements de dev et de production sur un même cluster Kubernetes ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_006",
+    "texte": "Expliquez les rôles respectifs des sondes Liveness, Readiness et Startup dans Kubernetes. Que se passe-t-il concrètement si une sonde Liveness échoue à répétition ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_007",
+    "texte": "Comment fonctionne le fichier de state de Terraform, et quelle architecture mettez-vous en place pour assurer le state locking et la sécurité dans une équipe multi-développeurs ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_008",
+    "texte": "Quelle est votre approche pour structurer les modules, variables et outputs Terraform afin de promouvoir la réutilisabilité du code entre plusieurs environnements ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_009",
+    "texte": "Comment gérez-vous le drift detection sur vos infrastructures Terraform, et quelle est votre méthode pour importer proprement une ressource cloud préexistante créée manuellement ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_010",
+    "texte": "Comment concevez-vous la structure d'un pipeline CI/CD moderne pour automatiser le build, le test, l'analyse statique et le déploiement d'une application conteneurisée ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_011",
+    "texte": "Quelle stratégie d'automatisation des tests intégrez-vous dans un pipeline CI pour valider les modifications sans impacter inutilement le temps d'exécution global ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_012",
+    "texte": "Comment configurez-vous un registre d'images privé pour sécuriser la gestion des artefacts et empêcher le déploiement d'images de conteneurs présentant des vulnérabilités critiques ?",
+    "type": "technique",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_013",
+    "texte": "Un pod Kubernetes passe constamment en CrashLoopBackOff après la mise en production d'une nouvelle version applicative. Quelle démarche de diagnostic méthodique adoptez-vous pour résoudre le problème ?",
+    "type": "situationnelle",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_014",
+    "texte": "Vous constatez qu'une commande terraform plan indique la destruction d'une base de données managée critique en production suite à une modification de code. Comment gérez-vous la situation ?",
+    "type": "situationnelle",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_015",
+    "texte": "Un pic de trafic inattendu survient sur votre infrastructure cloud, mais le groupe d'autoscaling des instances VM ne réagit pas à temps. Comment analysez-vous la situation et réajustez-vous la politique d'autoscaling ?",
+    "type": "situationnelle",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_016",
+    "texte": "Une application hébergée dans un sous-réseau privé d'un VPC doit accéder à une API externe tout en restant strictement inaccessible depuis Internet. Quelle architecture réseau et de routage mettez-vous en œuvre ?",
+    "type": "situationnelle",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_017",
+    "texte": "Votre base de données managée en haute disponibilité subit des latences élevées d'écriture lors des réplications secondaires. Comment diagnostiquez-vous la cause et quelles solutions de stockage cloud proposez-vous ?",
+    "type": "situationnelle",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_018",
+    "texte": "Racontez une situation où vous avez dû collaborer avec les équipes de développement pour faire accepter et adopter des contraintes strictes d'IAM et du principe de moindre privilège.",
+    "type": "comportementale",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_019",
+    "texte": "Décrivez une expérience où un déploiement automatisé a échoué en environnement de production. Comment avez-vous réagi à chaud et quelles mesures préventives avez-vous intégrées au pipeline par la suite ?",
+    "type": "comportementale",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cloud_devops_mlops_020",
+    "texte": "Comment gériez-vous les arbitrages entre la vélocité demandée par les équipes métier et les exigences de stabilité/sécurité lors de la mise en place d'environnements de staging et production ?",
+    "type": "comportementale",
+    "domaine": "cloud_devops_mlops"
+  },
+  {
+    "id": "q_cms_001",
+    "texte": "Pouvez-vous expliquer le rôle de la boucle d'événements et des hooks dans l'architecture des modules Drupal, et comment vous créez un hook personnalisé ?",
+    "type": "technique",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_002",
+    "texte": "Comment orchestrez-vous le passage de données complexes d'un preprocess function Drupal vers un composant Twig tout en respectant l'encapsulation du thématisation ?",
+    "type": "technique",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_003",
+    "texte": "Dans une architecture Drupal, comment faites-vous la différence entre une entité de configuration et une entité de contenu lors de la définition de champs sur-mesure ?",
+    "type": "technique",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_004",
+    "texte": "Lors du déploiement en production d'un site Drupal, un conflit survient entre la configuration en base de données et les fichiers YAML exportés. Quelle procédure suivez-vous pour résoudre ce problème sans perte de données ?",
+    "type": "situationnelle",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_005",
+    "texte": "Racontez une expérience où vous avez dû restructurer un thème WordPress hérité et un ensemble de plugins mal conçus pour améliorer les performances globales du site.",
+    "type": "comportementale",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_006",
+    "texte": "Quelle est la différence fondamentale entre les Action Hooks et les Filter Hooks dans WordPress, et dans quel cas précis privilégieriez-vous l'un par rapport à l'autre ?",
+    "type": "technique",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_007",
+    "texte": "Vous devez alimenter une application front-end externe via l'API REST de WordPress tout en effectuant des requêtes complexes avec WP_Query. Comment optimisez-vous les temps de réponse de l'API ?",
+    "type": "situationnelle",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_cms_008",
+    "texte": "Comment concevez-vous la structure de données d'un catalogue produit sur WordPress en combinant judicieusement les Custom Post Types et les Taxonomies ?",
+    "type": "technique",
+    "domaine": "cms"
+  },
+  {
+    "id": "q_docker_001",
+    "texte": "Pouvez-vous expliquer le rôle exact du Docker Daemon par rapport au Docker Client lors de l'exécution d'une commande comme docker run, et comment ces deux composants communiquent-ils entre eux ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_002",
+    "texte": "Quelle est la différence fondamentale entre les instructions CMD et ENTRYPOINT dans un Dockerfile, et comment interagissent-elles lorsqu'elles sont utilisées conjointement ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_003",
+    "texte": "Comment les Kernel Namespaces et les cgroups collaborent-ils sous Linux pour assurer respectivement l'isolation et la limitation des ressources d'un conteneur Docker ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_004",
+    "texte": "Comment choisissez-vous entre l'utilisation d'un Volume géré par Docker et un Bind Mount lors de la conception d'un environnement de développement par rapport à la production ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_005",
+    "texte": "Quelle est la différence de fonctionnement et de cas d'usage entre les modes réseau Bridge, Host et Overlay dans Docker ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_006",
+    "texte": "Comment fonctionnes les Multi-stage builds dans un Dockerfile et en quoi cette technique permet-elle de réduire la taille des images tout en améliorant la sécurité ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_007",
+    "texte": "Expliquez le concept de couche de système de fichiers (Union File System / OverlayFS) dans Docker et la manière dont le système de cache tire parti de ces calques lors du build.",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_008",
+    "texte": "Comment gérez-vous l'ordre de démarrage et la dépendance entre les services dans un fichier Docker Compose lorsqu'un service dépend de la disponibilité effective d'une base de données ?",
+    "type": "technique",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_009",
+    "texte": "Vous constatez qu'un conteneur en production consomme subitement 100% du CPU et ne répond plus aux requêtes. Quelle démarche de diagnostic adoptez-vous à l'aide des commandes CLI Docker pour isoler le problème ?",
+    "type": "situationnelle",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_010",
+    "texte": "Une application web conteneurisée perd l'intégralité de ses données utilisateur après chaque redémarrage du conteneur. Comment analysez-vous la situation et quelle correction apportez-vous à la configuration ?",
+    "type": "situationnelle",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_011",
+    "texte": "Deux conteneurs situés sur des réseaux Bridge distincts doivent communiquer entre eux sans être exposés publiquement sur l'hôte. Quelle configuration réseau mettez-vous en place ?",
+    "type": "situationnelle",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_012",
+    "texte": "Comment avez-vous convaincu une équipe de développeurs réfractaires d'abandonner l'habitude d'exécuter leurs conteneurs en tant qu'utilisateur root en production ?",
+    "type": "comportementale",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_docker_013",
+    "texte": "Racontez une situation où une image Docker trop lourde ralentissait considérablement vos pipelines CI/CD et la stratégie que vous avez déployée pour optimiser le temps de build et de déploiement.",
+    "type": "comportementale",
+    "domaine": "docker"
+  },
+  {
+    "id": "q_frameworks_001",
+    "texte": "Dans une architecture MVC monolithique vieillissante où les contrôleurs sont devenus obèses et engorgés de logique métier, quelle refactorisation mettez-vous en place pour réappliquer une séparation stricte des responsabilités ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_002",
+    "texte": "Comment expliquez-vous la différence fondamentale entre le pattern Service Locator et l'Injection de Dépendances par constructeur, et pourquoi le premier est-il souvent considéré comme un anti-pattern ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_003",
+    "texte": "Comment configurez-vous la durée de vie de vos services (Singleton, Scoped, Transient) dans un conteneur IoC pour éviter les fuites de mémoire et la captivité de dépendances éphémères ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_004",
+    "texte": "Votre équipe subit des problèmes récurrents d'injection de dépendances cycliques lors de l'ajout de nouvelles fonctionnalités. Comment sensibilisez-vous l'équipe à restructurer le code pour corriger ce problème durablement ?",
+    "type": "comportementale",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_005",
+    "texte": "Lors du traitement de requêtes HTTP très volumineuses sous forte charge, quelle stratégie de routage et d'exécution asynchrone adoptez-vous pour éviter de bloquer la boucle d'événements du framework ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_006",
+    "texte": "Comment construisez-vous un système de routage dynamique basé sur des attributs ou décorateurs qui supporte la négociation de contenu et la gestion fine de la concurrence ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_007",
+    "texte": "Un développeur junior intègre la logique d'authentification directement dans chaque méthode de contrôleur au lieu d'utiliser la chaîne de middlewares. Comment lui faites-vous retravailler son approche lors d'une revue de code ?",
+    "type": "comportementale",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_008",
+    "texte": "Vous devez implémenter un middleware de Rate Limiting global. Comment gérez-vous la propagation des contextes de requêtes et le court-circuitage propre du pipeline HTTP en cas de dépassement de quota ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_009",
+    "texte": "Quelle approche privilégiez-vous entre un middleware HTTP et un intercepteur de niveau application (ou AOP) lorsqu'il s'agit d'injecter des métriques de métrologie et du tracing distribué ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_010",
+    "texte": "Dans une application web complexe, comment arbitrez-vous la répartition de la gestion d'état entre le state côté client (store global) et le state côté serveur (session/cache distribué) ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_011",
+    "texte": "Lorsqu'une application SPA subit une perte de connexion réseau momentanée, quelle stratégie de gestion d'état et de synchronisation différée mettez-vous en place pour éviter la perte des saisies utilisateur ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_012",
+    "texte": "Comment vous assurez-vous de la cohérence de l'état applicatif frontend lorsqu'il est alimenté simultanément par des requêtes REST et des flux en temps réel de type WebSockets ou Server-Sent Events ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_013",
+    "texte": "Face à un problème critique de requêtes SQL N+1 généré par un ORM en production, quelle méthode d'analyse utilisez-vous et comment le résolvez-vous sans casser le modèle du domaine ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_014",
+    "texte": "Comment gérez-vous le compromis entre l'utilisation du mécanisme de Lazy Loading offert par un ORM pour la rapidité de développement et le contrôle strict des performances des requêtes en base ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_015",
+    "texte": "Quelle stratégie de concurrence optimiste ou pessimiste appliquez-vous au niveau de votre ORM pour éviter les pertes de données lors de mises à jour simultanées d'une même entité ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_016",
+    "texte": "Vous constatez que le pattern Active Record imposé par votre ORM commence à créer des couplages forts entre le schéma de base de données et les règles métier. Comment migrez-vous vers le pattern Data Mapper ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_017",
+    "texte": "Dans le cadre du choix de l'architecture d'un nouveau projet d'API public, comment tranchez-vous entre la conception d'une API RESTful strict (avec HATEOAS) et une interface GraphQL ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_018",
+    "texte": "Comment prévenez-vous les risques de surcharge et d'épuisement des ressources serveur liés aux requêtes GraphQL imbriquées de profondeur illimitée (Over-fetching / Deep Queries) ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_019",
+    "texte": "Lors du passage d'une API REST à une API GraphQL, l'équipe backend s'inquiète de la gestion de la mise en cache côté réseau. Quelle solution leur proposez-vous pour pallier la perte de la mise en cache HTTP standard ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_020",
+    "texte": "Racontez une expérience où une décision technique liée au choix ou à la montée en version majeure d'un framework s'est avérée problématique, et comment vous avez redressé la situation avec votre équipe.",
+    "type": "comportementale",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_021",
+    "texte": "Quelle convention de versionnement d'API REST choisissez-vous (URI path, Header personnalisé, Query Param) pour garantir la rétrocompatibilité lors d'une breaking change majeure ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_022",
+    "texte": "Vous devez concevoir un composant UI/Serveur réutilisable dans un framework moderne. Comment organisez-vous la séparation entre la vue presentationnelle et la logique de récupération de données ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_023",
+    "texte": "Comment résolvez-vous le problème du N+1 DataLoader dans une architecture GraphQL distribuée ou basée sur des microservices fédérés (GraphQL Federation) ?",
+    "type": "technique",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_024",
+    "texte": "Une partie importante de l'équipe souhaite migrer vers un framework émergeant très récent mais peu éprouvé. Quelle démarche adoptez-vous pour évaluer objectivement les risques et prendre la décision finale ?",
+    "type": "comportementale",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_frameworks_025",
+    "texte": "En cas de dégradation critique des temps de réponse sur un pipeline de middlewares HTTP sous fort trafic, quelle procédure de profiling mettez-vous en place pour identifier le middleware goulot d'étranglement ?",
+    "type": "situationnelle",
+    "domaine": "frameworks"
+  },
+  {
+    "id": "q_gestion_projet_001",
+    "texte": "Pouvez-vous expliquer le rôle du Scrum Master lors de l'événement Sprint Planning et préciser en quoi sa responsabilité diffère de celle du Product Owner ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_002",
+    "texte": "Quelles sont les différences clés entre le Burnup Chart et le Burndown Chart, et dans quel contexte d'analyse du suivi de projet privilégiez-vous l'un par rapport à l'autre ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_003",
+    "texte": "Comment la méthode du Planning Poker s'appuie-t-elle sur la suite de Fibonacci pour estimer la complexité des User Stories en Story Points ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_004",
+    "texte": "En quoi consiste la règle de limitation du Work In Progress dans la méthodologie Kanban, et quel est son impact direct sur le Temps de Cycle et le Débit d'une équipe ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_005",
+    "texte": "Quels sont les quatre valeurs et douze principes fondamentaux du Manifeste Agile, et comment s'appliquent-ils concrètement face à des exigences de livraison rigides ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_006",
+    "texte": "Comment calcule-t-on la Vélocité d'une équipe Scrum sur plusieurs Sprints et comment cet indicateur doit-il être utilisé pour planifier les capacités futures ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_007",
+    "texte": "Quelles sont les caractéristiques d'un Backlog produit bien structuré selon la grille DEEP et quelles techniques appliquez-vous pour prioriser les tickets ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_008",
+    "texte": "Comment définissez-vous la responsabilité de l'Équipe Développeurs par rapport à l'artefact Increment et au respect de la Definition of Done au cours d'un Sprint ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_009",
+    "texte": "Quelle est la différence fondamentale entre une approche poussée (Push) et une approche tirée (Pull) dans le flux de travail d'un tableau Kanban ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_010",
+    "texte": "Comment utilisez-vous le diagramme de flux cumulé (Cumulative Flow Diagram) pour identifier les goulots d'étranglement dans le processus de réalisation ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_011",
+    "texte": "Comment fonctionnez-vous lorsqu'un Product Owner cherche à imposer l'ajout de nouvelles fonctionnalités prioritaires au milieu d'un Sprint déjà engagé ?",
+    "type": "technique",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_012",
+    "texte": "Vous constatez que votre tableau Kanban comporte une colonne où les tâches s'accumulent régulièrement. Quelle démarche appliquez-vous pour ajuster les limites de WIP sans perturber la production ?",
+    "type": "situationnelle",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_013",
+    "texte": "Lors du Sprint Planning, l'équipe technique sous-estime systématiquement la complexité des tâches, ce qui entraîne des engagements non tenus à chaque fin de Sprint. Quelle stratégie mettez-vous en place ?",
+    "type": "situationnelle",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_014",
+    "texte": "Votre Burndown Chart indique que le niveau de travail restant ne baisse absolument pas au cours des huit premiers jours du Sprint. Que diagnostiquez-vous et quelles actions immédiates entreprenez-vous ?",
+    "type": "situationnelle",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_015",
+    "texte": "Un conflit ouvert éclate entre le Lead Tech et un Développeur Senior pendant une séance de Backlog Refinement au sujet de l'architecture technique d'une Story. Comment facilitez-vous la séance pour débloquer la situation ?",
+    "type": "situationnelle",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_016",
+    "texte": "La direction vous demande de fournir une date de livraison exacte à 6 mois pour un produit dont le Backlog n'est pas encore totalement raffiné. Comment conciliez-vous cette demande avec les principes de planification Agile ?",
+    "type": "situationnelle",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_017",
+    "texte": "Décrivez une situation où vous avez dû gérer un membre d'équipe passif ou désengagé lors des cérémonies de Retrospective. Comment avez-vous abordé ce comportement pour stimuler la participation ?",
+    "type": "comportementale",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_018",
+    "texte": "Racontez une expérience où l'application stricte d'un cadre Agile a créé des tensions avec des parties prenantes habituées au modèle en Cascade. Comment avez-vous géré la conduite du changement ?",
+    "type": "comportementale",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_gestion_projet_019",
+    "texte": "Parlez-moi d'un projet où la Vélocité de l'équipe s'est effondrée soudainement. Quelle a été votre démarche d'analyse comportementale et organisationnelle pour en identifier la cause ?",
+    "type": "comportementale",
+    "domaine": "gestion_projet"
+  },
+  {
+    "id": "q_git_001",
+    "texte": "Pouvez-vous m'expliquer la différence fondamentale sous le capot entre un blob, un tree et un commit dans l'architecture interne des objets Git ?",
+    "type": "technique",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_002",
+    "texte": "Quand préférez-vous utiliser git rebase plutôt que git merge pour intégrer les modifications d'une branche de fonctionnalité, et quelles sont les règles de sécurité à respecter ?",
+    "type": "technique",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_003",
+    "texte": "Comment arbitrez-vous le choix entre une stratégie de branching Gitflow et un modèle Trunk-based Development pour une équipe de dix développeurs avec du déploiement continu ?",
+    "type": "technique",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_004",
+    "texte": "Lors d'un rebase complexe sur la branche principale, vous vous retrouvez face à une série de conflits en chaîne sur plusieurs commits successifs. Quelle est votre méthodologie pour les résoudre proprement sans perdre l'historique ?",
+    "type": "situationnelle",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_005",
+    "texte": "Un développeur a poussé par erreur un commit contenant des identifiants secrets sur une branche partagée. Quelles commandes Git utilisez-vous pour annuler ce commit et assainir l'historique à la fois en local et sur le dépôt distant ?",
+    "type": "situationnelle",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_006",
+    "texte": "Quelle est la différence exacte entre git reset --soft, git reset --mixed et git reset --hard vis-à-vis du répertoire de travail et de la zone de staging ?",
+    "type": "technique",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_007",
+    "texte": "Un bogue critique est apparu en production entre deux versions distantes de cinquante commits, mais personne ne sait quelle modification l'a introduit. Comment utilisez-vous git bisect pour isoler le commit responsable ?",
+    "type": "technique",
+    "domaine": "git"
+  },
+  {
+    "id": "q_git_008",
+    "texte": "Racontez-moi une situation où un membre de votre équipe a commis une mauvaise manipulation Git qui a risqué d'endommager l'historique du projet. Comment êtes-vous intervenu et qu'avez-vous mis en place pour sensibiliser l'équipe par la suite ?",
+    "type": "comportementale",
+    "domaine": "git"
+  },
+  {
+    "id": "q_informatique_generale_001",
+    "texte": "Comment évaluez-vous la complexité spatiale et temporelle dans le pire des cas d'un algorithme de recherche du plus court chemin comme Dijkstra lorsqu'il est implémenté avec une file de priorité basée sur un tas binaire ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_002",
+    "texte": "Vous observez une dégradation nette des performances sur un service en production qui utilise une table de hachage. Comment diagnostiquez-vous un problème de résolution de collisions et quelle stratégie de réallocation ou de redimensionnement mettez-vous en œuvre ?",
+    "type": "situationnelle",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_003",
+    "texte": "Dans quel contexte choisissez-vous de représenter un graphe sous forme de liste d'adjacence plutôt que de matrice d'adjacence, et quel est l'impact de ce choix sur l'exécution d'un parcours BFS ou DFS ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_004",
+    "texte": "Lors du développement d'un composant de traitement de flux en temps réel, vous devez calculer le maximum sur une fenêtre glissante de taille fixe. Comment exploitez-vous une Monotonic Queue pour garantir une complexité temporelle amortie en O(1) par élément ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_005",
+    "texte": "Vous devez résoudre un problème d'optimisation complexe. Comment déterminez-vous s'il convient d'adopter une approche par algorithme glouton plutôt que par programmation dynamique, et comment vous assurez-vous de la sous-structure optimale ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_006",
+    "texte": "Dans une application de gestion de réseaux de télécommunication, vous devez détecter efficacement les composantes connexes et gérer la fusion de sous-réseaux. Quelle structure Disjoint Set Union (Union-Find) mettez-vous en place et quelles optimisations y intégrez-vous ?",
+    "type": "situationnelle",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_007",
+    "texte": "Face à un problème de traitement de tableau ordonné où l'approche brute mène à une complexité en O(n^2), quelle démarche suivez-vous pour réduire cette complexité à O(n) à l'aide de la technique des deux pointeurs ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_008",
+    "texte": "Pour la mise en place d'un système de gestion de dépendances entre tâches de build, pourquoi l'algorithme de Topological Sort est-il adapté et comment gérez-vous la présence éventuelle d'un cycle dans le graphe d'exécution ?",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_009",
+    "texte": "Racontez une situation où vous avez dû convaincre des membres de votre équipe de refactoriser une structure de données de base (comme remplacer une liste chaînée par un tableau dynamique) pour améliorer le cache-miss au niveau CPU.",
+    "type": "comportementale",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_informatique_generale_010",
+    "texte": "Expliquez comment vous abordez la conception d'un arbre binaire de recherche (BST) équilibré pour éviter qu'il ne se dégénère en liste chaînée sous un volume important d'insertions séquentielles.",
+    "type": "technique",
+    "domaine": "informatique_generale"
+  },
+  {
+    "id": "q_langages_001",
+    "texte": "Dans une application Java à forte charge avec de nombreux accès concurrents, quelle implémentation préférez-vous entre ConcurrentHashMap et Collections.synchronizedMap, et quelles sont les implications sur le verrouillage ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_002",
+    "texte": "Comment concevez-vous vos classes métier en Java pour respecter le principe d'inversion des dépendances (DIP) sans créer une sur-abstraction inutile ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_003",
+    "texte": "Dans quel cas utiliseriez-vous un CompletableFuture plutôt qu'un ExecutorService classique pour orchestrer plusieurs appels d'API asynchrones dépendants en Java ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_004",
+    "texte": "Vous analysez un fichier de dump mémoire suite à une OutOfMemoryError 'G1 Garbage Collector'. Quels indicateurs examinez-vous pour distinguer une vraie fuite mémoire d'un sous-dimensionnement de la Heap ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_005",
+    "texte": "Comment optimisez-vous un traitement par Stream Java qui effectue des opérations coûteuses sur une volumétrie importante sans risquer des effets de bord ou un blocage du pool ForkJoin commun ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_006",
+    "texte": "Votre équipe constate que l'utilisation extensive d'ArrayList subit des ralentissements majeurs lors de réallocations en mémoire sur un flux continu. Quelle structure de données de Java Collections proposez-vous et comment la justifiez-vous ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_007",
+    "texte": "Quelle approche privilégiez-vous pour éviter le risque de Deadlock lors de l'utilisation de plusieurs verrous explicites (ReentrantLock) en Java ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_008",
+    "texte": "Racontez une situation où l'application d'un principe SOLID (comme le principe de responsabilité unique) a permis de simplifier considérablement un refactoring complexe dans votre codebase Java.",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_009",
+    "texte": "Quelle est la différence d'impact sur le Garbage Collector Java entre la création de millions de petits objets de courte durée de vie et l'utilisation d'objets réutilisables (object pooling) ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_010",
+    "texte": "Dans une API Java, comment structurez-vous l'usage des streams et des lambdas pour garantir que le code reste lisible et maintenable pour des développeurs juniors ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_011",
+    "texte": "Votre serveur Node.js affiche un pic d'utilisation processeur à 100% et ne répond plus aux requêtes HTTP pendant une boucle de traitement. Comment diagnostiquez-vous le blocage de l'Event Loop ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_012",
+    "texte": "Pourquoi l'utilisation de Promise.all() peut-elle poser un problème de robustesse lors de l'exécution en parallèle de dizaines de requêtes réseau, et quelle alternative privilégiez-vous ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_013",
+    "texte": "Comment les closures JavaScript peuvent-elles provoquer des fuites de mémoire dans un composant Single Page Application (SPA) à longue durée de vie, et comment y remédiez-vous ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_014",
+    "texte": "Comment expliquez-vous le mécanisme du Hoisting et de la 'Temporal Dead Zone' avec 'let' et 'const' lors d'une revue de code sur un script JavaScript legacy ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_015",
+    "texte": "Lors du passage d'un modèle d'héritage prototypique natif à la syntaxe 'class' introduite en ES6, quels pièges concernant la liaison du contexte ('this') devez-vous anticiper ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_016",
+    "texte": "Dans quel ordre s'exécutent les callbacks dans l'Event Loop lorsque vous mélangez setTimeout, process.nextTick, et des Promesses (Microtasks) dans un environnement Node.js ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_017",
+    "texte": "Vous observez que l'empreinte mémoire V8 de votre application front-end augmente continuellement au fil de la navigation sans jamais redescendre. Quel outil et quelle méthode utilisez-vous pour isoler les objets conservés à tort ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_018",
+    "texte": "Comment exploitez-vous la chaîne de prototypes en JavaScript pour étendre ou modifier le comportement d'objets existants sans polluer le prototype global ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_019",
+    "texte": "Lors du refactoring d'un code utilisant d'anciens callbacks imbriqués ('callback hell') vers Async/Await, quelle stratégie adoptez-vous pour garantir la bonne remontée et capture des erreurs ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_020",
+    "texte": "Dans une fonction JavaScript gérant du traitement asynchrone en boucle, comment vous assurez-vous de ne pas engorger la Microtask Queue au détriment du rendu graphique ou des E/S ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_021",
+    "texte": "Comment arbitrez-vous le choix entre un paradigme orienté objet et un paradigme fonctionnel lors de la conception d'un nouveau composant métier complexe ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_022",
+    "texte": "Quels sont les compromis en termes de sécurité du code, de détection d'erreurs et de performances d'exécution entre un langage à typage statique fort et un langage à typage dynamique ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_023",
+    "texte": "Face à des exceptions non gérées qui font crasher un service critique en production, comment définissez-vous une stratégie globale de gestion des erreurs (Checked vs Unchecked, Error Boundaries) ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_024",
+    "texte": "Dans quel contexte précis estimeriez-vous pertinent d'utiliser la réflexion ou la métaprogrammation, et quels en sont les risques en termes de lisibilité et de performance ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_025",
+    "texte": "Comment convainquez-vous une équipe habituée au style impératif d'adopter des concepts de programmation fonctionnelle (immuabilité, fonctions pures) pour réduire la dette technique ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_026",
+    "texte": "Votre script Python de traitement batch consomme de plus en plus de RAM jusqu'à se faire tuer par l'OOM Killer. Comment utilisez-vous le module gc et tracemalloc pour identifier si le problème vient de références circulaires non collectées ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_027",
+    "texte": "Dans quel cas d'usage privilégieriez-vous la création d'un générateur personnalisé avec yield plutôt qu'une liste en compréhension lors de la manipulation de gros fichiers de données en Python ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_028",
+    "texte": "Comment implémentez-vous la méthode magique __call__ pour transformer une instance de classe Python en objet callable conservant un état interne, et quel avantage cela présente-t-il par rapport à une fermeture (closure) ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_029",
+    "texte": "Vous devez concevoir un scraper web en Python effectuant des milliers de requêtes I/O bound. Pourquoi choisiriez-vous asyncio plutôt que le module threading ou multiprocessing ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_030",
+    "texte": "Comment tirez-vous parti du type hinting (module typing) et du duck typing en Python pour concevoir des APIs d'interface souples tout en conservant une validation statique rigoureuse via Mypy ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_031",
+    "texte": "Votre service Python effectuant des calculs scientifiques intensifs ne tire aucun bénéfice du multi-threading à cause du GIL. Quelle architecture adoptez-vous pour paralléliser efficacement ces traitements sur un serveur multi-cœurs ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_032",
+    "texte": "Comment concevez-vous un décorateur Python réutilisable capable d'intercepter les exceptions d'une fonction, de logger les arguments et d'appliquer une stratégie de retry avec exponential backoff ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_033",
+    "texte": "Lors de la surcharge de la méthode magique __repr__ dans vos modèles métiers Python, quelles bonnes pratiques appliquez-vous pour faciliter le débogage en environnement de production ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_034",
+    "texte": "Comment expliquez-vous à un développeur junior l'intérêt de la programmation asynchrone en Python et les pièges liés au blocage de l'Event Loop par une opération synchrone ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_035",
+    "texte": "Comment le Garbage Collector de .NET gère-t-il la mémoire à travers les Générations 0, 1 et 2, et dans quel cadre précis devez-vous implémenter le pattern IDisposable avec le mot-clé using ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_036",
+    "texte": "Dans une application C# à forte charge, quelle est la différence de comportement et d'impact mémoire entre l'allocation d'une 'struct' et celle d'une 'class', notamment concernant le passage par valeur et par référence ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_037",
+    "texte": "Lors du développement d'un service C# effectuant des accès base de données concurrents, quelle est l'incidence de l'oubli du mot-clé await sur une méthode retournant une Task, et comment évitez-vous les blocages (deadlocks) sur le SynchronizationContext ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_038",
+    "texte": "Comment combinez-vous le Pattern Matching avancé et les Records en C# récent pour écrire un code de traitement de règles métiers à la fois immuable, concis et expressif ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_039",
+    "texte": "Votre application .NET subit des pauses fréquentes du Garbage Collector dues à de fortes allocations dans la Large Object Heap (LOH). Quelle stratégie de refactoring ou de réutilisation de buffers adoptez-vous pour résoudre ce problème ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_040",
+    "texte": "Comment utilisez-vous les expressions LINQ et les arbres d'expression (Expression Trees) en C# pour construire des filtres de recherche dynamiques exécutés côté base de données via un ORM ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_041",
+    "texte": "Dans quel cas utiliseriez-vous l'implémentation explicite d'une interface en C# plutôt qu'une implémentation classique, et quels en sont les impacts sur la visibilité des membres de la classe ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_042",
+    "texte": "Racontez une expérience où vous avez dû utiliser la Réflexion ou des Attributs personnalisés en C# pour concevoir un framework interne, et comment vous avez géré les pénalités de performance associées.",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_043",
+    "texte": "Lors d'une revue de code C#, vous remarquez une mauvaise gestion de la concurrence sur une collection partagée avec Task.Parallel. Comment guidez-vous le développeur vers l'utilisation appropriée des collections du namespace System.Collections.Concurrent ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_044",
+    "texte": "Pouvez-vous détailler le cycle de vie d'une requête HTTP arrivant sur un serveur PHP sous PHP-FPM, en expliquant le rôle de la SAPI, l'initialisation de l'environnement et l'isolation des superglobales entre chaque requête ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_045",
+    "texte": "Comment exploitez-vous les fonctionnalités récentes de PHP (Type Hinting strict, Readonly Properties, Traits, Classes Anonymes) pour concevoir un domaine métier robuste et fortement typé ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_046",
+    "texte": "Dans une application PHP à fort trafic, quel est l'impact d'OPcache sur les performances d'exécution, et comment gérez-vous le réchauffement du cache ou l'invalidation des scripts lors d'un déploiement sans interruption de service ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_047",
+    "texte": "Comment implémentez-vous des Fibers ou des Générateurs avec yield en PHP pour traiter l'export d'un fichier CSV de plusieurs millions de lignes sans dépasser la memory_limit configurée ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_048",
+    "texte": "Quel est le fonctionnement interne de l'autoloading PSR-4 géré par Composer, et comment résolvez-vous des conflits de namespaces ou de classes non chargées dans un projet legacy PHP ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_049",
+    "texte": "Comment différenciez-vous la gestion des erreurs internes (Error) et des exceptions métiers (Throwable) en PHP moderne pour mettre en place un handler global de capture et de logging des pannes ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_050",
+    "texte": "Votre serveur PHP signale une saturation prématurée des processus FPM due à des requêtes bloquantes vers des services tiers. Quelle architecture asynchrone ou basée sur une file de messages proposez-vous pour désengorger le serveur web ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_051",
+    "texte": "Comment le Garbage Collector de PHP gère-t-il le nettoyage des structures de données présentant des références circulaires, et quel outil utilisez-vous pour détecter les fuites mémoire dans un script CLI PHP ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_052",
+    "texte": "Comment avez-vous convaincu votre équipe de migrer une base de code PHP ancienne vers un mode typé strict (declare(strict_types=1)) et quelles étapes avez-vous suivies pour éviter les régressions en production ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_053",
+    "texte": "Votre service web Go commence à consommer énormément de mémoire et subit un ralentissement dû aux cycles fréquents du Garbage Collector. Comment utilisez-vous l'analyse d'échappement (Escape Analysis) du compilateur et pprof pour déterminer quelles variables s'échappent inutilement de la Stack vers la Heap ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_054",
+    "texte": "Dans une API Go devant exécuter plusieurs requêtes réseau en parallèle, quelle primitive de synchronisation privilégiez-vous entre un WaitGroup et des unbuffered channels pour récupérer le premier résultat valide sans créer de fuite de Goroutines ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_055",
+    "texte": "Comment tirez-vous parti du typage structurel et des interfaces implicites en Go pour concevoir des composants facilement testables avec des mocks, sans dépendre d'un système d'héritage classique ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_056",
+    "texte": "Quelle stratégie de gestion explicite des erreurs appliquez-vous dans un pipeline de données Go pour décider s'il faut utiliser de l'error wrapping avec %w, une Type Assertion, ou déclencher un panic/recover ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_057",
+    "texte": "Lors du passage d'un gros objet structuré à une méthode Go, quels critères techniques étudiez-vous pour choisir entre le passage par pointeur et le passage par valeur, notamment en termes de mutations et d'impact sur le Garbage Collector ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_058",
+    "texte": "Dans une boucle select écoutant plusieurs channels Go dont un channel de contexte (context.Done), comment vous assurez-vous qu'une instruction defer garantit la libération des ressources même en cas d'annulation brutale ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_059",
+    "texte": "Vous constatez une condition de concurrence (race condition) intermittente en production sur un Mutex partagé dans un microservice Go. Comment utilisez-vous l'outil go race detector pour isoler le problème et quelle correction apportez-vous ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_060",
+    "texte": "Comment avez-vous guidé une équipe venant d'un langage orienté objet classique (Java ou C#) pour l'amener à adopter la philosophie de composition Go à base de Structs et d'embedding plutôt que d'héritage ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_061",
+    "texte": "Lors de la compilation et du packaging d'une application Go via Go Modules, comment organisez-vous la cross-compilation pour générer un binaire minimal et sécurisé destiné à une image Docker alpine ou scratch ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_062",
+    "texte": "Quelle est la différence fondamentale entre l'évaluation d'un Proc et d'une Lambda en Ruby, notamment concernant la portée des variables et le comportement du mot-clé return ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_063",
+    "texte": "Comment exploitez-vous la métaprogrammation Ruby avec method_missing et define_method pour concevoir un DSL interne souple tout en évitant les dégradations majeures de performance lors des appels de méthodes ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_064",
+    "texte": "Dans une application Ruby à forte concurrence, quel est l'impact du GVL (Global VM Lock) sur l'exécution des Threads par rapport à l'utilisation de Fibers ou du multi-processus (Puma/Unicorn) pour des tâches I/O bound ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_065",
+    "texte": "Pourquoi est-il crucial de privilégier l'utilisation des Symbols plutôt que des Strings pour les clés de Hashes en Ruby, et quelle attention particulière devez-vous porter à la gestion mémoire lors de la conversion dynamique de strings non assainies ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_066",
+    "texte": "Votre gem Ruby provoque des effets de bord imprévus en modifiant des classes natives via des Mixins. Comment reformulez-vous votre code en utilisant des Refinements pour limiter la portée de ces modifications ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_067",
+    "texte": "Comment la compréhension de la classe Eigenclass (ou Singleton Class) en Ruby vous permet-elle de concevoir des méthodes de classe dynamiques et de gérer finement l'héritage au niveau de chaque instance ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_068",
+    "texte": "Vous devez traiter un fichier d'export de données massif en Ruby qui provoque une saturation mémoire. Comment structurez-vous votre pipeline avec des blocks et l'énumérateur lazy de Ruby pour consommer le fichier de manière continue ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_069",
+    "texte": "Comment réagissez-vous lors d'une revue de code Ruby si un développeur abuse de la métaprogrammation et de method_missing au détriment de la lisibilité et de la maintenabilité par le reste de l'équipe ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_070",
+    "texte": "Racontez une expérience où le comportement magique d'un Duck Typing en Ruby a introduit une erreur silencieuse en production, et quelle stratégie de test ou de validation vous avez mise en place pour y remédier.",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_071",
+    "texte": "Comment appliquez-vous le principe RAII et la gestion moderne de la mémoire en C++ pour garantir qu'aucune ressource système ne fuite en cas de levée d'exception ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_072",
+    "texte": "Dans quel scénario précis devez-vous utiliser std::unique_ptr plutôt que std::shared_ptr en C++, et quelle est l'incidence de ce choix sur l'atomicité du compteur de références et les performances globales ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_073",
+    "texte": "Comment la sémantique de déplacement (Move Semantics) et l'utilisation des rvalue references avec std::move permettent-elles d'éviter des copies coûteuses lors de la manipulation de grands conteneurs en C++ ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_074",
+    "texte": "Dans une application C++ haute performance, quel est l'impact du polymorphisme dynamique via la VTable sur l'inlining et le cache processeur, et comment les Concepts de C++20 permettent-ils de basculer vers un polymorphisme statique ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_075",
+    "texte": "Votre serveur d'échanges financiers écrit en C++ présente des latences sporadiques attribuables à de la contention mémoire sur des Mutex. Quelle alternative utilisant des opérations atomiques et des barrières mémoire (Memory Barriers) envisagez-vous ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_076",
+    "texte": "Lors du refactoring d'un moteur de rendu C++ legacy, vous détectez une fuite mémoire critique liée à des dépendances cycliques avec std::shared_ptr. Comment résolvez-vous le problème à l'aide de std::weak_ptr ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_077",
+    "texte": "Comment utilisez-vous la métaprogrammation par templates en C++ pour réaliser des calculs complexes à la compilation, et quelles limites de temps de compilation et de lisibilité des erreurs devez-vous gérer ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_078",
+    "texte": "Comment faites-vous respecter les normes C++ modernes (Core Guidelines, RAII, évitement de l'allocation manuelle par new/delete) au sein d'une équipe habituée au style C classique ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_079",
+    "texte": "Comment exploitez-vous les Mapped Types et Conditional Types en TypeScript pour dériver dynamiquement des types d'API complexes à partir de schémas de données existants ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_080",
+    "texte": "Quelle approche adoptez-vous en TypeScript pour assurer un Type Narrowing rigoureux grâce à des Type Guards personnalisés lors de la manipulation de données non fiables provenant d'un appel réseau externalisé ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_081",
+    "texte": "Pourquoi privilégieriez-vous le type unknown au type any dans la signature d'une fonction TypeScript acceptant des entrées arbitraires, et quelles sont les contraintes associées pour le développeur consommant cette fonction ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_082",
+    "texte": "Dans une architecture micro-front-ends ou une bibliothèque modulaire, quelles sont les différences d'extensibilité entre une Interface (grâce au Declaration Merging) et un Type Alias en TypeScript ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_083",
+    "texte": "Votre build TypeScript devient excessivement lent suite à l'ajout de calculs de types conditionnels complexes. Comment analysez-vous les étapes de compilation et le tsconfig.json pour restaurer la vitesse de build ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_084",
+    "texte": "Comment implémentez-vous des Class et Property Decorators couplés à Reflect Metadata en TypeScript pour créer un système d'injection de dépendances ou de validation automatique de formulaires ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_085",
+    "texte": "Vous migrez une grande application JavaScript legacy vers TypeScript. Quelle configuration d'options de compilation (strict, noImplicitAny, allowJs) mettez-vous en place pour effectuer une transition progressive sans bloquer la production ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_086",
+    "texte": "Comment gérez-vous la maintenance et la distribution des fichiers de déclaration de types (.d.ts) pour un package privé utilisé par plusieurs équipes de votre entreprise ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_087",
+    "texte": "Comment expliquez-vous et justifiez-vous auprès d'une équipe de développeurs JavaScript l'effort initial supplémentaire d'écrire du code TypeScript fortement typé pour réduire le nombre de bugs en production ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_088",
+    "texte": "Votre application Rust subit un échec de compilation à cause du Borrow Checker lors de la modification d'un élément dans une structure de données partagée entre plusieurs modules. Comment résolvez-vous ce problème tout en conservant les garanties de sécurité mémoire ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_089",
+    "texte": "Dans une fonction Rust retournant une référence à une donnée sélectionnée parmi deux paramètres d'entrée, comment annotez-vous explicitement les Lifetimes pour garantir que la référence retournée reste valide ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_090",
+    "texte": "Quelle est la distinction fondamentale entre les traits Send et Sync en Rust, et comment vous assurez-vous qu'un type personnalisé peut être transféré en toute sécurité entre plusieurs threads ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_091",
+    "texte": "Comment combinez-vous l'opérateur ? et le pattern matching sur les types Option et Result<T, E> en Rust pour concevoir une chaîne de traitement d'erreurs lisible et sans panique ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_092",
+    "texte": "Quel est l'impact du processus de monomorphisation lors de la compilation de Generics avec Traits en Rust en termes de performances d'exécution et de taille du fichier binaire final ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_093",
+    "texte": "Comment concevez-vous une structure de données thread-safe en Rust en associant un Mutex ou RwLock avec un Arc sans créer de situations de deadlock en cas d'accès concurrent fort ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_094",
+    "texte": "Votre équipe doit intégrer une bibliothèque C legacy dans un projet Rust. Comment gérez-vous la frontière avec les blocs unsafe tout en exposant une API externe 100% sûre et idiomatic Rust ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_095",
+    "texte": "Comment avez-vous accompagné des développeurs habitués à des langages avec Garbage Collector lors de leurs premiers blocages face à la rigidité du Borrow Checker de Rust ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_096",
+    "texte": "Comment la covariance, la contravariance et l'invariance influencent-elles le sous-typage des collections et des fonctions paramétrées en Scala ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_097",
+    "texte": "En Scala 3, comment préférez-vous structurer une Typeclass en utilisant les clauses given et using par rapport au système d'implicits classique de Scala 2 ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_098",
+    "texte": "Dans quel cas l'évaluation paresseuse (Lazy Evaluation) couplée au passage de paramètres par nom (Call-by-Name) permet-elle d'optimiser le flux d'exécution d'un traitement complexe en Scala ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_099",
+    "texte": "Votre microservice Scala basé sur Akka/Pekko subit des baisses de débit à cause d'une mauvaise configuration de l'ExecutionContext. Comment isolez-vous les tâches I/O bloquantes des traitements CPU-bound ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_100",
+    "texte": "Comment exploitez-vous l'immuabilité et les Case Classes en Scala pour concevoir un domaine métier fonctionnel robuste et sans effets de bord ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_101",
+    "texte": "Lors du traitement d'un flux de données asynchrone en Scala, quelles différences clés observez-vous entre la composition de Futures et l'utilisation du pattern Actor pour gérer l'état local ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_102",
+    "texte": "Vous remarquez une consommation excessive de mémoire Heap sur votre application Scala suite à l'utilisation intensive de collections immuables. Quel refactoring proposez-vous ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_103",
+    "texte": "Racontez une situation où vous avez dû défendre l'adoption du paradigme de la programmation fonctionnelle en Scala face à une équipe résignée à conserver une approche impérative.",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_104",
+    "texte": "Comment le mécanisme d'Automatic Reference Counting (ARC) de Swift gère-t-il la mémoire, et quelle est la différence entre une référence weak et une référence unowned pour éviter les cycles de rétention ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_105",
+    "texte": "Pourquoi privilégier l'approche Protocol-Oriented Programming avec des extensions de protocole en Swift plutôt qu'une hiérarchie d'héritage de classes orientée objet traditionnelle ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_106",
+    "texte": "Comment le mécanisme de Copy-on-Write s'applique-t-il aux structures (Structs) en Swift pour optimiser l'utilisation mémoire lors du passage de grands tableaux ou dictionnaires ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_107",
+    "texte": "Dans une application iOS/macOS moderne sous Swift, comment utilisez-vous les Actors pour isoler l'état partagé et éliminer les data-races en concurrence async/await ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_108",
+    "texte": "Votre application Swift subit un crash soudain en production lié à un dépaquetage d'Optional (Unwrapping) invalide. Comment restructurez-vous le code pour appliquer un traitement sécurisé via guard let ou optional chaining ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_109",
+    "texte": "Comment organisez-vous l'exécution de plusieurs tâches asynchrones parallèles dont le nombre dépend du contexte dynamique en utilisant les Task Groups de Swift ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_110",
+    "texte": "Comment réagissez-vous lors d'une revue de code Swift si un développeur utilise systématiquement des Classes au lieu de Structs pour modéliser des objets de données simples ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_111",
+    "texte": "Comment gérez-vous l'allocation et la libération explicite de mémoire avec malloc, calloc et free en C pour éviter à la fois les fuites mémoire et les erreurs de double free dans un programme serveur ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_112",
+    "texte": "Quelle est la différence d'usage et de comportement entre un pointeur de pointeur et un pointeur de fonction lors de la conception d'une structure de données de type table de hachage générique en C ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_113",
+    "texte": "Comment le padding de structures et l'alignement mémoire influencent-ils l'empreinte mémoire totale de vos structures C, et comment réorganisez-vous les champs pour optimiser l'espace ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_114",
+    "texte": "Votre programme C embarqué plante aléatoirement à cause d'un décalage de pointeur hors limites ou d'un dangling pointer. Quel outil de diagnostic (Valgrind, AddressSanitizer) déployez-vous et comment corrigez-vous le problème ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_115",
+    "texte": "Dans un module C manipulant des descripteurs de fichiers POSIX, comment gérez-vous la différence entre une E/S bufferisée (stdio) et un appel système direct (read/write) pour optimiser les performances de lecture ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_116",
+    "texte": "Quelle approche adoptez-vous en C pour éviter les effets de bord indésirables liés aux macros du préprocesseur tout en garantissant la portabilité du code via des Header Guards et des directives d'inclusion ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_117",
+    "texte": "Comment exploitez-vous les Unions et les opérations bitwise (masques, décalages de bits) en C pour parser efficacement un protocole réseau binaire à bas niveau ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_118",
+    "texte": "Racontez une expérience où vous avez dû collaborer avec des ingénieurs matériels ou systèmes pour isoler un bug de corruption mémoire complexe dans un environnement C restreint.",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_119",
+    "texte": "Comment structurez-vous l'usage des Traits et des types génériques en Rust pour permettre une extensibilité maximale sans surcharger l'API pour les utilisateurs externes ?",
+    "type": "technique",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_120",
+    "texte": "Vous devez faire évoluer un service Scala existant vers Scala 3. Quelle stratégie adoptez-vous pour gérer la transition des implicits vers les clauses given/using sans interrompre les livraisons ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_121",
+    "texte": "Dans une application Swift gérant des flux vidéo en temps réel, vous observez des saccades causées par des allocations trop fréquentes sur la Heap. Comment adaptez-vous votre architecture avec des types de valeur ?",
+    "type": "situationnelle",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_langages_122",
+    "texte": "Comment transmettez-vous à une équipe de développeurs l'importance des règles d'alignement mémoire et des vérifications de sécurité lors de l'écriture de code C critique ?",
+    "type": "comportementale",
+    "domaine": "langages"
+  },
+  {
+    "id": "q_new_tech_001",
+    "texte": "Face à un problème d'analyse de churn client avec un fort déséquilibre de classes, quelle approche choisissez-vous entre une régression logistique et un Random Forest, et comment ajustez-vous le seuil de décision ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_002",
+    "texte": "Votre modèle affiche une très bonne précision en entraînement mais s'effondre en validation. Comment déterminez-vous s'il faut appliquer une régularisation L1 ou L2 ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_003",
+    "texte": "Dans un système de détection de fraudes bancaires, préférez-vous optimiser le Recall ou le Precision, et pourquoi l'AUC-ROC peut-elle être trompeuse dans ce cas ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_004",
+    "texte": "Comment gérez-vous une variable catégorielle contenant plusieurs milliers de modalités uniques sans faire exploser la dimensionnalité de votre jeu de données ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_005",
+    "texte": "Quels hyperparamètres ajustez-vous en priorité sur un XGBoost pour limiter le surapprentissage sans trop dégrader le temps de calcul ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_006",
+    "texte": "Comment la décomposition en valeurs singulières (SVD) permet-elle d'effectuer une réduction de dimension sur une matrice de recommandation volumineuse ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_007",
+    "texte": "Si deux variables explicatives sont fortement corrélées, quel est l'impact théorique et pratique sur la stabilité des coefficients d'une régression linéaire ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_008",
+    "texte": "Pourquoi l'optimiseur Adam converge-t-il généralement plus vite que la descente de gradient stochastique (SGD) classique sur des réseaux profonds ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_009",
+    "texte": "Dans quel contexte privilégierez-vous une optimisation bayésienne plutôt qu'un Random Search pour régler les hyperparamètres d'un modèle lourd ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_010",
+    "texte": "Comment identifiez-vous le problème du gradient disparaissant dans un perceptron multi-couches profond et quelle fonction d'activation permet de le limiter ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_011",
+    "texte": "Quelle stratégie mettez-vous en place pour détecter des transactions anormales lorsque vous ne disposez d'aucune donnée étiquetée au préalable ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_012",
+    "texte": "Dans un algorithme de Q-Learning, quel est le rôle du compromis exploration/exploitation et comment le gérez-vous via la stratégie epsilon-greedy ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_013",
+    "texte": "Quel est le principe de la perte contrastive (Contrastive Loss) et pourquoi est-elle efficace pour l'apprentissage de représentations en mode auto-supervisé ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_014",
+    "texte": "Comment traitez-vous le bruit sur des signaux de capteurs IoT avant de les injecter dans un réseau de neurones convolutif (CNN) ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_015",
+    "texte": "Pouvez-vous expliquer le mécanisme de Multi-Head Attention et pourquoi il surpasse les réseaux récurrents (RNN) pour le traitement de longues séquences ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_016",
+    "texte": "Quelle est la différence fondamentale entre une tokenization Byte-Pair Encoding (BPE) et WordPiece, et quel est leur impact sur le vocabulaire d'un LLM ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_017",
+    "texte": "Comment les embeddings de position de type RoPE (Rotary Position Embedding) permettent-ils de mieux gérer l'extrapolation de longueur de contexte par rapport à des embeddings absolus ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_018",
+    "texte": "Quelle architecture de vector database préférez-vous pour rechercher efficacement des embeddings à très grande échelle dans un pipeline RAG ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_019",
+    "texte": "En quoi le Graph RAG améliore-t-il le RAG classique lorsqu'il s'agit de répondre à des questions nécessitant un raisonnement multi-sauts sur des documents complexes ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_020",
+    "texte": "Comment fonctionne la méthode Tree-of-Thought et dans quel cas est-elle préférable à un simple Chain-of-Thought pour la résolution de problèmes par un agent IA ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_021",
+    "texte": "Quel est le principe mathématique sous-jacent à LoRA et pourquoi réduit-il drastiquement l'empreinte mémoire lors du fine-tuning d'un grand modèle de langage ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_022",
+    "texte": "Quelle est la différence entre l'alignement par DPO (Direct Preference Optimization) et le RLHF classique avec un modèle de récompense explicite ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_023",
+    "texte": "Comment la technique de Flash Attention parvient-elle à accélérer l'étape d'attention tout en réduisant la consommation de mémoire GPU ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_024",
+    "texte": "Quelles sont les dégradations de précision typiques lorsqu'on passe d'un modèle FP16 à une quantification INT4 (via AWQ ou GPTQ) et comment les évaluez-vous ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_025",
+    "texte": "Comment optimisez-vous l'utilisation du KV Cache lors de l'inférence pour gérer un grand nombre de requêtes simultanées sur une même carte GPU ?",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_026",
+    "texte": "Expliquez comment vous utiliseriez la distillation de connaissances pour déployer un modèle de vision par ordinateur sur un équipement embarqué contraint en ressources.",
+    "type": "technique",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_027",
+    "texte": "Un modèle en production commence à générer des réponses obsolètes ou imprécises suite à des évolutions métiers. Comment déterminez-vous s'il faut réentraîner le modèle ou enrichir le RAG ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_028",
+    "texte": "Vous remarquez une dégradation progressive des métriques en production sur un modèle de classification. Quels mécanismes de monitoring mettez-vous en place pour identifier s'il s'agit d'un data drift ou d'un concept drift ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_029",
+    "texte": "Votre équipe doit construire un agent autonome pour automatiser le support technique. Quelle architecture d'orchestration préconisez-vous et comment prévenez-vous les boucles infinies d'exécution ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_030",
+    "texte": "Vous devez fine-tuner un LLM de 70 milliards de paramètres sur un cluster limité à 4 GPU de 24 Go. Quelle stratégie de quantification et de découpage de modèle appliquez-vous ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_031",
+    "texte": "Le RAG déployé pour vos utilisateurs internes renvoie régulièrement des informations confidentielles à des rôles non autorisés. Comment corrigez-vous cela au niveau du pipeline de recherche et des embeddings ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_032",
+    "texte": "Lors du déploiement d'un modèle d'IA générative en temps réel, vous constatez que la latence au premier token (TTFT) dépasse les exigences du SLA. Quelles levées d'optimisation privilégiez-vous en premier ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_033",
+    "texte": "Une étude montre que votre modèle de scoring de crédit présente un biais discriminant envers une catégorie de population. Comment ajustez-vous le pipeline pour corriger ce biais sans effondrer la performance globale ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_034",
+    "texte": "Votre pipeline de données temporelles souffre de fuites d'information (data leakage) non détectées qui faussent les résultats de cross-validation. Comment adaptez-vous votre schéma de validation ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_035",
+    "texte": "Face à un jeu de données médicales à très faible volume et hautement confidentiel, quelle méthodologie privilégiez-vous pour entraîner un modèle de segmentation d'images performant ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_036",
+    "texte": "Un client exige une explicabilité totale sur chaque décision prise par votre modèle d'IA pour des raisons réglementaires. Comment structurez-vous l'explication (ex: SHAP, LIME) pour un public non technique ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_037",
+    "texte": "Votre modèle de classification d'images montre de très mauvaises performances sur des photos prises de nuit ou par mauvais temps. Comment enrichissez-vous votre jeu de données pour pallier ce problème ?",
+    "type": "situationnelle",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_038",
+    "texte": "Comment arbitrez-vous la décision d'héberger un modèle open-source fine-tuné en interne versus l'utilisation d'une API propriétaire payante pour un projet stratégique ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_039",
+    "texte": "Racontez une situation où un expert métier n'accordait aucune confiance aux prédictions de votre modèle d'IA. Comment avez-vous collaboré avec lui pour valider et ajuster le modèle ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_040",
+    "texte": "Comment convainquez-vous une équipe de développeurs logiciels traditionnels d'adopter de nouvelles pratiques spécifiques aux projets IA et MLOps (ex: versionning de données, tests de non-régression de modèles) ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_041",
+    "texte": "Décrivez la manière dont vous avez géré un désaccord technique au sein de votre équipe concernant le choix d'une architecture de réseau de neurones ou d'un cadre de travail (framework).",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_042",
+    "texte": "Face au rythme très rapide de la recherche en IA générative, quelle méthode personnelle utilisez-vous pour évaluer si une nouvelle papier ou technique vaut la peine d'être intégrée en production ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_043",
+    "texte": "Racontez une expérience où un projet Machine Learning a dû être abandonné ou réorienté en cours de route. Quelle a été votre réaction et quelles leçons en avez-vous tirées ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_new_tech_044",
+    "texte": "Comment communiquez-vous l'incertitude et les marges d'erreur de vos modèles de Data Science auprès de décideurs ou de managers non techniques ?",
+    "type": "comportementale",
+    "domaine": "new_tech"
+  },
+  {
+    "id": "q_reseau_001",
+    "texte": "Pourriez-vous nous expliquer comment vous déterminez si un dysfonctionnement réseau provient du niveau 2 ou du niveau 3 du modèle OSI lors d'une coupure de service intermittente ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_002",
+    "texte": "Comment expliquez-vous à un développeur junior les différences d'encapsulation entre la pile TCP/IP et le modèle OSI pour lui faire comprendre l'impact des entêtes sur la bande passante ?",
+    "type": "comportementale",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_003",
+    "texte": "Un sous-réseau en /24 doit être redécoupé pour alimenter quatre services distincts exigeant chacun au moins 30 adresses IP exploitables. Quelle méthode CIDR appliquez-vous ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_004",
+    "texte": "Lors d'une phase de migration vers IPv6, quelles stratégies de coexistence comme le Dual Stack ou les tunnels IPv6-in-IPv4 recommandez-vous et pourquoi ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_005",
+    "texte": "Vous observez une tempête de broadcasts ARP qui perturbe le trafic d'un VLAN en production. Quelles actions d'urgence et quelles configurations de commutateur mettez-vous en œuvre ?",
+    "type": "situationnelle",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_006",
+    "texte": "Comment diagnostiquez-vous un problème d'asymétrie de routage lorsqu'un serveur répond correctement au ping ICMP mais rejette les établir de sessions TCP ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_007",
+    "texte": "Lors du déploiement d'un protocole de routage dynamique comme OSPF ou BGP, quelle méthode choisissez-vous pour prévenir les boucles de routage et garantir la convergence ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_008",
+    "texte": "En cas de dégradation critique des performances de résolution DNS sur vos serveurs internes, quelles étapes de vérification suivez-vous pour isoler la cause entre la récursivité, le cache ou le serveur autoritaire ?",
+    "type": "situationnelle",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_009",
+    "texte": "Quelle stratégie de gestion du TTL DNS adoptez-vous avant d'effectuer un basculement d'infrastructure à chaud pour limiter l'impact de la mise en cache chez les clients ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_010",
+    "texte": "Racontez une situation où vous avez dû collaborer avec des équipes de sécurité pour résoudre un problème d'inspection HTTPS bloquant des flux applicatifs légitimes.",
+    "type": "comportementale",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_011",
+    "texte": "Comment analysez-vous une poignée de main TLS (Handshake HTTPS) défaillante via une capture de paquets Wireshark ou tcpdump ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_012",
+    "texte": "Dans quel cas recommandez-vous l'utilisation du protocole SSH avec redirection de ports (tunnelling local/distant) par rapport à un accès VPN classique ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_013",
+    "texte": "Vos serveurs de messagerie SMTP sont subitement rejetés par plusieurs destinataires à cause d'un classement en liste noire. Quelle procédure d'urgence mettez-vous en place pour rétablir la délivrabilité ?",
+    "type": "situationnelle",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_014",
+    "texte": "Quelle est la différence d'impact architectural entre un Load Balancing de niveau 4 (L4) et de niveau 7 (L7) sur la terminaison TLS et la persistance des sessions ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_015",
+    "texte": "Comment configurez-vous un Reverse Proxy pour transmettre l'adresse IP réelle de l'utilisateur aux serveurs d'arrière-plan sans dégrader les performances ou compromettre la sécurité ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_016",
+    "texte": "Un répartiteur de charge continue d'envoyer du trafic vers une instance applicative devenue instable malgré les sondes de santé (health checks). Comment traitez-vous l'incident en direct ?",
+    "type": "situationnelle",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_017",
+    "texte": "Comment choisissez-vous les algorithmes de répartition de charge (Round Robin, Least Connections, IP Hash) en fonction des contraintes de charge d'une application d'entreprise ?",
+    "type": "technique",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_018",
+    "texte": "Comment réagissez-vous face à un désaccord technique avec un architecte système concernant le placement d'un Reverse Proxy par rapport aux pare-feu de bordure ?",
+    "type": "comportementale",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_reseau_019",
+    "texte": "Vous devez diagnostiquer une baisse globale du MTU et des problèmes de fragmentation de paquets IP sur une liaison VPN IPsec. Quelle approche adoptez-vous ?",
+    "type": "situationnelle",
+    "domaine": "reseau"
+  },
+  {
+    "id": "q_securite_001",
+    "texte": "Comment concevez-vous la gestion de l'expiration et du rafraîchissement des jetons JWT dans une application SPA sans exposer le refresh token aux attaques XSS ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_002",
+    "texte": "Votre équipe souhaite remplacer une authentification par session classique par OAuth2 avec PKCE pour une application mobile. Quels choix d'implémentation imposez-vous pour sécuriser le stockage local ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_003",
+    "texte": "Lors d'une intégration Single Sign-On avec SAML 2.0 pour un client entreprise, l'Assertion Consumer Service rejette les réponses. Comment diagnostiquez-vous si le problème vient de la signature XML ou d'une dérive d'horloge ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_004",
+    "texte": "Quelle approche privilégiez-vous entre AES-GCM et AES-CBC avec HMAC pour le chiffrement de données au repos sensibles, et comment gérez-vous la réutilisation du vecteur d'initialisation (IV) ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_005",
+    "texte": "Comment arbitrez-vous l'utilisation du chiffrement asymétrique RSA par rapport à la cryptographie sur les courbes elliptiques (ECC) lors de la conception d'un protocole d'échange de clés sécurisé ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_006",
+    "texte": "Un certificat SSL/TLS expire sur un service critique en production à cause d'un échec d'automatisation Certbot. Quelle procédure de secours d'urgence appliquez-vous ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_007",
+    "texte": "Comment configurez-vous une infrastructure PKI interne pour garantir la révocation immédiate des certificats compromis via CRL ou OCSP Stapling sans impacter la latence applicative ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_008",
+    "texte": "Lors de la montée en version TLS 1.3 sur des serveurs legacy, certains clients rencontrent des erreurs d'handshake. Comment traitez-vous la mise à jour des cipher suites tout en maintenant la rétrocompatibilité ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_009",
+    "texte": "Un audit révèle des vulnérabilités Cross-Site Scripting (XSS) stocké dans votre application web. Quelle stratégie adoptez-vous en combinant Content Security Policy (CSP) et assainissement des entrées ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_010",
+    "texte": "Face à une injection SQL identifiée dans un composant legacy complexe ne pouvant pas être refactorisé immédiatement avec un ORM, quelle solution de remédiation rapide mettez-vous en place ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_011",
+    "texte": "Comment sécurisez-vous les requêtes sensibles d'une API REST pour prévenir les attaques CSRF sans dégrader l'expérience utilisateur ou bloquer les appels cross-domain légitimes ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_012",
+    "texte": "Vous détectez des tentatives d'exfiltration de données via des requêtes HTTP sortantes suspectes. Comment segmentez-vous le réseau via vos pare-feu pour bloquer ce comportement ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_013",
+    "texte": "Quelle architecture mettez-vous en place pour remplacer une infrastructure VPN d'entreprise vieillissante par un modèle Zero Trust Network Access (ZTNA) ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_014",
+    "texte": "Des développeurs ont commité accidentellement des clés d'API AWS dans un dépôt Git public. Quelles actions immédiates et conservatoires déclenchez-vous ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_015",
+    "texte": "Comment concevez-vous l'intégration d'un gestionnaire de secrets comme HashiCorp Vault dans un pipeline CI/CD pour éviter le hardcoding des identifiants ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_016",
+    "texte": "Comment réorganisez-vous une politique IAM Cloud basée sur des rôles (RBAC) trop permissifs pour appliquer strictement le principe du moindre privilège sans casser les déploiements existants ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_017",
+    "texte": "Racontez une situation où vous avez dû convaincre une équipe de développeurs réfractaires d'intégrer des contraintes de sécurité lourdes dans leur cycle de livraison.",
+    "type": "comportementale",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_018",
+    "texte": "Comment réagissez-vous lorsqu'un incident de sécurité majeur survient pendant un déploiement vendredi soir et que la direction exige une résolution immédiate ?",
+    "type": "comportementale",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_019",
+    "texte": "Comment accompagnez-vous un développeur junior pour lui apprendre à modéliser les menaces (Threat Modeling) dès la phase de conception d'une fonctionnalité ?",
+    "type": "comportementale",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_020",
+    "texte": "Dans un environnement microservices, quelle stratégie adoptez-vous pour propager et vérifier l'identité de l'utilisateur final à travers les appels inter-services ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_021",
+    "texte": "Quelle méthode appliquez-vous pour chiffrer les champs de données à caractère personnel (PII) en base de données tout en préservant la capacité d'effectuer des recherches exactes ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_022",
+    "texte": "En cas d'attaque par déni de service distribué (DDoS) ciblant la couche applicative (Layer 7), quelles règles pare-feu ou WAF déployez-vous en priorité ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_023",
+    "texte": "Quelle différence fondamentale faites-vous entre l'usage d'une signature numérique RSA et l'usage d'un HMAC pour valider l'intégrité d'un message en transit ?",
+    "type": "technique",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_024",
+    "texte": "Vous découvrez qu'un sous-traitant utilise des comptes de service partagés avec des droits administrateur sur votre plateforme cloud. Comment gérez-vous cet écart d'une manière ferme mais constructive ?",
+    "type": "comportementale",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_securite_025",
+    "texte": "Comment structurez-vous la rotation automatique des certificats SSL/TLS d'un cluster Kubernetes sans provoquer d'interruption de service sur les ingress controllers ?",
+    "type": "situationnelle",
+    "domaine": "securite"
+  },
+  {
+    "id": "q_systeme_exploitation_001",
+    "texte": "Un processus en production consomme excessivement du temps CPU tout en restant bloqué en état Uninterruptible Sleep (état D). Comment analysez-vous la situation pour identifier l'appel système ou la ressource E/S responsable de ce blocage ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_002",
+    "texte": "Vous observez qu'un serveur Web sous forte charge commence à swapper alors qu'il reste encore de la mémoire RAM disponible en cache de fichiers. Comment ajustez-vous le paramètre vm.swappiness et l'ordonnanceur de mémoire du noyau pour optimiser les performances ?",
+    "type": "situationnelle",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_003",
+    "texte": "Quelle est la différence fondamentale entre les threads Kernel-level et User-level, et quel est l'impact du modèle d'ordonnamment du noyau Linux sur une application multithreadée à forte concurrence ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_004",
+    "texte": "Lors d'une tentative de création de fichier sur un système ext4, vous obtenez une erreur No space left on device alors que la commande df -h indique un espace disque suffisant. Quelle vérification effectuez-vous et quelle est l'origine du problème ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_005",
+    "texte": "Un développeur junior a accidentellement attribué des permissions chmod 777 sur l'ensemble d'un répertoire critique en production. Comment gérez-vous cet incident et comment lui expliquez-vous les bonnes pratiques du modèle UGO et du bit SUID/SGID ?",
+    "type": "comportementale",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_006",
+    "texte": "Comment concevez-vous un script Bash robuste qui traite des fichiers de log volumineux en parallèle, tout en gérant proprement la capture des signaux SIGTERM et SIGINT pour garantir un nettoyage avant interruption ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_007",
+    "texte": "Quelle est la différence d'exécution et de transmission des descripteurs de fichiers entre l'utilisation d'un pipe anonyme, d'un tube nommé (FIFO) et d'une redirection d'E/S standard dans un shell Linux ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_008",
+    "texte": "Un service d'arrière-plan géré par Systemd plante de manière aléatoire sans laisser de trace explicite dans les logs applicatifs. Comment utilisez-vous journalctl et les directives de fichier unit pour isoler la cause du crash ?",
+    "type": "situationnelle",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_009",
+    "texte": "Pour quelle raison privilégierez-vous la création d'une unité de service Systemd par rapport à un ancien script d'initialisation SysVinit lors du déploiement d'un nouveau démon système ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_010",
+    "texte": "Vous rencontrez une baisse soudaine des performances d'écriture sur un volume disque. Quelles métriques surveillez-vous avec des outils comme iostat ou sar pour différencier une saturation de la bande passante d'une saturation des IOPS ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_011",
+    "texte": "Racontez une expérience où une dégradation progressive des ressources système CPU/RAM en production restait invisible pour les outils de monitoring classiques, et comment vous avez réussi à diagnostiquer le problème.",
+    "type": "comportementale",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_012",
+    "texte": "Un processus applicatif devient un zombie (état Z) et s'accumule dans la table des processus. Pourquoi le processus parent ne libère-t-il pas sa ressource et quelle action entreprenez-vous si le parent ne répond plus ?",
+    "type": "situationnelle",
+    "domaine": "systeme_exploitation"
+  },
+  {
+    "id": "q_systeme_exploitation_013",
+    "texte": "Comment le mécanisme de Page Fault interagit-il avec la MMU et le fichier de Swap pour résoudre l'accès à une page de mémoire virtuelle non présente en mémoire physique ?",
+    "type": "technique",
+    "domaine": "systeme_exploitation"
+  }
+]

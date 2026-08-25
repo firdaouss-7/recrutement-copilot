@@ -1,0 +1,50 @@
+[
+{
+"id": "q_cms_001",
+"texte": "Pouvez-vous expliquer le rôle de la boucle d'événements et des hooks dans l'architecture des modules Drupal, et comment vous créez un hook personnalisé ?",
+"type": "technique",
+"domaine": "cms"
+},
+{
+"id": "q_cms_002",
+"texte": "Comment orchestrez-vous le passage de données complexes d'un preprocess function Drupal vers un composant Twig tout en respectant l'encapsulation du thématisation ?",
+"type": "technique",
+"domaine": "cms"
+},
+{
+"id": "q_cms_003",
+"texte": "Dans une architecture Drupal, comment faites-vous la différence entre une entité de configuration et une entité de contenu lors de la définition de champs sur-mesure ?",
+"type": "technique",
+"domaine": "cms"
+},
+{
+"id": "q_cms_004",
+"texte": "Lors du déploiement en production d'un site Drupal, un conflit survient entre la configuration en base de données et les fichiers YAML exportés. Quelle procédure suivez-vous pour résoudre ce problème sans perte de données ?",
+"type": "situationnelle",
+"domaine": "cms"
+},
+{
+"id": "q_cms_005",
+"texte": "Racontez une expérience où vous avez dû restructurer un thème WordPress hérité et un ensemble de plugins mal conçus pour améliorer les performances globales du site.",
+"type": "comportementale",
+"domaine": "cms"
+},
+{
+"id": "q_cms_006",
+"texte": "Quelle est la différence fondamentale entre les Action Hooks et les Filter Hooks dans WordPress, et dans quel cas précis privilégieriez-vous l'un par rapport à l'autre ?",
+"type": "technique",
+"domaine": "cms"
+},
+{
+"id": "q_cms_007",
+"texte": "Vous devez alimenter une application front-end externe via l'API REST de WordPress tout en effectuant des requêtes complexes avec WP_Query. Comment optimisez-vous les temps de réponse de l'API ?",
+"type": "situationnelle",
+"domaine": "cms"
+},
+{
+"id": "q_cms_008",
+"texte": "Comment concevez-vous la structure de données d'un catalogue produit sur WordPress en combinant judicieusement les Custom Post Types et les Taxonomies ?",
+"type": "technique",
+"domaine": "cms"
+}
+]

@@ -1,0 +1,116 @@
+[
+{
+"id": "q_gestion_projet_001",
+"texte": "Pouvez-vous expliquer le rôle du Scrum Master lors de l'événement Sprint Planning et préciser en quoi sa responsabilité diffère de celle du Product Owner ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_002",
+"texte": "Quelles sont les différences clés entre le Burnup Chart et le Burndown Chart, et dans quel contexte d'analyse du suivi de projet privilégiez-vous l'un par rapport à l'autre ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_003",
+"texte": "Comment la méthode du Planning Poker s'appuie-t-elle sur la suite de Fibonacci pour estimer la complexité des User Stories en Story Points ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_004",
+"texte": "En quoi consiste la règle de limitation du Work In Progress dans la méthodologie Kanban, et quel est son impact direct sur le Temps de Cycle et le Débit d'une équipe ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_005",
+"texte": "Quels sont les quatre valeurs et douze principes fondamentaux du Manifeste Agile, et comment s'appliquent-ils concrètement face à des exigences de livraison rigides ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_006",
+"texte": "Comment calcule-t-on la Vélocité d'une équipe Scrum sur plusieurs Sprints et comment cet indicateur doit-il être utilisé pour planifier les capacités futures ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_007",
+"texte": "Quelles sont les caractéristiques d'un Backlog produit bien structuré selon la grille DEEP et quelles techniques appliquez-vous pour prioriser les tickets ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_008",
+"texte": "Comment définissez-vous la responsabilité de l'Équipe Développeurs par rapport à l'artefact Increment et au respect de la Definition of Done au cours d'un Sprint ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_009",
+"texte": "Quelle est la différence fondamentale entre une approche poussée (Push) et une approche tirée (Pull) dans le flux de travail d'un tableau Kanban ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_010",
+"texte": "Comment utilisez-vous le diagramme de flux cumulé (Cumulative Flow Diagram) pour identifier les goulots d'étranglement dans le processus de réalisation ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_011",
+"texte": "Comment fonctionnez-vous lorsqu'un Product Owner cherche à imposer l'ajout de nouvelles fonctionnalités prioritaires au milieu d'un Sprint déjà engagé ?",
+"type": "technique",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_012",
+"texte": "Vous constatez que votre tableau Kanban comporte une colonne où les tâches s'accumulent régulièrement. Quelle démarche appliquez-vous pour ajuster les limites de WIP sans perturber la production ?",
+"type": "situationnelle",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_013",
+"texte": "Lors du Sprint Planning, l'équipe technique sous-estime systématiquement la complexité des tâches, ce qui entraîne des engagements non tenus à chaque fin de Sprint. Quelle stratégie mettez-vous en place ?",
+"type": "situationnelle",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_014",
+"texte": "Votre Burndown Chart indique que le niveau de travail restant ne baisse absolument pas au cours des huit premiers jours du Sprint. Que diagnostiquez-vous et quelles actions immédiates entreprenez-vous ?",
+"type": "situationnelle",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_015",
+"texte": "Un conflit ouvert éclate entre le Lead Tech et un Développeur Senior pendant une séance de Backlog Refinement au sujet de l'architecture technique d'une Story. Comment facilitez-vous la séance pour débloquer la situation ?",
+"type": "situationnelle",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_016",
+"texte": "La direction vous demande de fournir une date de livraison exacte à 6 mois pour un produit dont le Backlog n'est pas encore totalement raffiné. Comment conciliez-vous cette demande avec les principes de planification Agile ?",
+"type": "situationnelle",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_017",
+"texte": "Décrivez une situation où vous avez dû gérer un membre d'équipe passif ou désengagé lors des cérémonies de Retrospective. Comment avez-vous abordé ce comportement pour stimuler la participation ?",
+"type": "comportementale",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_018",
+"texte": "Racontez une expérience où l'application stricte d'un cadre Agile a créé des tensions avec des parties prenantes habituées au modèle en Cascade. Comment avez-vous géré la conduite du changement ?",
+"type": "comportementale",
+"domaine": "gestion_projet"
+},
+{
+"id": "q_gestion_projet_019",
+"texte": "Parlez-moi d'un projet où la Vélocité de l'équipe s'est effondrée soudainement. Quelle a été votre démarche d'analyse comportementale et organisationnelle pour en identifier la cause ?",
+"type": "comportementale",
+"domaine": "gestion_projet"
+}
+]

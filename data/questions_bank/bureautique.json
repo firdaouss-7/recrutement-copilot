@@ -1,0 +1,26 @@
+[
+{
+"id": "q_bureautique_001",
+"texte": "Dans un tableur, comment construisez-vous une formule combinant INDEX et EQUIV (ou XLOOKUP) pour effectuer une recherche multidirectionnelle, et dans quel cas privilégierez-vous l'écriture d'une macro VBA pour automatiser ce traitement ?",
+"type": "technique",
+"domaine": "bureautique"
+},
+{
+"id": "q_bureautique_002",
+"texte": "Dans Word ou Google Docs, comment configurez-vous un document maître destiné à du travail collaboratif multi-auteurs pour garantir un suivi des modifications fluide tout en protégeant les styles et la mise en page globale ?",
+"type": "technique",
+"domaine": "bureautique"
+},
+{
+"id": "q_bureautique_003",
+"texte": "Vous devez présenter un bilan trimestriel complexe devant un comité de direction. Comment structurez-vous votre support de présentation et vos visuels pour faire passer les messages clés sans surcharger les diapositives de données brutes ?",
+"type": "situationnelle",
+"domaine": "bureautique"
+},
+{
+"id": "q_bureautique_004",
+"texte": "Sur Microsoft 365 ou Google Workspace, quelle stratégie de gestion des droits d'accès et de partage (interne/externe) appliquez-vous pour sécuriser un dossier contenant des données confidentielles tout en permettant la coédition ?",
+"type": "technique",
+"domaine": "bureautique"
+}
+]

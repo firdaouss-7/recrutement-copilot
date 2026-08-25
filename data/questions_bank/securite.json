@@ -1,0 +1,152 @@
+[
+{
+"id": "q_securite_001",
+"texte": "Comment concevez-vous la gestion de l'expiration et du rafraîchissement des jetons JWT dans une application SPA sans exposer le refresh token aux attaques XSS ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_002",
+"texte": "Votre équipe souhaite remplacer une authentification par session classique par OAuth2 avec PKCE pour une application mobile. Quels choix d'implémentation imposez-vous pour sécuriser le stockage local ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_003",
+"texte": "Lors d'une intégration Single Sign-On avec SAML 2.0 pour un client entreprise, l'Assertion Consumer Service rejette les réponses. Comment diagnostiquez-vous si le problème vient de la signature XML ou d'une dérive d'horloge ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_004",
+"texte": "Quelle approche privilégiez-vous entre AES-GCM et AES-CBC avec HMAC pour le chiffrement de données au repos sensibles, et comment gérez-vous la réutilisation du vecteur d'initialisation (IV) ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_005",
+"texte": "Comment arbitrez-vous l'utilisation du chiffrement asymétrique RSA par rapport à la cryptographie sur les courbes elliptiques (ECC) lors de la conception d'un protocole d'échange de clés sécurisé ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_006",
+"texte": "Un certificat SSL/TLS expire sur un service critique en production à cause d'un échec d'automatisation Certbot. Quelle procédure de secours d'urgence appliquez-vous ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_007",
+"texte": "Comment configurez-vous une infrastructure PKI interne pour garantir la révocation immédiate des certificats compromis via CRL ou OCSP Stapling sans impacter la latence applicative ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_008",
+"texte": "Lors de la montée en version TLS 1.3 sur des serveurs legacy, certains clients rencontrent des erreurs d'handshake. Comment traitez-vous la mise à jour des cipher suites tout en maintenant la rétrocompatibilité ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_009",
+"texte": "Un audit révèle des vulnérabilités Cross-Site Scripting (XSS) stocké dans votre application web. Quelle stratégie adoptez-vous en combinant Content Security Policy (CSP) et assainissement des entrées ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_010",
+"texte": "Face à une injection SQL identifiée dans un composant legacy complexe ne pouvant pas être refactorisé immédiatement avec un ORM, quelle solution de remédiation rapide mettez-vous en place ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_011",
+"texte": "Comment sécurisez-vous les requêtes sensibles d'une API REST pour prévenir les attaques CSRF sans dégrader l'expérience utilisateur ou bloquer les appels cross-domain légitimes ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_012",
+"texte": "Vous détectez des tentatives d'exfiltration de données via des requêtes HTTP sortantes suspectes. Comment segmentez-vous le réseau via vos pare-feu pour bloquer ce comportement ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_013",
+"texte": "Quelle architecture mettez-vous en place pour remplacer une infrastructure VPN d'entreprise vieillissante par un modèle Zero Trust Network Access (ZTNA) ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_014",
+"texte": "Des développeurs ont commité accidentellement des clés d'API AWS dans un dépôt Git public. Quelles actions immédiates et conservatoires déclenchez-vous ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_015",
+"texte": "Comment concevez-vous l'intégration d'un gestionnaire de secrets comme HashiCorp Vault dans un pipeline CI/CD pour éviter le hardcoding des identifiants ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_016",
+"texte": "Comment réorganisez-vous une politique IAM Cloud basée sur des rôles (RBAC) trop permissifs pour appliquer strictement le principe du moindre privilège sans casser les déploiements existants ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_017",
+"texte": "Racontez une situation où vous avez dû convaincre une équipe de développeurs réfractaires d'intégrer des contraintes de sécurité lourdes dans leur cycle de livraison.",
+"type": "comportementale",
+"domaine": "securite"
+},
+{
+"id": "q_securite_018",
+"texte": "Comment réagissez-vous lorsqu'un incident de sécurité majeur survient pendant un déploiement vendredi soir et que la direction exige une résolution immédiate ?",
+"type": "comportementale",
+"domaine": "securite"
+},
+{
+"id": "q_securite_019",
+"texte": "Comment accompagnez-vous un développeur junior pour lui apprendre à modéliser les menaces (Threat Modeling) dès la phase de conception d'une fonctionnalité ?",
+"type": "comportementale",
+"domaine": "securite"
+},
+{
+"id": "q_securite_020",
+"texte": "Dans un environnement microservices, quelle stratégie adoptez-vous pour propager et vérifier l'identité de l'utilisateur final à travers les appels inter-services ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_021",
+"texte": "Quelle méthode appliquez-vous pour chiffrer les champs de données à caractère personnel (PII) en base de données tout en préservant la capacité d'effectuer des recherches exactes ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_022",
+"texte": "En cas d'attaque par déni de service distribué (DDoS) ciblant la couche applicative (Layer 7), quelles règles pare-feu ou WAF déployez-vous en priorité ?",
+"type": "situationnelle",
+"domaine": "securite"
+},
+{
+"id": "q_securite_023",
+"texte": "Quelle différence fondamentale faites-vous entre l'usage d'une signature numérique RSA et l'usage d'un HMAC pour valider l'intégrité d'un message en transit ?",
+"type": "technique",
+"domaine": "securite"
+},
+{
+"id": "q_securite_024",
+"texte": "Vous découvrez qu'un sous-traitant utilise des comptes de service partagés avec des droits administrateur sur votre plateforme cloud. Comment gérez-vous cet écart d'une manière ferme mais constructive ?",
+"type": "comportementale",
+"domaine": "securite"
+},
+{
+"id": "q_securite_025",
+"texte": "Comment structurez-vous la rotation automatique des certificats SSL/TLS d'un cluster Kubernetes sans provoquer d'interruption de service sur les ingress controllers ?",
+"type": "situationnelle",
+"domaine": "securite"
+}
+]

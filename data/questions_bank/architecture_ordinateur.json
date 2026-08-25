@@ -1,0 +1,38 @@
+[
+{
+"id": "q_architecture_ordinateur_001",
+"texte": "Comment simplifiez-vous une fonction logique complexe à plusieurs variables pour minimiser le nombre de portes NAND ou NOR nécessaires dans un circuit intégré, et quelle est la différence de propagation entre ces deux familles ?",
+"type": "technique",
+"domaine": "architecture_ordinateur"
+},
+{
+"id": "q_architecture_ordinateur_002",
+"texte": "Pour la conception d'une unité arithmétique et logique (ALU), dans quel cas privilégieriez-vous un additionneur à propagation de retenue (Carry Lookahead Adder) par rapport à un additionneur en cascade (Ripple Carry Adder), et quel en est l'impact sur la surface en puces ?",
+"type": "technique",
+"domaine": "architecture_ordinateur"
+},
+{
+"id": "q_architecture_ordinateur_003",
+"texte": "Comment concevez-vous la logique de détection des risques d'aléa (Hazards) dans un processeur pipeliné à 5 étages, et quelle stratégie privilégiez-vous entre l'insertion de bulles (stalling) et la retransmission de données (data forwarding) ?",
+"type": "technique",
+"domaine": "architecture_ordinateur"
+},
+{
+"id": "q_architecture_ordinateur_004",
+"texte": "Lors du franchissement de domaines d'horloge (Clock Domain Crossing) entre deux sous-systèmes asynchrones, quelle structure de synchronisation mettez-vous en place pour prévenir les problèmes de métastabilité et éviter la perte de données ?",
+"type": "technique",
+"domaine": "architecture_ordinateur"
+},
+{
+"id": "q_architecture_ordinateur_005",
+"texte": "Vous observez une violation de Hold Time sur un chemin critique entre deux Flip-Flops après l'étape de routage. Quelle démarche exacte suivez-vous pour corriger ce problème sans créer une violation de Setup Time ?",
+"type": "situationnelle",
+"domaine": "architecture_ordinateur"
+},
+{
+"id": "q_architecture_ordinateur_006",
+"texte": "Comment réagissez-vous lorsqu'un membre de l'équipe propose une architecture de cache set-associative à haute associativité pour améliorer le taux de succès (hit rate), alors que cela dégrade considérablement la consommation critique et la fréquence maximale d'horloge du SoC ?",
+"type": "comportementale",
+"domaine": "architecture_ordinateur"
+}
+]

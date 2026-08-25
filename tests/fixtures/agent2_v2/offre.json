@@ -1,0 +1,32 @@
+{
+  "intitule_poste": "Machine Learning Engineer / Data Scientist",
+  "entreprise": "NOVATECH AI",
+  "ville": "Paris",
+  "type_contrat": "CDI",
+  "experience_requise": "Cinq ans d'expérience minimum",
+  "competences_techniques_requises": [
+    "Python",
+    "Machine Learning",
+    "SQL",
+    "scikit-learn",
+    "TensorFlow",
+    "PyTorch",
+    "traitement et analyse de données",
+    "Docker",
+    "Git",
+    "développement de pipelines de données"
+  ],
+  "competences_transversales_requises": [
+    "Travail en équipe",
+    "Communication",
+    "Autonomie",
+    "Résolution de problèmes",
+    "Gestion de projet"
+  ],
+  "niveau_etudes_requis": "Bac+5 minimum",
+  "langues_requises": [
+    "Français",
+    "Anglais professionnel"
+  ],
+  "description_poste": "Concevoir et développer des modèles de Machine Learning. Préparer, nettoyer et analyser des données complexes. Développer des pipelines de traitement de données. Mettre les modèles en production et assurer leur maintenance. Collaborer avec les équipes Data Engineering et Software Engineering. Participer à la conception de solutions utilisant Python. Évaluer les performances des modèles et améliorer leur précision. Documenter les travaux et communiquer les résultats aux équipes techniques et métiers."
+}

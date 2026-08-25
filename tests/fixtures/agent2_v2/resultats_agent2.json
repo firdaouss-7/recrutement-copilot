@@ -1,0 +1,994 @@
+{
+  "cv1": {
+    "score_compatibilite": 100,
+    "niveau_correspondance": "Excellent",
+    "points_forts": [
+      "Excellente couverture de l'ensemble des compétences techniques et transversales requises.",
+      "Maîtrise totale des langues demandées (Français et Anglais professionnel).",
+      "Expérience professionnelle de 13 ans qui surpasse largement le minimum requis de 5 ans."
+    ],
+    "points_manquants": [],
+    "explication": "Le candidat obtient un score de compatibilité de 100/100 en raison d'une adéquation parfaite. Toutes les compétences techniques, transversales et linguistiques attendues sont totalement couvertes, et son expérience de 13 ans dépasse amplement le seuil minimal de 5 ans exigé par l'offre.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 100,
+      "cap_anti_inflation_applique": false,
+      "scores_dimensions": {
+        "competences": 1.0,
+        "langues": 1.0,
+        "niveau_etudes": 1.0,
+        "experience": 1.0
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 13,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Python",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Machine Learning",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "scikit-learn",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "TensorFlow",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "PyTorch",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "Analyse et préparation de données.",
+          "similarite": 0.9154,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "Docker",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "Git",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "Data Pipelines",
+          "similarite": 0.9257,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "Autonomie",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "résolution de problèmes",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "gestion de projet",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        }
+      ]
+    }
+  },
+  "cv2": {
+    "score_compatibilite": 69,
+    "niveau_correspondance": "Bon",
+    "points_forts": [
+      "Excellente maîtrise des compétences techniques fondamentales telles que Python, Machine Learning, SQL, scikit-learn, le traitement et l'analyse de données, Git et les pipelines de données.",
+      "Bonne validation des compétences transversales de travail en équipe et de communication.",
+      "Maîtrise totale des langues requises (Français et Anglais professionnel)."
+    ],
+    "points_manquants": [
+      "Absence des compétences sur les outils et frameworks avancés requis comme TensorFlow, PyTorch et Docker.",
+      "Manque de certaines compétences transversales demandées telles que l'autonomie, la résolution de problèmes et la gestion de projet.",
+      "L'expérience de 3 ans du candidat est inférieure aux 5 ans d'expérience minimum requis par l'offre."
+    ],
+    "explication": "Le candidat obtient un score de compatibilité de 69 sur 100 (niveau Bon). Ce score s'explique par une solide couverture des compétences techniques principales et des langues, contrebalancé par un déficit sur l'expérience requise (3 ans au lieu de 5) et l'absence de quelques compétences techniques et comportementales spécifiques.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 69,
+      "cap_anti_inflation_applique": false,
+      "scores_dimensions": {
+        "competences": 0.6,
+        "langues": 0.75,
+        "niveau_etudes": 1.0,
+        "experience": 0.6
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 3,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Python",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Machine Learning",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "scikit-learn",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "Jupyter",
+          "similarite": 0.3529,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "Python",
+          "similarite": 0.6154,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "analyse de données",
+          "similarite": 0.9068,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "scikit-learn",
+          "similarite": 0.4706,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "Git",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "Analyse exploratoire de données.",
+          "similarite": 0.5971,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "Git",
+          "similarite": 0.4438,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "Curiosité",
+          "similarite": 0.4566,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "organisation",
+          "similarite": 0.5908,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        }
+      ]
+    }
+  },
+  "cv3": {
+    "score_compatibilite": 50,
+    "niveau_correspondance": "Moyen",
+    "points_forts": [
+      "Maîtrise du SQL, du traitement et de l'analyse de données",
+      "Compétences solides en travail en équipe, communication et gestion de projet",
+      "Maîtrise totale des langues requises (Français et Anglais professionnel)",
+      "Expérience de 14 ans, dépassant largement le minimum requis de 5 ans"
+    ],
+    "points_manquants": [
+      "Absence des compétences techniques suivantes : Python, Machine Learning, scikit-learn, TensorFlow, PyTorch, Docker, Git et développement de pipelines de données",
+      "Absence des compétences comportementales requises : Autonomie et Résolution de problèmes"
+    ],
+    "explication": "Le candidat obtient un score de compatibilité de 50/100 (niveau moyen). Bien que son expérience de 14 ans dépasse largement le minimum requis de 5 ans et que sa maîtrise des langues et de certains fondamentaux (SQL, analyse de données, soft skills) soit avérée, il lui manque une part importante des compétences techniques clés de l'offre orientée Machine Learning et Data Science (Python, frameworks ML, outils MLOps). Le score a également été soumis à un plafonnement anti-inflation, limitant la note finale à 50/100 malgré l'expérience senior du candidat.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 74,
+      "cap_anti_inflation_applique": true,
+      "scores_dimensions": {
+        "competences": 0.3333333333333333,
+        "langues": 1.0,
+        "niveau_etudes": 1.0,
+        "experience": 1.0
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 14,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Reporting",
+          "similarite": 0.4,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Reporting",
+          "similarite": 0.4167,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "Tableau",
+          "similarite": 0.4444,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "Reporting",
+          "similarite": 0.3158,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "Power BI",
+          "similarite": 0.4286,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "DATA ANALYST",
+          "similarite": 0.7839,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "Power BI",
+          "similarite": 0.4615,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "ETL",
+          "similarite": 0.3333,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "DATA ANALYST",
+          "similarite": 0.5429,
+          "seuil": 0.58,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "Management",
+          "similarite": 0.4322,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "gestion de projet",
+          "similarite": 0.5129,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "gestion de projet",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        }
+      ]
+    }
+  },
+  "cv4": {
+    "score_compatibilite": 78,
+    "niveau_correspondance": "Très bon",
+    "points_forts": [
+      "Le profil présente une solide maîtrise de Python, de SQL, du traitement et de l'analyse de données ainsi que du développement de pipelines de données.",
+      "Le candidat démontre d'excellentes compétences transversales incluant le travail en équipe, la communication, l'autonomie et la résolution de problèmes.",
+      "Les exigences linguistiques sont parfaitement remplies avec la maîtrise du français et de l'anglais professionnel.",
+      "L'expérience professionnelle de 7 ans dépasse le minimum requis de 5 ans."
+    ],
+    "points_manquants": [
+      "Absence des compétences en Machine Learning et des bibliothèques associées telles que scikit-learn, TensorFlow et PyTorch.",
+      "Manque de maîtrise des outils de conteneurisation et de versioning comme Docker et Git.",
+      "La compétence en gestion de projet n'est pas identifiée dans le profil."
+    ],
+    "explication": "Le score de compatibilité de 78 sur 100 reflète une très bonne adéquation globale, portée par une forte correspondance sur les bases techniques (Python, SQL), les compétences transversales, les langues et une expérience de 7 ans qui surpasse les 5 ans exigés. La déduction du score provient exclusivement de l'absence des compétences avancées en Machine Learning (TensorFlow, PyTorch), des outils de développement (Docker, Git) et de la gestion de projet requises par le poste.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 78,
+      "cap_anti_inflation_applique": false,
+      "scores_dimensions": {
+        "competences": 0.5333333333333333,
+        "langues": 0.75,
+        "niveau_etudes": 1.0,
+        "experience": 1.0
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 7,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Python",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Tableau",
+          "similarite": 0.3636,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "Tableau",
+          "similarite": 0.4444,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "SQL",
+          "similarite": 0.3077,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "Python",
+          "similarite": 0.6154,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "Préparation de données.",
+          "similarite": 0.8541,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "Power BI",
+          "similarite": 0.4615,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "Python",
+          "similarite": 0.2222,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "Préparation de données.",
+          "similarite": 0.6624,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "autonomie",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "résolution de problèmes",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "organisation",
+          "similarite": 0.5908,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        }
+      ]
+    }
+  },
+  "cv5": {
+    "score_compatibilite": 95,
+    "niveau_correspondance": "Excellent",
+    "points_forts": [
+      "Excellente couverture des compétences techniques requises (Python, Machine Learning, SQL, scikit-learn, PyTorch, Docker, Git, pipelines de données).",
+      "Maîtrise de l'ensemble des compétences transversales demandées (Travail en équipe, Communication, Autonomie, Résolution de problèmes).",
+      "Maîtrise parfaite des langues requises (Français, Anglais professionnel).",
+      "Expérience de 8 ans supérieure au minimum requis de 5 ans."
+    ],
+    "points_manquants": [
+      "Compétence technique manquante : TensorFlow.",
+      "Compétence transversale manquante : Gestion de projet."
+    ],
+    "explication": "Le candidat obtient un score de compatibilité de 95 sur 100, qualifié d'Excellent. Ce score s'explique par une forte couverture des compétences techniques et l'adéquation totale avec les exigences linguistiques et comportementales. L'expérience de 8 ans du candidat dépasse les 5 ans minimum requis, renforçant la pertinence de son profil malgré l'absence de TensorFlow et de gestion de projet.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 95,
+      "cap_anti_inflation_applique": false,
+      "scores_dimensions": {
+        "competences": 0.8666666666666667,
+        "langues": 1.0,
+        "niveau_etudes": 1.0,
+        "experience": 1.0
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 8,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Python",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Machine Learning",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "scikit-learn",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "PyTorch",
+          "similarite": 0.3529,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "PyTorch",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "Analyse de données.",
+          "similarite": 0.9054,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "Docker",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "Git",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "Création de pipelines Python.",
+          "similarite": 0.6596,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "Autonomie",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "résolution de problèmes",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "organisation",
+          "similarite": 0.5908,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        }
+      ]
+    }
+  },
+  "cv6": {
+    "score_compatibilite": 92,
+    "niveau_correspondance": "Excellent",
+    "points_forts": [
+      "Excellente couverture des compétences techniques et comportementales requises",
+      "Maîtrise intégrale des langues demandées (Français et Anglais professionnel)",
+      "Expérience solide de 9 ans dépassant le minimum requis de 5 ans"
+    ],
+    "points_manquants": [
+      "Absence des compétences techniques TensorFlow et PyTorch",
+      "Absence de la compétence transversale de gestion de projet"
+    ],
+    "explication": "Le candidat obtient un score de 92 sur 100 (niveau Excellent), reflétant une très forte adéquation avec l'offre grâce à une excellente maîtrise des compétences techniques et transversales demandées, une parfaite couverture linguistique et une expérience de 9 ans supérieure aux 5 ans minimum requis, malgré l'absence de TensorFlow, PyTorch et de la gestion de projet.",
+    "_diagnostic": {
+      "score_brut_avant_cap": 92,
+      "cap_anti_inflation_applique": false,
+      "scores_dimensions": {
+        "competences": 0.8,
+        "langues": 1.0,
+        "niveau_etudes": 1.0,
+        "experience": 1.0
+      },
+      "poids_finaux": {
+        "competences": 0.3889,
+        "langues": 0.1667,
+        "niveau_etudes": 0.1667,
+        "experience": 0.2778
+      },
+      "annees_experience_candidat": 9,
+      "annees_experience_requises": 5,
+      "experiences_ignorees_dates_illisibles": 0,
+      "langues_niveau_non_precise": [],
+      "niveau_etudes_non_precise": false,
+      "experience_non_precisee": false,
+      "matching_competences_detail": [
+        {
+          "exigence_offre": "Python",
+          "meilleur_match_cv": "Python",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Machine Learning",
+          "meilleur_match_cv": "Machine Learning",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "SQL",
+          "meilleur_match_cv": "SQL",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "scikit-learn",
+          "meilleur_match_cv": "scikit-learn",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "TensorFlow",
+          "meilleur_match_cv": "SQL",
+          "similarite": 0.3077,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "PyTorch",
+          "meilleur_match_cv": "Python",
+          "similarite": 0.6154,
+          "seuil": 0.75,
+          "couvert": false,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "traitement et analyse de données",
+          "meilleur_match_cv": "Préparation et transformation de données.",
+          "similarite": 0.7856,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Docker",
+          "meilleur_match_cv": "Docker",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "Git",
+          "meilleur_match_cv": "Git",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "outil_precis"
+        },
+        {
+          "exigence_offre": "développement de pipelines de données",
+          "meilleur_match_cv": "Préparation et transformation de données.",
+          "similarite": 0.6413,
+          "seuil": 0.58,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        },
+        {
+          "exigence_offre": "Travail en équipe",
+          "meilleur_match_cv": "travail en équipe",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Communication",
+          "meilleur_match_cv": "communication",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Autonomie",
+          "meilleur_match_cv": "autonomie",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Résolution de problèmes",
+          "meilleur_match_cv": "résolution de problèmes",
+          "similarite": 1.0,
+          "seuil": 0.75,
+          "couvert": true,
+          "methode": "embeddings",
+          "origine_meilleur_match": "competence"
+        },
+        {
+          "exigence_offre": "Gestion de projet",
+          "meilleur_match_cv": "Software Engineer",
+          "similarite": 0.5287,
+          "seuil": 0.58,
+          "couvert": false,
+          "methode": "embeddings",
+          "origine_meilleur_match": "narratif"
+        }
+      ]
+    }
+  }
+}

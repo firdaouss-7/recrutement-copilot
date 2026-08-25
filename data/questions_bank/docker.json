@@ -1,0 +1,80 @@
+[
+{
+"id": "q_docker_001",
+"texte": "Pouvez-vous expliquer le rôle exact du Docker Daemon par rapport au Docker Client lors de l'exécution d'une commande comme docker run, et comment ces deux composants communiquent-ils entre eux ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_002",
+"texte": "Quelle est la différence fondamentale entre les instructions CMD et ENTRYPOINT dans un Dockerfile, et comment interagissent-elles lorsqu'elles sont utilisées conjointement ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_003",
+"texte": "Comment les Kernel Namespaces et les cgroups collaborent-ils sous Linux pour assurer respectivement l'isolation et la limitation des ressources d'un conteneur Docker ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_004",
+"texte": "Comment choisissez-vous entre l'utilisation d'un Volume géré par Docker et un Bind Mount lors de la conception d'un environnement de développement par rapport à la production ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_005",
+"texte": "Quelle est la différence de fonctionnement et de cas d'usage entre les modes réseau Bridge, Host et Overlay dans Docker ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_006",
+"texte": "Comment fonctionnes les Multi-stage builds dans un Dockerfile et en quoi cette technique permet-elle de réduire la taille des images tout en améliorant la sécurité ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_007",
+"texte": "Expliquez le concept de couche de système de fichiers (Union File System / OverlayFS) dans Docker et la manière dont le système de cache tire parti de ces calques lors du build.",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_008",
+"texte": "Comment gérez-vous l'ordre de démarrage et la dépendance entre les services dans un fichier Docker Compose lorsqu'un service dépend de la disponibilité effective d'une base de données ?",
+"type": "technique",
+"domaine": "docker"
+},
+{
+"id": "q_docker_009",
+"texte": "Vous constatez qu'un conteneur en production consomme subitement 100% du CPU et ne répond plus aux requêtes. Quelle démarche de diagnostic adoptez-vous à l'aide des commandes CLI Docker pour isoler le problème ?",
+"type": "situationnelle",
+"domaine": "docker"
+},
+{
+"id": "q_docker_010",
+"texte": "Une application web conteneurisée perd l'intégralité de ses données utilisateur après chaque redémarrage du conteneur. Comment analysez-vous la situation et quelle correction apportez-vous à la configuration ?",
+"type": "situationnelle",
+"domaine": "docker"
+},
+{
+"id": "q_docker_011",
+"texte": "Deux conteneurs situés sur des réseaux Bridge distincts doivent communiquer entre eux sans être exposés publiquement sur l'hôte. Quelle configuration réseau mettez-vous en place ?",
+"type": "situationnelle",
+"domaine": "docker"
+},
+{
+"id": "q_docker_012",
+"texte": "Comment avez-vous convaincu une équipe de développeurs réfractaires d'abandonner l'habitude d'exécuter leurs conteneurs en tant qu'utilisateur root en production ?",
+"type": "comportementale",
+"domaine": "docker"
+},
+{
+"id": "q_docker_013",
+"texte": "Racontez une situation où une image Docker trop lourde ralentissait considérablement vos pipelines CI/CD et la stratégie que vous avez déployée pour optimiser le temps de build et de déploiement.",
+"type": "comportementale",
+"domaine": "docker"
+}
+]

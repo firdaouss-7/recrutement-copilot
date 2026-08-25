@@ -1,0 +1,83 @@
+{
+  "nom": "SARAH BENALI",
+  "titre_professionnel": "DATA SCIENTIST",
+  "resume": "Data Scientist junior diplômée en Data Science, spécialisée dans l'analyse de données et le Machine Learning. Bonne maîtrise de Python, SQL et scikit-learn.",
+  "contact": {
+    "email": "sarah.benali@email.com",
+    "telephone": null,
+    "ville": "Lille, France",
+    "linkedin": null
+  },
+  "competences_techniques": [
+    "Python",
+    "SQL",
+    "Machine Learning",
+    "scikit-learn",
+    "Pandas",
+    "NumPy",
+    "statistiques",
+    "Jupyter",
+    "Git",
+    "analyse de données"
+  ],
+  "competences_transversales": [
+    "Curiosité",
+    "travail en équipe",
+    "communication",
+    "organisation",
+    "apprentissage rapide"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "B2"
+    },
+    {
+      "langue": "Arabe",
+      "niveau": "langue maternelle"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Data Scientist Junior",
+      "entreprise": "DataVision",
+      "date_debut": "2024",
+      "date_fin": "Présent",
+      "ville": null,
+      "description": "Préparation et nettoyage de données. Développement de modèles avec Python et scikit-learn. Analyse de données avec SQL. Évaluation des performances des modèles. Collaboration avec des Data Scientists seniors."
+    },
+    {
+      "poste": "Stagiaire Data Science",
+      "entreprise": "DataVision",
+      "date_debut": "2023",
+      "date_fin": "2024",
+      "ville": null,
+      "description": "Analyse exploratoire de données. Création de modèles prédictifs. Utilisation de Pandas et NumPy."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "Master Data Science",
+      "etablissement": "Université de Lille",
+      "annee_debut": null,
+      "annee_fin": "2024"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Python for Data Science — Machine Learning Fundamentals",
+      "organisme": null,
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "Data Science",
+    "IA",
+    "lecture",
+    "natation"
+  ]
+}

@@ -1,0 +1,50 @@
+[
+{
+"id": "q_git_001",
+"texte": "Pouvez-vous m'expliquer la différence fondamentale sous le capot entre un blob, un tree et un commit dans l'architecture interne des objets Git ?",
+"type": "technique",
+"domaine": "git"
+},
+{
+"id": "q_git_002",
+"texte": "Quand préférez-vous utiliser git rebase plutôt que git merge pour intégrer les modifications d'une branche de fonctionnalité, et quelles sont les règles de sécurité à respecter ?",
+"type": "technique",
+"domaine": "git"
+},
+{
+"id": "q_git_003",
+"texte": "Comment arbitrez-vous le choix entre une stratégie de branching Gitflow et un modèle Trunk-based Development pour une équipe de dix développeurs avec du déploiement continu ?",
+"type": "technique",
+"domaine": "git"
+},
+{
+"id": "q_git_004",
+"texte": "Lors d'un rebase complexe sur la branche principale, vous vous retrouvez face à une série de conflits en chaîne sur plusieurs commits successifs. Quelle est votre méthodologie pour les résoudre proprement sans perdre l'historique ?",
+"type": "situationnelle",
+"domaine": "git"
+},
+{
+"id": "q_git_005",
+"texte": "Un développeur a poussé par erreur un commit contenant des identifiants secrets sur une branche partagée. Quelles commandes Git utilisez-vous pour annuler ce commit et assainir l'historique à la fois en local et sur le dépôt distant ?",
+"type": "situationnelle",
+"domaine": "git"
+},
+{
+"id": "q_git_006",
+"texte": "Quelle est la différence exacte entre git reset --soft, git reset --mixed et git reset --hard vis-à-vis du répertoire de travail et de la zone de staging ?",
+"type": "technique",
+"domaine": "git"
+},
+{
+"id": "q_git_007",
+"texte": "Un bogue critique est apparu en production entre deux versions distantes de cinquante commits, mais personne ne sait quelle modification l'a introduit. Comment utilisez-vous git bisect pour isoler le commit responsable ?",
+"type": "technique",
+"domaine": "git"
+},
+{
+"id": "q_git_008",
+"texte": "Racontez-moi une situation où un membre de votre équipe a commis une mauvaise manipulation Git qui a risqué d'endommager l'historique du projet. Comment êtes-vous intervenu et qu'avez-vous mis en place pour sensibiliser l'équipe par la suite ?",
+"type": "comportementale",
+"domaine": "git"
+}
+]

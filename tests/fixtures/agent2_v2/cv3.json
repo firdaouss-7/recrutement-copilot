@@ -1,0 +1,98 @@
+{
+  "nom": "KARIM HADDAD",
+  "titre_professionnel": "SENIOR DATA ANALYST / BI MANAGER",
+  "resume": "Professionnel de la Data spécialisé en Business Intelligence, analyse décisionnelle et management d'équipes. Plus de quatorze ans d'expérience dans l'exploitation des données et le pilotage de projets analytiques.",
+  "contact": {
+    "email": "karim.haddad@email.com",
+    "telephone": null,
+    "ville": "Paris",
+    "linkedin": null
+  },
+  "competences_techniques": [
+    "SQL",
+    "Power BI",
+    "Tableau",
+    "Excel",
+    "DAX",
+    "Business Intelligence",
+    "Reporting",
+    "Data Visualization",
+    "statistiques",
+    "ETL",
+    "VBA",
+    "KPI"
+  ],
+  "competences_transversales": [
+    "Management",
+    "leadership",
+    "communication",
+    "organisation",
+    "travail en équipe",
+    "gestion de projet"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "C1"
+    },
+    {
+      "langue": "Arabe",
+      "niveau": "langue maternelle"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "BI MANAGER",
+      "entreprise": "BUSINESS ANALYTICS GROUP",
+      "date_debut": "2019",
+      "date_fin": "PRÉSENT",
+      "ville": null,
+      "description": "Management d'une équipe de Data Analysts. Pilotage de projets BI. Création de tableaux de bord Power BI. Analyse des performances commerciales. Collaboration avec les équipes métiers"
+    },
+    {
+      "poste": "SENIOR DATA ANALYST",
+      "entreprise": "MARKETDATA",
+      "date_debut": "2015",
+      "date_fin": "2019",
+      "ville": null,
+      "description": "Analyse de données avec SQL. Création de rapports et tableaux de bord. Analyses statistiques."
+    },
+    {
+      "poste": "DATA ANALYST",
+      "entreprise": "DATACONSULT",
+      "date_debut": "2012",
+      "date_fin": "2015",
+      "ville": null,
+      "description": "Reporting et analyse de bases de données. Production d'indicateurs."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "MASTER BUSINESS INTELLIGENCE",
+      "etablissement": "Université Paris 1",
+      "annee_debut": null,
+      "annee_fin": "2012"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Microsoft Power BI Data Analyst",
+      "organisme": null,
+      "annee": null
+    },
+    {
+      "nom": "Tableau Specialist",
+      "organisme": null,
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "Data Analytics",
+    "management",
+    "photographie"
+  ]
+}

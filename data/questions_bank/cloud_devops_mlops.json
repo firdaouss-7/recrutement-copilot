@@ -1,0 +1,122 @@
+[
+{
+"id": "q_cloud_devops_mlops_001",
+"texte": "Pouvez-vous expliquer la différence entre un pod, un deployment et un service dans Kubernetes, et comment ils interagissent ensemble pour exposer une application conteneurisée ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_002",
+"texte": "Comment configurez-vous un Ingress Controller dans Kubernetes pour gérer le routage HTTP/HTTPS de plusieurs microservices tout en gérant le renouvellement automatique des certificats TLS ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_003",
+"texte": "Dans quel contexte choisiriez-vous une stratégie de déploiement Canary plutôt qu'un Rolling Update ou un Blue/Green pour la mise à jour d'un modèle ML critique ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_004",
+"texte": "Quelle est la différence fondamentale entre un PersistentVolume et un PersistentVolumeClaim dans Kubernetes, et comment gérez-vous le Reclaim Policy lorsqu'un volume est libéré ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_005",
+"texte": "Comment combinez-vous les ResourceQuotas, LimitRanges et la configuration RBAC pour isoler efficacement les environnements de dev et de production sur un même cluster Kubernetes ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_006",
+"texte": "Expliquez les rôles respectifs des sondes Liveness, Readiness et Startup dans Kubernetes. Que se passe-t-il concrètement si une sonde Liveness échoue à répétition ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_007",
+"texte": "Comment fonctionne le fichier de state de Terraform, et quelle architecture mettez-vous en place pour assurer le state locking et la sécurité dans une équipe multi-développeurs ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_008",
+"texte": "Quelle est votre approche pour structurer les modules, variables et outputs Terraform afin de promouvoir la réutilisabilité du code entre plusieurs environnements ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_009",
+"texte": "Comment gérez-vous le drift detection sur vos infrastructures Terraform, et quelle est votre méthode pour importer proprement une ressource cloud préexistante créée manuellement ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_010",
+"texte": "Comment concevez-vous la structure d'un pipeline CI/CD moderne pour automatiser le build, le test, l'analyse statique et le déploiement d'une application conteneurisée ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_011",
+"texte": "Quelle stratégie d'automatisation des tests intégrez-vous dans un pipeline CI pour valider les modifications sans impacter inutilement le temps d'exécution global ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_012",
+"texte": "Comment configurez-vous un registre d'images privé pour sécuriser la gestion des artefacts et empêcher le déploiement d'images de conteneurs présentant des vulnérabilités critiques ?",
+"type": "technique",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_013",
+"texte": "Un pod Kubernetes passe constamment en CrashLoopBackOff après la mise en production d'une nouvelle version applicative. Quelle démarche de diagnostic méthodique adoptez-vous pour résoudre le problème ?",
+"type": "situationnelle",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_014",
+"texte": "Vous constatez qu'une commande terraform plan indique la destruction d'une base de données managée critique en production suite à une modification de code. Comment gérez-vous la situation ?",
+"type": "situationnelle",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_015",
+"texte": "Un pic de trafic inattendu survient sur votre infrastructure cloud, mais le groupe d'autoscaling des instances VM ne réagit pas à temps. Comment analysez-vous la situation et réajustez-vous la politique d'autoscaling ?",
+"type": "situationnelle",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_016",
+"texte": "Une application hébergée dans un sous-réseau privé d'un VPC doit accéder à une API externe tout en restant strictement inaccessible depuis Internet. Quelle architecture réseau et de routage mettez-vous en œuvre ?",
+"type": "situationnelle",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_017",
+"texte": "Votre base de données managée en haute disponibilité subit des latences élevées d'écriture lors des réplications secondaires. Comment diagnostiquez-vous la cause et quelles solutions de stockage cloud proposez-vous ?",
+"type": "situationnelle",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_018",
+"texte": "Racontez une situation où vous avez dû collaborer avec les équipes de développement pour faire accepter et adopter des contraintes strictes d'IAM et du principe de moindre privilège.",
+"type": "comportementale",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_019",
+"texte": "Décrivez une expérience où un déploiement automatisé a échoué en environnement de production. Comment avez-vous réagi à chaud et quelles mesures préventives avez-vous intégrées au pipeline par la suite ?",
+"type": "comportementale",
+"domaine": "cloud_devops_mlops"
+},
+{
+"id": "q_cloud_devops_mlops_020",
+"texte": "Comment gériez-vous les arbitrages entre la vélocité demandée par les équipes métier et les exigences de stabilité/sécurité lors de la mise en place d'environnements de staging et production ?",
+"type": "comportementale",
+"domaine": "cloud_devops_mlops"
+}
+]

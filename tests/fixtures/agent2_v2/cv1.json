@@ -1,0 +1,90 @@
+{
+  "nom": "Thomas Martin",
+  "titre_professionnel": "Senior Machine Learning Engineer",
+  "resume": "Senior spécialisé en Data Science, développement de modèles prédictifs et mise en production de solutions IA. Habitué à travailler avec des équipes Data et Software.",
+  "contact": {
+    "email": "thomas.martin@email.com",
+    "telephone": "+33 6 12 34 56 78",
+    "ville": "Paris",
+    "linkedin": "linkedin.com/in/thomas-martin"
+  },
+  "competences_techniques": [
+    "Python",
+    "SQL",
+    "Machine Learning",
+    "scikit-learn",
+    "TensorFlow",
+    "PyTorch",
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "MLflow",
+    "AWS",
+    "Data Pipelines",
+    "MLOps",
+    "Pandas"
+  ],
+  "competences_transversales": [
+    "Autonomie",
+    "travail en équipe",
+    "communication",
+    "résolution de problèmes",
+    "gestion de projet"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "C1"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Senior Machine Learning Engineer",
+      "entreprise": "AI Solutions",
+      "date_debut": "2019",
+      "date_fin": "présent",
+      "ville": null,
+      "description": "Développement et déploiement de modèles Machine Learning. Création de pipelines de données avec Python. Mise en production avec Docker et Kubernetes. Suivi des modèles avec MLflow. Travail avec AWS et Git."
+    },
+    {
+      "poste": "Data Scientist",
+      "entreprise": "Datalab",
+      "date_debut": "2015",
+      "date_fin": "2019",
+      "ville": null,
+      "description": "Analyse et préparation de données. Développement de modèles avec scikit-learn et TensorFlow. Utilisation de Python et SQL."
+    },
+    {
+      "poste": "Data Analyst",
+      "entreprise": "Insight Consulting",
+      "date_debut": "2013",
+      "date_fin": "2015",
+      "ville": null,
+      "description": "Analyse statistique et traitement de données avec SQL."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "Master Data Science et Intelligence Artificielle",
+      "etablissement": "Université Paris-Saclay",
+      "annee_debut": null,
+      "annee_fin": "2013"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "AWS Machine Learning — MLflow — Docker",
+      "organisme": null,
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "IA",
+    "nouvelles technologies",
+    "course à pied"
+  ]
+}

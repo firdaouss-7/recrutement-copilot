@@ -1,0 +1,152 @@
+[
+{
+"id": "q_frameworks_001",
+"texte": "Dans une architecture MVC monolithique vieillissante où les contrôleurs sont devenus obèses et engorgés de logique métier, quelle refactorisation mettez-vous en place pour réappliquer une séparation stricte des responsabilités ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_002",
+"texte": "Comment expliquez-vous la différence fondamentale entre le pattern Service Locator et l'Injection de Dépendances par constructeur, et pourquoi le premier est-il souvent considéré comme un anti-pattern ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_003",
+"texte": "Comment configurez-vous la durée de vie de vos services (Singleton, Scoped, Transient) dans un conteneur IoC pour éviter les fuites de mémoire et la captivité de dépendances éphémères ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_004",
+"texte": "Votre équipe subit des problèmes récurrents d'injection de dépendances cycliques lors de l'ajout de nouvelles fonctionnalités. Comment sensibilisez-vous l'équipe à restructurer le code pour corriger ce problème durablement ?",
+"type": "comportementale",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_005",
+"texte": "Lors du traitement de requêtes HTTP très volumineuses sous forte charge, quelle stratégie de routage et d'exécution asynchrone adoptez-vous pour éviter de bloquer la boucle d'événements du framework ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_006",
+"texte": "Comment construisez-vous un système de routage dynamique basé sur des attributs ou décorateurs qui supporte la négociation de contenu et la gestion fine de la concurrence ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_007",
+"texte": "Un développeur junior intègre la logique d'authentification directement dans chaque méthode de contrôleur au lieu d'utiliser la chaîne de middlewares. Comment lui faites-vous retravailler son approche lors d'une revue de code ?",
+"type": "comportementale",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_008",
+"texte": "Vous devez implémenter un middleware de Rate Limiting global. Comment gérez-vous la propagation des contextes de requêtes et le court-circuitage propre du pipeline HTTP en cas de dépassement de quota ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_009",
+"texte": "Quelle approche privilégiez-vous entre un middleware HTTP et un intercepteur de niveau application (ou AOP) lorsqu'il s'agit d'injecter des métriques de métrologie et du tracing distribué ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_010",
+"texte": "Dans une application web complexe, comment arbitrez-vous la répartition de la gestion d'état entre le state côté client (store global) et le state côté serveur (session/cache distribué) ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_011",
+"texte": "Lorsqu'une application SPA subit une perte de connexion réseau momentanée, quelle stratégie de gestion d'état et de synchronisation différée mettez-vous en place pour éviter la perte des saisies utilisateur ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_012",
+"texte": "Comment vous assurez-vous de la cohérence de l'état applicatif frontend lorsqu'il est alimenté simultanément par des requêtes REST et des flux en temps réel de type WebSockets ou Server-Sent Events ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_013",
+"texte": "Face à un problème critique de requêtes SQL N+1 généré par un ORM en production, quelle méthode d'analyse utilisez-vous et comment le résolvez-vous sans casser le modèle du domaine ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_014",
+"texte": "Comment gérez-vous le compromis entre l'utilisation du mécanisme de Lazy Loading offert par un ORM pour la rapidité de développement et le contrôle strict des performances des requêtes en base ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_015",
+"texte": "Quelle stratégie de concurrence optimiste ou pessimiste appliquez-vous au niveau de votre ORM pour éviter les pertes de données lors de mises à jour simultanées d'une même entité ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_016",
+"texte": "Vous constatez que le pattern Active Record imposé par votre ORM commence à créer des couplages forts entre le schéma de base de données et les règles métier. Comment migrez-vous vers le pattern Data Mapper ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_017",
+"texte": "Dans le cadre du choix de l'architecture d'un nouveau projet d'API public, comment tranchez-vous entre la conception d'une API RESTful strict (avec HATEOAS) et une interface GraphQL ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_018",
+"texte": "Comment prévenez-vous les risques de surcharge et d'épuisement des ressources serveur liés aux requêtes GraphQL imbriquées de profondeur illimitée (Over-fetching / Deep Queries) ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_019",
+"texte": "Lors du passage d'une API REST à une API GraphQL, l'équipe backend s'inquiète de la gestion de la mise en cache côté réseau. Quelle solution leur proposez-vous pour pallier la perte de la mise en cache HTTP standard ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_020",
+"texte": "Racontez une expérience où une décision technique liée au choix ou à la montée en version majeure d'un framework s'est avérée problématique, et comment vous avez redressé la situation avec votre équipe.",
+"type": "comportementale",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_021",
+"texte": "Quelle convention de versionnement d'API REST choisissez-vous (URI path, Header personnalisé, Query Param) pour garantir la rétrocompatibilité lors d'une breaking change majeure ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_022",
+"texte": "Vous devez concevoir un composant UI/Serveur réutilisable dans un framework moderne. Comment organisez-vous la séparation entre la vue presentationnelle et la logique de récupération de données ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_023",
+"texte": "Comment résolvez-vous le problème du N+1 DataLoader dans une architecture GraphQL distribuée ou basée sur des microservices fédérés (GraphQL Federation) ?",
+"type": "technique",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_024",
+"texte": "Une partie importante de l'équipe souhaite migrer vers un framework émergeant très récent mais peu éprouvé. Quelle démarche adoptez-vous pour évaluer objectivement les risques et prendre la décision finale ?",
+"type": "comportementale",
+"domaine": "frameworks"
+},
+{
+"id": "q_frameworks_025",
+"texte": "En cas de dégradation critique des temps de réponse sur un pipeline de middlewares HTTP sous fort trafic, quelle procédure de profiling mettez-vous en place pour identifier le middleware goulot d'étranglement ?",
+"type": "situationnelle",
+"domaine": "frameworks"
+}
+]

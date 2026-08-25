@@ -1,0 +1,152 @@
+[
+{
+"id": "q_base_donnees_001",
+"texte": "Dans une base de données relationnelle sous forte charge, quelle stratégie adoptez-vous pour éliminer les redondances jusqu'à la 3NF sans trop pénaliser les performances des requêtes de lecture complexes ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_002",
+"texte": "Dans quel cas réel avez-vous dû pousser la modélisation jusqu'à la Forme Normale de Boyce-Codd (BCNF), et quel impact cela a-t-il eu sur vos clés primaires composées ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_003",
+"texte": "Comment vous y prenez-vous pour identifier une dépendance fonctionnelle transitive dans un schéma existant qui viole la 3NF ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_004",
+"texte": "Face à une table de plusieurs dizaines de millions de lignes, quelle approche privilégiez-vous entre une sous-requête corrélée et une jointure avec agrégation pour minimiser le coût d'exécution ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_005",
+"texte": "Comment optimisez-vous une requête analytique SQL qui effectue des jointures multiples (LEFT JOIN) et des agrégations sur de gros volumes quand vous constatez des débordements sur disque ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_006",
+"texte": "Une requête d'un développeur junior met plusieurs minutes à s'exécuter à cause de sous-requêtes imbriquées dans la clause WHERE. Comment lui expliquez-vous la façon de la réécrire efficacement ?",
+"type": "comportementale",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_007",
+"texte": "Dans un système bancaire subissant des écritures concurrentes massives, quel niveau d'isolement de transaction choisissez-vous pour éviter les lectures fantômes sans provoquer d'interblocages systématiques ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_008",
+"texte": "Comment gérez-vous le compromis entre le respect strict de la durabilité (D dans ACID) et les exigences de latence très faible lors du réglage des commits de transactions ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_009",
+"texte": "Votre base de données de production vient de bloquer sur un deadlock critique impactant les paiements en ligne. Quelles actions immédiates entreprenez-vous pour analyser et résoudre le problème ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_010",
+"texte": "Dans quelles situations précises privilégiez-vous un index Hash par rapport à un index B-Tree traditionnel sur PostgreSQL ou MySQL ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_011",
+"texte": "Comment interprétez-vous le plan d'exécution d'une requête SQL lent lorsqu'un index B-Tree existant est complètement ignoré par l'optimiseur au profit d'un Sequential Scan ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_012",
+"texte": "Une table d'historique de commandes ralentit considérablement l'application. Quelle démarche de diagnostic et d'indexation couvrante (covering index) mettez-vous en œuvre ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_013",
+"texte": "Quels critères techniques vous amènent à choisir une base de données Orientée Document plutôt qu'une base Clé-Valeur pour stocker des profils utilisateurs complexes ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_014",
+"texte": "Dans quel contexte applicatif recommanderiez-vous une base orientée graphe (comme Neo4j) à la place d'une base orientée colonnes (Column-family) ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_015",
+"texte": "Votre équipe souhaite migrer un composant NoSQL vers du SQL classique pour simplifier le reporting. Comment évaluez-vous la pertinence de ce choix et communiquez-vous votre recommandation ?",
+"type": "comportementale",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_016",
+"texte": "Comment différenciez-vous le sharding horizontal de la réplication Read-Replica lorsque vous devez dimensionner une base de données subissant une forte croissance des écritures ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_017",
+"texte": "Quel protocole de consensus ou stratégie de réplication choisissez-vous pour éviter le phénomène de Split-Brain lors du basculement automatique d'un cluster master-replica ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_018",
+"texte": "Lors d'une coupure réseau entre deux datacenters, votre cluster sous sharding commence à rejeter certaines transactions. Comment gérez-vous l'incident en direct pour limiter la perte de données ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_019",
+"texte": "En vertu du théorème CAP, comment expliquez-vous le choix de sacrifier la cohérence forte au profit de la disponibilité dans un système de panier d'achat distribué ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_020",
+"texte": "Comment gérez-vous la lecture de données obsolètes (stale reads) côté application lorsque vous utilisez une base NoSQL offrant une cohérence éventuelle (eventual consistency) ?",
+"type": "technique",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_021",
+"texte": "Vous devez concevoir la base de données d'un système IoT recevant des millions de métriques par seconde. Quelle architecture de stockage et quelle stratégie de partitionnement retenez-vous ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_022",
+"texte": "Comment sensibilisez-vous des développeurs d'une équipe produit aux impacts des requêtes N+1 générées par les ORM sur la base de données ?",
+"type": "comportementale",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_023",
+"texte": "Lors d'une maintenance en production, la réplication asynchrone accuse un retard significatif (lag). Quelle décision prenez-vous concernant le basculement prévu ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_024",
+"texte": "Quelle approche adoptez-vous pour effectuer une mise à jour de schéma (migration de base de données) à chaud sans aucune interruption de service (zero-downtime) ?",
+"type": "situationnelle",
+"domaine": "base_donnees"
+},
+{
+"id": "q_base_donnees_025",
+"texte": "Racontez une expérience où une décision d'architecture de base de données que vous aviez prise s'est avérée inadaptée à moyen terme, et comment vous avez redressé la barre.",
+"type": "comportementale",
+"domaine": "base_donnees"
+}
+]

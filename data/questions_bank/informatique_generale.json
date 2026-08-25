@@ -1,0 +1,62 @@
+[
+{
+"id": "q_informatique_generale_001",
+"texte": "Comment évaluez-vous la complexité spatiale et temporelle dans le pire des cas d'un algorithme de recherche du plus court chemin comme Dijkstra lorsqu'il est implémenté avec une file de priorité basée sur un tas binaire ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_002",
+"texte": "Vous observez une dégradation nette des performances sur un service en production qui utilise une table de hachage. Comment diagnostiquez-vous un problème de résolution de collisions et quelle stratégie de réallocation ou de redimensionnement mettez-vous en œuvre ?",
+"type": "situationnelle",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_003",
+"texte": "Dans quel contexte choisissez-vous de représenter un graphe sous forme de liste d'adjacence plutôt que de matrice d'adjacence, et quel est l'impact de ce choix sur l'exécution d'un parcours BFS ou DFS ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_004",
+"texte": "Lors du développement d'un composant de traitement de flux en temps réel, vous devez calculer le maximum sur une fenêtre glissante de taille fixe. Comment exploitez-vous une Monotonic Queue pour garantir une complexité temporelle amortie en O(1) par élément ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_005",
+"texte": "Vous devez résoudre un problème d'optimisation complexe. Comment déterminez-vous s'il convient d'adopter une approche par algorithme glouton plutôt que par programmation dynamique, et comment vous assurez-vous de la sous-structure optimale ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_006",
+"texte": "Dans une application de gestion de réseaux de télécommunication, vous devez détecter efficacement les composantes connexes et gérer la fusion de sous-réseaux. Quelle structure Disjoint Set Union (Union-Find) mettez-vous en place et quelles optimisations y intégrez-vous ?",
+"type": "situationnelle",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_007",
+"texte": "Face à un problème de traitement de tableau ordonné où l'approche brute mène à une complexité en O(n^2), quelle démarche suivez-vous pour réduire cette complexité à O(n) à l'aide de la technique des deux pointeurs ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_008",
+"texte": "Pour la mise en place d'un système de gestion de dépendances entre tâches de build, pourquoi l'algorithme de Topological Sort est-il adapté et comment gérez-vous la présence éventuelle d'un cycle dans le graphe d'exécution ?",
+"type": "technique",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_009",
+"texte": "Racontez une situation où vous avez dû convaincre des membres de votre équipe de refactoriser une structure de données de base (comme remplacer une liste chaînée par un tableau dynamique) pour améliorer le cache-miss au niveau CPU.",
+"type": "comportementale",
+"domaine": "informatique_generale"
+},
+{
+"id": "q_informatique_generale_010",
+"texte": "Expliquez comment vous abordez la conception d'un arbre binaire de recherche (BST) équilibré pour éviter qu'il ne se dégénère en liste chaînée sous un volume important d'insertions séquentielles.",
+"type": "technique",
+"domaine": "informatique_generale"
+}
+]

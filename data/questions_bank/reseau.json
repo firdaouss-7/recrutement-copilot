@@ -1,0 +1,116 @@
+[
+{
+"id": "q_reseau_001",
+"texte": "Pourriez-vous nous expliquer comment vous déterminez si un dysfonctionnement réseau provient du niveau 2 ou du niveau 3 du modèle OSI lors d'une coupure de service intermittente ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_002",
+"texte": "Comment expliquez-vous à un développeur junior les différences d'encapsulation entre la pile TCP/IP et le modèle OSI pour lui faire comprendre l'impact des entêtes sur la bande passante ?",
+"type": "comportementale",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_003",
+"texte": "Un sous-réseau en /24 doit être redécoupé pour alimenter quatre services distincts exigeant chacun au moins 30 adresses IP exploitables. Quelle méthode CIDR appliquez-vous ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_004",
+"texte": "Lors d'une phase de migration vers IPv6, quelles stratégies de coexistence comme le Dual Stack ou les tunnels IPv6-in-IPv4 recommandez-vous et pourquoi ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_005",
+"texte": "Vous observez une tempête de broadcasts ARP qui perturbe le trafic d'un VLAN en production. Quelles actions d'urgence et quelles configurations de commutateur mettez-vous en œuvre ?",
+"type": "situationnelle",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_006",
+"texte": "Comment diagnostiquez-vous un problème d'asymétrie de routage lorsqu'un serveur répond correctement au ping ICMP mais rejette les établir de sessions TCP ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_007",
+"texte": "Lors du déploiement d'un protocole de routage dynamique comme OSPF ou BGP, quelle méthode choisissez-vous pour prévenir les boucles de routage et garantir la convergence ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_008",
+"texte": "En cas de dégradation critique des performances de résolution DNS sur vos serveurs internes, quelles étapes de vérification suivez-vous pour isoler la cause entre la récursivité, le cache ou le serveur autoritaire ?",
+"type": "situationnelle",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_009",
+"texte": "Quelle stratégie de gestion du TTL DNS adoptez-vous avant d'effectuer un basculement d'infrastructure à chaud pour limiter l'impact de la mise en cache chez les clients ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_010",
+"texte": "Racontez une situation où vous avez dû collaborer avec des équipes de sécurité pour résoudre un problème d'inspection HTTPS bloquant des flux applicatifs légitimes.",
+"type": "comportementale",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_011",
+"texte": "Comment analysez-vous une poignée de main TLS (Handshake HTTPS) défaillante via une capture de paquets Wireshark ou tcpdump ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_012",
+"texte": "Dans quel cas recommandez-vous l'utilisation du protocole SSH avec redirection de ports (tunnelling local/distant) par rapport à un accès VPN classique ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_013",
+"texte": "Vos serveurs de messagerie SMTP sont subitement rejetés par plusieurs destinataires à cause d'un classement en liste noire. Quelle procédure d'urgence mettez-vous en place pour rétablir la délivrabilité ?",
+"type": "situationnelle",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_014",
+"texte": "Quelle est la différence d'impact architectural entre un Load Balancing de niveau 4 (L4) et de niveau 7 (L7) sur la terminaison TLS et la persistance des sessions ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_015",
+"texte": "Comment configurez-vous un Reverse Proxy pour transmettre l'adresse IP réelle de l'utilisateur aux serveurs d'arrière-plan sans dégrader les performances ou compromettre la sécurité ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_016",
+"texte": "Un répartiteur de charge continue d'envoyer du trafic vers une instance applicative devenue instable malgré les sondes de santé (health checks). Comment traitez-vous l'incident en direct ?",
+"type": "situationnelle",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_017",
+"texte": "Comment choisissez-vous les algorithmes de répartition de charge (Round Robin, Least Connections, IP Hash) en fonction des contraintes de charge d'une application d'entreprise ?",
+"type": "technique",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_018",
+"texte": "Comment réagissez-vous face à un désaccord technique avec un architecte système concernant le placement d'un Reverse Proxy par rapport aux pare-feu de bordure ?",
+"type": "comportementale",
+"domaine": "reseau"
+},
+{
+"id": "q_reseau_019",
+"texte": "Vous devez diagnostiquer une baisse globale du MTU et des problèmes de fragmentation de paquets IP sur une liaison VPN IPsec. Quelle approche adoptez-vous ?",
+"type": "situationnelle",
+"domaine": "reseau"
+}
+]

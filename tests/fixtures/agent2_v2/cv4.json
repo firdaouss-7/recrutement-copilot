@@ -1,0 +1,79 @@
+{
+  "nom": "JULIE MOREAU",
+  "titre_professionnel": "DATA ANALYST",
+  "resume": "Data Analyst spécialisée en analyse statistique, modélisation de données et analyse prédictive. Expérience dans l'exploitation de données complexes et la présentation de résultats aux équipes métiers.",
+  "contact": {
+    "email": "julie.moreau@email.com",
+    "telephone": "+123-456-7890",
+    "ville": "Toulouse",
+    "linkedin": null
+  },
+  "competences_techniques": [
+    "Python",
+    "SQL",
+    "Power BI",
+    "Tableau",
+    "Pandas",
+    "NumPy"
+  ],
+  "competences_transversales": [
+    "Esprit analytique",
+    "autonomie",
+    "communication",
+    "travail en équipe",
+    "organisation",
+    "résolution de problèmes"
+  ],
+  "langues": [
+    {
+      "langue": "FRANÇAIS",
+      "niveau": "LANGUE MATERNELLE"
+    },
+    {
+      "langue": "ANGLAIS",
+      "niveau": "B2"
+    },
+    {
+      "langue": "ESPAGNOL",
+      "niveau": "B1"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "SENIOR DATA ANALYST",
+      "entreprise": "ANALYTICSLAB",
+      "date_debut": "2021",
+      "date_fin": "PRÉSENT",
+      "ville": null,
+      "description": "Création de rapports et visualisations. Développement d'analyses statistiques avancées. Construction de modèles prédictifs. Préparation et transformation des données."
+    },
+    {
+      "poste": "DATA ANALYST",
+      "entreprise": "MARKET INSIGHTS",
+      "date_debut": "2019",
+      "date_fin": "2021",
+      "ville": null,
+      "description": "Analyse statistique. Analyse de jeux de données complexes. Préparation de données. Automatisation de traitements avec Python. Extraction de données avec SQL."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "MASTER STATISTIQUES ET DATA SCIENCE",
+      "etablissement": "UNIVERSITÉ TOULOUSE III",
+      "annee_debut": null,
+      "annee_fin": "2019"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "PYTHON FOR DATA ANALYSIS WITH PYTHON",
+      "organisme": "STATISTICS",
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "STATISTIQUES",
+    "DATA VISUALIZATION",
+    "COURSE À PIED"
+  ]
+}

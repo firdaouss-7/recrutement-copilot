@@ -1,0 +1,29 @@
+{
+  "intitule_poste": "DATA SCIENTIST F/H",
+  "entreprise": "Deleplanque",
+  "ville": "Estrées-St-Denis",
+  "type_contrat": "CDI",
+  "experience_requise": "Débutant, 1ere expérience professionnelle",
+  "competences_techniques_requises": [
+    "analyse de données",
+    "méthodologies statistiques",
+    "pilotage de drones",
+    "Python",
+    "R",
+    "Genstat",
+    "interprétation des données météorologiques",
+    "interprétation des données environnementales",
+    "interprétation des données satellitaires"
+  ],
+  "competences_transversales_requises": [
+    "travailler en équipe",
+    "bon communiquant",
+    "passion pour l’exploitation des informations basées sur les données"
+  ],
+  "niveau_etudes_requis": "Doctorat",
+  "langues_requises": [
+    "anglais",
+    "allemand"
+  ],
+  "description_poste": "Le Data scientist est un spécialiste de la gestion et de l’analyse de données massives. Intégré(e) au sein de notre équipe de sélection végétale, il/elle doit être capable de collecter, organiser et exploiter des données mises à sa disposition et les “faire parler” afin d’apporter des éléments d’aide à la prise de décision."
+}

@@ -1,0 +1,82 @@
+{
+  "nom": "Michel SCIENTIS",
+  "titre_professionnel": "Data Scientist Senior",
+  "resume": "Data scientist accompli avec une expertise significative dans l'interprétation et l'analyse des données. Compétences approfondies en programmation, algorithmes de machine learning, gestion de projets et leadership. A la recherche de nouveaux défis pour appliquer mes compétences en analyse et transformation de données en insights significatifs et en valeur d'affaire.",
+  "contact": {
+    "email": "votre.nom.prenom@gnail.com",
+    "telephone": "+336 01 02 03 04",
+    "ville": "Marseille",
+    "linkedin": "linkedin.com/votre-profil"
+  },
+  "competences_techniques": [
+    "Python",
+    "R",
+    "SQL",
+    "NoSQL",
+    "scikit-learn",
+    "TensorFlow",
+    "PyTorch",
+    "Matplotlib",
+    "Seaborn",
+    "Tableau"
+  ],
+  "competences_transversales": [
+    "Esprit analytique fort",
+    "Autonome et proactif",
+    "Excellentes compétences en communication",
+    "Leadership et gestion d'équipe",
+    "Souci du détail et rigueur"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "C1"
+    },
+    {
+      "langue": "Espagnol",
+      "niveau": "B2"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Data Scientist Senior",
+      "entreprise": "Datasia",
+      "date_debut": "2019",
+      "date_fin": "Présent",
+      "ville": "Paris",
+      "description": "Gestion d'une équipe de 5 data scientists. Développement et implémentation de modèles prédictifs et prescriptifs. Création d'outils de visualisation de données pour aider les décideurs."
+    },
+    {
+      "poste": "Data Scientist",
+      "entreprise": "BigData Corp",
+      "date_debut": "2013",
+      "date_fin": "2019",
+      "ville": "Paris",
+      "description": "Analyse de grandes bases de données pour fournir des insights d'affaires. Développement de modèles de machine learning pour améliorer la prévision des ventes. Collaboration avec l'équipe de développement de logiciels pour l'intégration des modèles dans les produits."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "Master en Informatique, Spécialité Data Science",
+      "etablissement": "Université Paris-Dauphine",
+      "annee_debut": "2008",
+      "annee_fin": "2013"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Certification Professionnelle en Machine Learning",
+      "organisme": "Coursera",
+      "annee": "2014"
+    }
+  ],
+  "centres_interet": [
+    "Marathon et course à pied",
+    "Echecs",
+    "Volontariat dans une association de promotion de la science auprès des jeunes"
+  ]
+}

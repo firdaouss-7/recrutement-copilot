@@ -1,0 +1,266 @@
+[
+{
+"id": "q_new_tech_001",
+"texte": "Face à un problème d'analyse de churn client avec un fort déséquilibre de classes, quelle approche choisissez-vous entre une régression logistique et un Random Forest, et comment ajustez-vous le seuil de décision ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_002",
+"texte": "Votre modèle affiche une très bonne précision en entraînement mais s'effondre en validation. Comment déterminez-vous s'il faut appliquer une régularisation L1 ou L2 ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_003",
+"texte": "Dans un système de détection de fraudes bancaires, préférez-vous optimiser le Recall ou le Precision, et pourquoi l'AUC-ROC peut-elle être trompeuse dans ce cas ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_004",
+"texte": "Comment gérez-vous une variable catégorielle contenant plusieurs milliers de modalités uniques sans faire exploser la dimensionnalité de votre jeu de données ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_005",
+"texte": "Quels hyperparamètres ajustez-vous en priorité sur un XGBoost pour limiter le surapprentissage sans trop dégrader le temps de calcul ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_006",
+"texte": "Comment la décomposition en valeurs singulières (SVD) permet-elle d'effectuer une réduction de dimension sur une matrice de recommandation volumineuse ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_007",
+"texte": "Si deux variables explicatives sont fortement corrélées, quel est l'impact théorique et pratique sur la stabilité des coefficients d'une régression linéaire ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_008",
+"texte": "Pourquoi l'optimiseur Adam converge-t-il généralement plus vite que la descente de gradient stochastique (SGD) classique sur des réseaux profonds ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_009",
+"texte": "Dans quel contexte privilégierez-vous une optimisation bayésienne plutôt qu'un Random Search pour régler les hyperparamètres d'un modèle lourd ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_010",
+"texte": "Comment identifiez-vous le problème du gradient disparaissant dans un perceptron multi-couches profond et quelle fonction d'activation permet de le limiter ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_011",
+"texte": "Quelle stratégie mettez-vous en place pour détecter des transactions anormales lorsque vous ne disposez d'aucune donnée étiquetée au préalable ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_012",
+"texte": "Dans un algorithme de Q-Learning, quel est le rôle du compromis exploration/exploitation et comment le gérez-vous via la stratégie epsilon-greedy ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_013",
+"texte": "Quel est le principe de la perte contrastive (Contrastive Loss) et pourquoi est-elle efficace pour l'apprentissage de représentations en mode auto-supervisé ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_014",
+"texte": "Comment traitez-vous le bruit sur des signaux de capteurs IoT avant de les injecter dans un réseau de neurones convolutif (CNN) ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_015",
+"texte": "Pouvez-vous expliquer le mécanisme de Multi-Head Attention et pourquoi il surpasse les réseaux récurrents (RNN) pour le traitement de longues séquences ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_016",
+"texte": "Quelle est la différence fondamentale entre une tokenization Byte-Pair Encoding (BPE) et WordPiece, et quel est leur impact sur le vocabulaire d'un LLM ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_017",
+"texte": "Comment les embeddings de position de type RoPE (Rotary Position Embedding) permettent-ils de mieux gérer l'extrapolation de longueur de contexte par rapport à des embeddings absolus ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_018",
+"texte": "Quelle architecture de vector database préférez-vous pour rechercher efficacement des embeddings à très grande échelle dans un pipeline RAG ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_019",
+"texte": "En quoi le Graph RAG améliore-t-il le RAG classique lorsqu'il s'agit de répondre à des questions nécessitant un raisonnement multi-sauts sur des documents complexes ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_020",
+"texte": "Comment fonctionne la méthode Tree-of-Thought et dans quel cas est-elle préférable à un simple Chain-of-Thought pour la résolution de problèmes par un agent IA ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_021",
+"texte": "Quel est le principe mathématique sous-jacent à LoRA et pourquoi réduit-il drastiquement l'empreinte mémoire lors du fine-tuning d'un grand modèle de langage ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_022",
+"texte": "Quelle est la différence entre l'alignement par DPO (Direct Preference Optimization) et le RLHF classique avec un modèle de récompense explicite ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_023",
+"texte": "Comment la technique de Flash Attention parvient-elle à accélérer l'étape d'attention tout en réduisant la consommation de mémoire GPU ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_024",
+"texte": "Quelles sont les dégradations de précision typiques lorsqu'on passe d'un modèle FP16 à une quantification INT4 (via AWQ ou GPTQ) et comment les évaluez-vous ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_025",
+"texte": "Comment optimisez-vous l'utilisation du KV Cache lors de l'inférence pour gérer un grand nombre de requêtes simultanées sur une même carte GPU ?",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_026",
+"texte": "Expliquez comment vous utiliseriez la distillation de connaissances pour déployer un modèle de vision par ordinateur sur un équipement embarqué contraint en ressources.",
+"type": "technique",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_027",
+"texte": "Un modèle en production commence à générer des réponses obsolètes ou imprécises suite à des évolutions métiers. Comment déterminez-vous s'il faut réentraîner le modèle ou enrichir le RAG ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_028",
+"texte": "Vous remarquez une dégradation progressive des métriques en production sur un modèle de classification. Quels mécanismes de monitoring mettez-vous en place pour identifier s'il s'agit d'un data drift ou d'un concept drift ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_029",
+"texte": "Votre équipe doit construire un agent autonome pour automatiser le support technique. Quelle architecture d'orchestration préconisez-vous et comment prévenez-vous les boucles infinies d'exécution ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_030",
+"texte": "Vous devez fine-tuner un LLM de 70 milliards de paramètres sur un cluster limité à 4 GPU de 24 Go. Quelle stratégie de quantification et de découpage de modèle appliquez-vous ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_031",
+"texte": "Le RAG déployé pour vos utilisateurs internes renvoie régulièrement des informations confidentielles à des rôles non autorisés. Comment corrigez-vous cela au niveau du pipeline de recherche et des embeddings ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_032",
+"texte": "Lors du déploiement d'un modèle d'IA générative en temps réel, vous constatez que la latence au premier token (TTFT) dépasse les exigences du SLA. Quelles levées d'optimisation privilégiez-vous en premier ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_033",
+"texte": "Une étude montre que votre modèle de scoring de crédit présente un biais discriminant envers une catégorie de population. Comment ajustez-vous le pipeline pour corriger ce biais sans effondrer la performance globale ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_034",
+"texte": "Votre pipeline de données temporelles souffre de fuites d'information (data leakage) non détectées qui faussent les résultats de cross-validation. Comment adaptez-vous votre schéma de validation ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_035",
+"texte": "Face à un jeu de données médicales à très faible volume et hautement confidentiel, quelle méthodologie privilégiez-vous pour entraîner un modèle de segmentation d'images performant ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_036",
+"texte": "Un client exige une explicabilité totale sur chaque décision prise par votre modèle d'IA pour des raisons réglementaires. Comment structurez-vous l'explication (ex: SHAP, LIME) pour un public non technique ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_037",
+"texte": "Votre modèle de classification d'images montre de très mauvaises performances sur des photos prises de nuit ou par mauvais temps. Comment enrichissez-vous votre jeu de données pour pallier ce problème ?",
+"type": "situationnelle",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_038",
+"texte": "Comment arbitrez-vous la décision d'héberger un modèle open-source fine-tuné en interne versus l'utilisation d'une API propriétaire payante pour un projet stratégique ?",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_039",
+"texte": "Racontez une situation où un expert métier n'accordait aucune confiance aux prédictions de votre modèle d'IA. Comment avez-vous collaboré avec lui pour valider et ajuster le modèle ?",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_040",
+"texte": "Comment convainquez-vous une équipe de développeurs logiciels traditionnels d'adopter de nouvelles pratiques spécifiques aux projets IA et MLOps (ex: versionning de données, tests de non-régression de modèles) ?",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_041",
+"texte": "Décrivez la manière dont vous avez géré un désaccord technique au sein de votre équipe concernant le choix d'une architecture de réseau de neurones ou d'un cadre de travail (framework).",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_042",
+"texte": "Face au rythme très rapide de la recherche en IA générative, quelle méthode personnelle utilisez-vous pour évaluer si une nouvelle papier ou technique vaut la peine d'être intégrée en production ?",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_043",
+"texte": "Racontez une expérience où un projet Machine Learning a dû être abandonné ou réorienté en cours de route. Quelle a été votre réaction et quelles leçons en avez-vous tirées ?",
+"type": "comportementale",
+"domaine": "new_tech"
+},
+{
+"id": "q_new_tech_044",
+"texte": "Comment communiquez-vous l'incertitude et les marges d'erreur de vos modèles de Data Science auprès de décideurs ou de managers non techniques ?",
+"type": "comportementale",
+"domaine": "new_tech"
+}
+]

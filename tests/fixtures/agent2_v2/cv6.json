@@ -1,0 +1,95 @@
+{
+  "nom": "EMMA LAURENT",
+  "titre_professionnel": "SOFTWARE ENGINEER / MACHINE LEARNING ENGINEER",
+  "resume": "Ingénieure logicielle spécialisée dans le développement Python et les applications de traitement de données. Depuis plusieurs années, orientation vers le Machine Learning et les solutions prédictives.",
+  "contact": {
+    "email": "emma.laurent@email.com",
+    "telephone": null,
+    "ville": "Nantes",
+    "linkedin": null
+  },
+  "competences_techniques": [
+    "Python",
+    "Machine Learning",
+    "scikit-learn",
+    "SQL",
+    "Docker",
+    "Git",
+    "APIs REST",
+    "statistiques"
+  ],
+  "competences_transversales": [
+    "Adaptabilité",
+    "autonomie",
+    "travail en équipe",
+    "communication",
+    "résolution de problèmes",
+    "esprit critique"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "C1"
+    },
+    {
+      "langue": "Allemand",
+      "niveau": "A2"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "Machine Learning Engineer",
+      "entreprise": "SmartAI",
+      "date_debut": "2022",
+      "date_fin": "Présent",
+      "ville": null,
+      "description": "Développement de solutions basées sur des modèles prédictifs. Préparation et transformation de données. Développement d'applications Python. Automatisation de traitements. Utilisation de scikit-learn et Docker. Collaboration avec les équipes Data."
+    },
+    {
+      "poste": "Software Engineer",
+      "entreprise": "SoftTech",
+      "date_debut": "2017",
+      "date_fin": "2022",
+      "ville": null,
+      "description": "Développement d'applications Python. Développement d'API. Automatisation de traitements. Utilisation de bases SQL. Git et CI/CD."
+    },
+    {
+      "poste": "Software Engineer",
+      "entreprise": "SoftTech",
+      "date_debut": "2017",
+      "date_fin": "2022",
+      "ville": null,
+      "description": "Développement d'applications web et services backend."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "Diplôme d'Ingénieur en Informatique",
+      "etablissement": "INSA Rennes",
+      "annee_debut": null,
+      "annee_fin": "2015"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Machine Learning with Python",
+      "organisme": null,
+      "annee": null
+    },
+    {
+      "nom": "AWS Cloud Practitioner",
+      "organisme": null,
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "IA",
+    "développement logiciel",
+    "Open Source",
+    "randonnée"
+  ]
+}

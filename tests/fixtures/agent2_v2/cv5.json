@@ -1,0 +1,85 @@
+{
+  "nom": "Yassine Amrani",
+  "titre_professionnel": "Machine Learning Engineer",
+  "resume": "Machine Learning Engineer spécialisé en Python, Machine Learning, traitement des données et automatisation. Expérience dans le développement de solutions IA et la création de pipelines de données.",
+  "contact": {
+    "email": null,
+    "telephone": null,
+    "ville": null,
+    "linkedin": null
+  },
+  "competences_techniques": [
+    "Python",
+    "Machine Learning",
+    "scikit-learn",
+    "PyTorch",
+    "Docker",
+    "Git",
+    "SQL"
+  ],
+  "competences_transversales": [
+    "Autonomie",
+    "travail en équipe",
+    "communication",
+    "résolution de problèmes",
+    "organisation"
+  ],
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "langue maternelle"
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "C1"
+    },
+    {
+      "langue": "Arabe",
+      "niveau": "langue maternelle"
+    }
+  ],
+  "experiences": [
+    {
+      "poste": "MACHINE LEARNING ENGINEER",
+      "entreprise": "AI FACTORY",
+      "date_debut": "JANVIER 2021",
+      "date_fin": "PRÉSENT",
+      "ville": null,
+      "description": "Développement de modèles Machine Learning. Préparation et transformation de données. Création de pipelines Python. Utilisation de scikit-learn et PyTorch. Déploiement avec Docker. Gestion du code avec Git."
+    },
+    {
+      "poste": "DATA SCIENTIST",
+      "entreprise": "DATAWORKS",
+      "date_debut": "JUIN 2017",
+      "date_fin": "DÉCEMBRE 2020",
+      "ville": null,
+      "description": "Analyse de données. Développement de modèles prédictifs. Utilisation de Python et SQL. Évaluation des modèles."
+    }
+  ],
+  "formations": [
+    {
+      "intitule": "Diplôme d'Ingénieur en Informatique",
+      "etablissement": "École Nationale d'Ingénieurs de Marseille",
+      "annee_debut": null,
+      "annee_fin": "2017"
+    }
+  ],
+  "certifications": [
+    {
+      "nom": "Machine Learning Specialization",
+      "organisme": null,
+      "annee": null
+    },
+    {
+      "nom": "Docker Fundamentals",
+      "organisme": null,
+      "annee": null
+    }
+  ],
+  "centres_interet": [
+    "IA",
+    "développement logiciel",
+    "veille technologique",
+    "football"
+  ]
+}
