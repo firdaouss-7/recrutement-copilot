@@ -112,3 +112,4 @@ pdfplumber
 text2num
 pysbd
 openpyxl>=3.1
+google-genai
