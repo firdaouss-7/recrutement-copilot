@@ -47,7 +47,10 @@ def creer_session(nom_offre: str) -> int:
 def lister_sessions() -> list[dict]:
     conn = get_connexion()
     rows = conn.execute(
-        "SELECT * FROM sessions ORDER BY date_creation DESC"
+        """SELECT s.*,
+                  (SELECT COUNT(*) FROM candidats c WHERE c.session_id = s.id) AS nb_candidats
+           FROM sessions s
+           ORDER BY s.date_creation DESC"""
     ).fetchall()
     conn.close()
     return [dict(r) for r in rows]
@@ -178,6 +181,22 @@ def marquer_entretien_repondu(entretien_id: int):
     )
     conn.commit()
     conn.close()
+
+
+def get_entretien_par_candidat(candidat_id: int) -> dict | None:
+    """Retourne le dernier entretien cree pour ce candidat, ou None si aucun
+    entretien n'a encore ete envoye. Sert a savoir, cote dashboard, si le
+    bouton "Envoyer l'entretien" doit etre affiche ou remplace par un statut."""
+    conn = get_connexion()
+    row = conn.execute(
+        """SELECT * FROM entretiens
+           WHERE candidat_id = ?
+           ORDER BY date_creation DESC
+           LIMIT 1""",
+        (candidat_id,),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
 
 
 def lister_entretiens_session(session_id: int) -> list[dict]:
