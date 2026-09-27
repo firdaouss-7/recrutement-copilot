@@ -1,3 +1,11 @@
+# utils/llm_client.py
+"""
+Wrapper centralise des appels a l'API Gemini.
+
+Toutes les interactions avec le LLM (agents 1 a 4) passent par ce module :
+- appeler_gemini()      : reponse texte libre
+- appeler_gemini_json() : reponse JSON stricte, avec retry automatique
+"""
 import json
 import logging
 import os

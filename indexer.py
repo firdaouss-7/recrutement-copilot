@@ -33,6 +33,14 @@ NOM_MODELE_EMBEDDINGS = "paraphrase-multilingual-MiniLM-L12-v2"
 
 
 def construire_index():
+    """
+    Construit l'index vectoriel FAISS a partir du corpus de questions.
+
+    Lit corpus_final.json, encode chaque question en vecteur (embeddings),
+    puis ecrit l'index FAISS et les metadonnees associees sur disque.
+    Ne prend aucun argument et n'a pas de valeur de retour : effet de bord
+    uniquement (fichiers ecrits dans data/questions_bank/).
+    """
     with open(CORPUS_PATH, "r", encoding="utf-8") as f:
         corpus = json.load(f)
 

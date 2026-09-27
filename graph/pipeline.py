@@ -22,6 +22,7 @@ from db.db import (
     creer_entretien, sauver_questions,
     lister_questions_entretien, sauver_reponse, marquer_entretien_repondu,
 )
+from db.parametres_offre import obtenir_parametres_offre, mettre_a_jour_parametres_offre
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +37,10 @@ class PipelineState(TypedDict):
     texte_offre: str            # vide si l'offre a deja ete traitee pour cette session
     nom_fichier_cv: str
     texte_cv: str
+    # NOUVEAU : preferences choisies par le recruteur AVANT le lancement
+    # de l'analyse (ecran_nouvelle_session), a appliquer des le tout
+    # premier calcul de matching. None = comportement par defaut.
+    parametres_initiaux: Optional[dict]
 
     # Sorties intermediaires, remplies au fur et a mesure par les noeuds
     offre_id: Optional[int]
@@ -57,6 +62,14 @@ def noeud_extraction_offre(state: PipelineState) -> PipelineState:
     logger.info("Extraction de l'offre...")
     offre_json = extraire_offre(state["texte_offre"])
     offre_id = sauver_offre(state["session_id"], state["texte_offre"], offre_json)
+
+    # NOUVEAU : si le recruteur a choisi des preferences de matching des
+    # l'ecran de depot (plafond anti-inflation, etc.), on les enregistre
+    # tout de suite, AVANT le noeud_matching qui suit dans le meme
+    # pipeline.invoke() -- sinon le premier candidat serait quand meme
+    # calcule avec les valeurs par defaut.
+    if state.get("parametres_initiaux"):
+        mettre_a_jour_parametres_offre(offre_id, state["parametres_initiaux"])
 
     state["offre_id"] = offre_id
     state["offre_json"] = offre_json
@@ -84,7 +97,12 @@ def noeud_matching(state: PipelineState) -> PipelineState:
     """Calcule le score de compatibilite (Agent 2) et le sauvegarde."""
 
     logger.info("Calcul du matching pour candidat_id=%s", state["candidat_id"])
-    resultat = calculer_matching(state["profil_json"], state["offre_json"])
+    # NOUVEAU : recuperer les preferences du recruteur pour cette offre
+    # (plafond anti-inflation, etc.) et les transmettre a l'Agent 2.
+    # Sans offre_id (ne devrait pas arriver), on retombe sur le
+    # comportement par defaut (parametres vides -> valeurs d'origine).
+    parametres = obtenir_parametres_offre(state["offre_id"]) if state.get("offre_id") else {}
+    resultat = calculer_matching(state["profil_json"], state["offre_json"], parametres)
 
     sauver_matching(
         state["candidat_id"],
@@ -137,8 +155,13 @@ def construire_pipeline(avec_extraction_offre: bool = True):
 # ---------------------------------------------------------------------------
 
 def traiter_premier_cv(session_id: int, texte_offre: str,
-                        nom_fichier_cv: str, texte_cv: str) -> PipelineState:
-    """A appeler pour le PREMIER CV d'une session : extrait aussi l'offre."""
+                        nom_fichier_cv: str, texte_cv: str,
+                        parametres_initiaux: dict = None) -> PipelineState:
+    """A appeler pour le PREMIER CV d'une session : extrait aussi l'offre.
+
+    parametres_initiaux : preferences de matching choisies par le
+    recruteur des l'ecran de depot (ex. plafond anti-inflation), a
+    appliquer avant meme le calcul du premier candidat."""
 
     pipeline = construire_pipeline(avec_extraction_offre=True)
     etat_initial: PipelineState = {
@@ -146,6 +169,7 @@ def traiter_premier_cv(session_id: int, texte_offre: str,
         "texte_offre": texte_offre,
         "nom_fichier_cv": nom_fichier_cv,
         "texte_cv": texte_cv,
+        "parametres_initiaux": parametres_initiaux,
         "offre_id": None,
         "offre_json": None,
         "candidat_id": None,
@@ -160,7 +184,13 @@ def traiter_premier_cv(session_id: int, texte_offre: str,
 #    action recruteur/candidat, pas par un enchainement automatique).
 # ---------------------------------------------------------------------------
 
-def lancer_entretien(candidat: dict, offre_json: dict, email_candidat: str) -> str:
+def lancer_entretien(
+    candidat: dict,
+    offre_json: dict,
+    email_candidat: str,
+    nb_questions: int,
+    niveau_difficulte: str,
+) -> str:
     """
     Genere les questions (Agent 3), les sauvegarde, cree un entretien avec
     token unique et envoie le lien par email au candidat.
@@ -170,6 +200,11 @@ def lancer_entretien(candidat: dict, offre_json: dict, email_candidat: str) -> s
             (doit contenir "id", "json_extrait", "json_matching").
         offre_json: offre structuree de la session.
         email_candidat: adresse email a laquelle envoyer le lien.
+        nb_questions: nombre de questions choisi par le recruteur pour
+            CET entretien (3 a 8). Etape 3 : obligatoire, choisi
+            explicitement dans l'UI, pas de valeur par defaut ici.
+        niveau_difficulte: "facile" | "moyen" | "difficile", choisi par
+            le recruteur pour CET entretien. Etape 3 : obligatoire.
 
     Returns:
         Le token genere (utile pour affichage/tests).
@@ -177,15 +212,24 @@ def lancer_entretien(candidat: dict, offre_json: dict, email_candidat: str) -> s
     import uuid
     from email_utils.envoi import envoyer_lien_entretien
 
-    logger.info("Generation des questions pour candidat_id=%s", candidat["id"])
+    logger.info(
+        "Generation des questions pour candidat_id=%s (nb_questions=%s, difficulte=%s)",
+        candidat["id"], nb_questions, niveau_difficulte,
+    )
     resultat = generer_questions_entretien(
         profil=candidat["json_extrait"],
         offre=offre_json,
         resultat_agent2=candidat.get("json_matching"),
+        nb_questions=nb_questions,
+        niveau_difficulte=niveau_difficulte,
     )
 
     token = uuid.uuid4().hex
-    entretien_id = creer_entretien(candidat["id"], token)
+    entretien_id = creer_entretien(
+        candidat["id"], token,
+        nb_questions_utilise=nb_questions,
+        niveau_difficulte_utilise=niveau_difficulte,
+    )
     sauver_questions(entretien_id, resultat["questions"])
 
     nom_candidat = (candidat["json_extrait"] or {}).get("nom", "")
@@ -216,9 +260,15 @@ def traiter_reponses_candidat(entretien_id: int, reponses: dict[int, str]):
 
 
 def traiter_cv_suivant(session_id: int, offre_json: dict,
-                        nom_fichier_cv: str, texte_cv: str) -> PipelineState:
+                        nom_fichier_cv: str, texte_cv: str,
+                        offre_id: int = None) -> PipelineState:
     """A appeler pour les CV suivants de la MEME session : reutilise
-    l'offre deja extraite, evite un appel LLM inutile."""
+    l'offre deja extraite, evite un appel LLM inutile.
+
+    offre_id doit etre transmis (recupere depuis l'etat retourne par
+    traiter_premier_cv) pour que noeud_matching puisse lire les
+    parametres de matching propres a cette offre (plafond anti-inflation,
+    etc.). Sans lui, ces preferences seraient silencieusement ignorees."""
 
     pipeline = construire_pipeline(avec_extraction_offre=False)
     etat_initial: PipelineState = {
@@ -226,7 +276,8 @@ def traiter_cv_suivant(session_id: int, offre_json: dict,
         "texte_offre": "",
         "nom_fichier_cv": nom_fichier_cv,
         "texte_cv": texte_cv,
-        "offre_id": None,
+        "parametres_initiaux": None,
+        "offre_id": offre_id,
         "offre_json": offre_json,
         "candidat_id": None,
         "profil_json": None,

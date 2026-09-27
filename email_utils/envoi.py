@@ -23,6 +23,15 @@ APP_BASE_URL = os.getenv("APP_BASE_URL", "http://localhost:8501")
 
 
 def construire_lien_entretien(token: str) -> str:
+    """
+    Construit l'URL d'entretien a partir du token unique de l'entretien.
+
+    Args:
+        token: identifiant unique genere pour l'entretien (voir db.creer_entretien).
+
+    Returns:
+        str: URL complete (base de l'app + parametre ?token=...) a envoyer au candidat.
+    """
     return f"{APP_BASE_URL}/?token={token}"
 
 
@@ -30,9 +39,15 @@ def envoyer_lien_entretien(email_destinataire: str, nom_candidat: str, token: st
     """
     Envoie le lien d'entretien au candidat.
 
+    Args:
+        email_destinataire: adresse email du candidat.
+        nom_candidat: nom utilise dans la formule de politesse du mail.
+        token: token unique de l'entretien (integre dans le lien).
+
     Returns:
         True si l'email a ete envoye, False sinon (erreur loguee).
     """
+    # Garde-fou : pas de credentials Gmail configures -> on abandonne proprement
     if not GMAIL_ADRESSE or not GMAIL_MOT_DE_PASSE_APP:
         logger.error("GMAIL_ADRESSE ou GMAIL_MOT_DE_PASSE_APP manquant dans .env")
         return False
@@ -55,11 +70,16 @@ def envoyer_lien_entretien(email_destinataire: str, nom_candidat: str, token: st
     message["To"] = email_destinataire
 
     try:
+        # Connexion SSL directe (port 465) au serveur SMTP de Gmail.
+        # Le mot de passe utilise doit etre un "mot de passe d'application"
+        # (voir .env), pas le mot de passe du compte Gmail.
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as serveur:
             serveur.login(GMAIL_ADRESSE, GMAIL_MOT_DE_PASSE_APP)
             serveur.sendmail(GMAIL_ADRESSE, [email_destinataire], message.as_string())
         logger.info("Email envoye a %s", email_destinataire)
         return True
     except Exception:
+        # On capture large ici : erreur reseau, credentials invalides, etc.
+        # -> l'appelant recoit False et peut informer le recruteur sans planter l'app.
         logger.exception("Echec envoi email a %s", email_destinataire)
         return False

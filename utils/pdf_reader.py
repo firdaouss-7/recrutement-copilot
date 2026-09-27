@@ -1,4 +1,11 @@
 # utils/pdf_reader.py
+"""
+Utilitaire de lecture PDF.
+
+Point d'entree utilise par l'Agent 1 (extraction) pour recuperer le texte
+brut d'un CV ou d'une offre depose au format PDF, avant structuration
+par le LLM.
+"""
 import pdfplumber
 
 
@@ -19,12 +26,15 @@ def extraire_texte_pdf(chemin_pdf: str) -> str:
     """
     texte_complet = []
 
+    # On parcourt le PDF page par page : extract_text() peut renvoyer None
+    # sur une page vide/sans texte, d'ou le test avant l'ajout.
     with pdfplumber.open(chemin_pdf) as pdf:
         for i, page in enumerate(pdf.pages):
             texte_page = page.extract_text()
             if texte_page:
                 texte_complet.append(texte_page)
 
+    # Une seule chaine de texte pour tout le document, pages separees par un \n
     texte_final = "\n".join(texte_complet).strip()
 
     if not texte_final:

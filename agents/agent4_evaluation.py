@@ -86,6 +86,17 @@ Règles strictes :
 # ---------------------------------------------------------------------------
 
 def deriver_niveau_reponse(score: int) -> str:
+    """
+    Convertit un score numerique (0-100) en niveau qualitatif de reponse.
+
+    Args:
+        score: score entier renvoye par le LLM (0 a 100).
+
+    Returns:
+        str: un des 5 niveaux ("Insuffisant" a "Excellent"), selon le
+        meme mapping que celui donne au LLM dans PROMPT_AGENT4 — recalcule
+        ici cote code pour garantir la coherence score/niveau affichee.
+    """
     if score < 40:
         return "Insuffisant"
     elif score < 60:

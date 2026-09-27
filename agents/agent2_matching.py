@@ -12,9 +12,9 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from text_to_num import alpha2digit
 
+
 from utils.llm_client import appeler_gemini_json
-
-
+from db.parametres_offre import resoudre_plafond_anti_inflation, resoudre_ponderation, resoudre_reglages_langues, resoudre_reglages_formation, POIDS_PONDERATION_DEFAUT
 logger = logging.getLogger(__name__)
 
 
@@ -52,6 +52,9 @@ _modele_embeddings = None
 
 
 def obtenir_modele_embeddings() -> SentenceTransformer:
+    """Charge le modele d'embeddings au premier appel puis le reutilise
+    (cache module-level) : evite de recharger le modele a chaque calcul
+    de matching, ce qui serait couteux en temps."""
     global _modele_embeddings
 
     if _modele_embeddings is None:
@@ -88,13 +91,14 @@ MODE_DIAGNOSTIC = True
 # 0. Pondération des dimensions
 # ---------------------------------------------------------------------------
 
-POIDS_INITIAUX = {
-    "competences": 0.35,
-    "langues": 0.15,
-    "niveau_etudes": 0.15,
-    "experience": 0.25,
-}
-
+# NOUVEAU (etape 6) : les poids par defaut sont maintenant centralises
+# dans db/parametres_offre.py (POIDS_PONDERATION_DEFAUT), pour que le
+# recruteur puisse les personnaliser par offre (resoudre_ponderation).
+# POIDS_INITIAUX reste un alias pour compatibilite (valeur par defaut
+# de redistribuer_poids, boucle de diagnostic ci-dessous) : memes
+# ratios qu'avant (35/15/15/25), la representation en entiers plutot
+# qu'en fractions ne change rien car toujours renormalise.
+POIDS_INITIAUX = POIDS_PONDERATION_DEFAUT
 
 # ---------------------------------------------------------------------------
 # Cap anti-inflation
@@ -597,6 +601,9 @@ def calculer_couverture_competences(
 # ---------------------------------------------------------------------------
 
 def _normaliser_texte(texte: str) -> str:
+    """Normalise une chaine (minuscules, apostrophes, accents) pour rendre
+    les comparaisons textuelles insensibles a la casse et aux variantes
+    typographiques (ex. langues/niveaux ecrits differemment sur un CV)."""
 
     texte = texte.strip().lower()
 
@@ -744,17 +751,45 @@ def _parser_langue_requise(entree):
     return nom_trouve, niveau, niveau_non_reconnu
 
 
-def comparer_niveau_langue(niveau_requis, niveau_candidat) -> float:
-    """Même tolérance que comparer_niveau_etudes.
+# Reglages par defaut (= comportement d'origine du code, avant que ces
+# 3 situations soient rendues configurables par le recruteur). Utilise
+# quand comparer_niveau_langue / calculer_couverture_langues sont
+# appelees sans reglages_langues explicite (ex. anciens appels, tests).
+_REGLAGES_LANGUE_PAR_DEFAUT = {
+    "score_niveau_non_precise": 0.0,
+    "score_ecart_1_niveau": 0.5,
+    "score_ecart_2_niveaux_ou_plus": 0.0,
+}
 
-    CORRIGÉ : le cas "niveau candidat non exploitable" retournait
-    auparavant 0.5, ce qui pouvait dépasser le score d'un candidat
-    ayant explicitement déclaré un niveau bas (ex. A1 requis C1,
-    écart=4 -> 0.0). Une absence de preuve ne doit jamais surclasser
-    une preuve défavorable connue : le cas est aligné sur le pire cas
-    (0.0). La nuance ("non précisé" vs "insuffisant") est portée par
-    le flag diagnostique `niveau_non_precise`, pas par le score.
+
+def comparer_niveau_langue(niveau_requis, niveau_candidat, reglages_langues=None) -> float:
+    """Même tolérance que comparer_niveau_etudes, mais les 3 situations
+    ci-dessous sont desormais configurables par le recruteur (voir
+    db.parametres_offre.resoudre_reglages_langues) plutôt que figées
+    dans le code :
+      - niveau candidat non exploitable (langue mentionnée, niveau
+        illisible/absent) -> "score_niveau_non_precise"
+      - écart d'1 niveau (ex. B1 vs B2 exigé)      -> "score_ecart_1_niveau"
+      - écart de 2 niveaux ou plus                  -> "score_ecart_2_niveaux_ou_plus"
+
+    reglages_langues : dict retourné par resoudre_reglages_langues(parametres).
+    Si absent (None), retombe sur _REGLAGES_LANGUE_PAR_DEFAUT, qui
+    reproduit exactement le comportement d'origine (0.0 / 0.5 / 0.0).
+
+    Historique (comportement d'origine, conservé comme valeur par
+    défaut) : le cas "niveau candidat non exploitable" retournait
+    auparavant 0.5 en dur, ce qui pouvait dépasser le score d'un
+    candidat ayant explicitement déclaré un niveau bas (ex. A1 requis
+    C1, écart=4 -> 0.0). Une absence de preuve ne devait donc pas
+    surclasser une preuve défavorable connue : le cas a été aligné sur
+    le pire cas (0.0) par défaut, mais reste desormais assouplissable
+    par le recruteur via ce réglage. La nuance ("non précisé" vs
+    "insuffisant") reste portée par le flag diagnostique
+    `niveau_non_precise`, pas par le score.
     """
+
+    if reglages_langues is None:
+        reglages_langues = _REGLAGES_LANGUE_PAR_DEFAUT
 
     if niveau_requis is None:
         # Offre ne précise pas de niveau -> la langue seule suffit
@@ -762,8 +797,9 @@ def comparer_niveau_langue(niveau_requis, niveau_candidat) -> float:
 
     if niveau_candidat is None:
         # Candidat parle la langue mais aucun niveau exploitable trouvé :
-        # score conservateur, jamais meilleur qu'un niveau bas déclaré.
-        return 0.0
+        # score determine par le reglage du recruteur (par defaut 0.0,
+        # conservateur -- jamais meilleur qu'un niveau bas déclaré).
+        return reglages_langues["score_niveau_non_precise"]
 
     if niveau_candidat >= niveau_requis:
         return 1.0
@@ -771,13 +807,20 @@ def comparer_niveau_langue(niveau_requis, niveau_candidat) -> float:
     ecart = niveau_requis - niveau_candidat
 
     if ecart == 1:
-        return 0.5
+        return reglages_langues["score_ecart_1_niveau"]
 
-    return 0.0
+    return reglages_langues["score_ecart_2_niveaux_ou_plus"]
 
 
-def calculer_couverture_langues(langues_requises: list, langues_profil: list):
+def calculer_couverture_langues(langues_requises: list, langues_profil: list, reglages_langues=None):
     """
+    reglages_langues : dict retourné par
+        db.parametres_offre.resoudre_reglages_langues(parametres), qui
+        traduit les 3 situations réglables par le recruteur (niveau non
+        précisé / écart d'1 niveau / écart de 2 niveaux ou plus) en
+        scores 1.0/0.5/0.0. Si absent (None), reproduit le comportement
+        d'origine (voir comparer_niveau_langue).
+
     Returns:
         (
             taux_couverture,
@@ -831,7 +874,7 @@ def calculer_couverture_langues(langues_requises: list, langues_profil: list):
                     langue_requise,
                 )
         else:
-            score = comparer_niveau_langue(niveau_requis, niveau_candidat)
+            score = comparer_niveau_langue(niveau_requis, niveau_candidat, reglages_langues)
 
             # NOUVEAU : la langue est présente chez le candidat mais
             # aucun niveau exploitable n'a été trouvé -> le score est
@@ -914,6 +957,10 @@ _ORDRE_NIVEAUX = {
 
 
 def _normaliser_niveau(texte: str):
+    """Convertit un intitule de niveau d'etudes (texte libre, ex. "Master",
+    "Bac+5", "Ingenieur") en rang numerique comparable, via le dictionnaire
+    de correspondance defini au-dessus. Retourne None si le texte ne
+    correspond a aucun niveau reconnu."""
 
     if not texte:
         return None
@@ -940,24 +987,60 @@ def _normaliser_niveau(texte: str):
     return None
 
 
+# Reglages par defaut (= comportement d'origine du code, avant que ces
+# situations soient rendues configurables par le recruteur). Utilise
+# quand comparer_niveau_etudes est appelee sans reglages_formation
+# explicite (ex. anciens appels, tests).
+_REGLAGES_FORMATION_PAR_DEFAUT = {
+    "score_diplome_non_reconnu": 0.0,
+    "score_ecart_1_niveau": 0.5,
+    "score_ecart_2_niveaux_ou_plus": 0.0,
+}
+
+
 def comparer_niveau_etudes(
     niveau_requis: str,
-    formations: list
+    formations: list,
+    reglages_formation=None
 ):
     """
+    reglages_formation : dict retourné par
+        db.parametres_offre.resoudre_reglages_formation(parametres), qui
+        traduit 2 des 3 situations réglables par le recruteur (diplôme
+        non reconnu / écart d'1 niveau / écart de 2 niveaux ou plus) en
+        scores 1.0/0.5/0.0. Si absent (None), reproduit le comportement
+        d'origine (0.0 / 0.5 / 0.0).
+
     CORRIGÉ : le cas "aucune formation exploitable trouvée"
     (valeur_candidat == 0) retournait auparavant 0.5, ce qui pouvait
     dépasser le score d'un candidat ayant un diplôme explicitement bas
     (ex. Bac requis Master, écart=3 -> 0.0). Même principe que pour
     les langues : l'absence de preuve ne doit jamais surclasser une
-    preuve défavorable connue -> aligné sur 0.0. La nuance est portée
-    par le flag retourné, pas par le score.
+    preuve défavorable connue -> aligné sur 0.0 par défaut. La nuance
+    est portée par le flag retourné, pas par le score.
+
+    Ce cas "aucune formation exploitable" recouvre en réalité 2
+    situations distinctes, traitées séparément ici :
+      - le CV ne liste AUCUNE formation du tout -> cas fixe, non
+        réglable par le recruteur (même logique que "langue jamais
+        mentionnée dans le profil") ;
+      - le CV liste une ou plusieurs formations, mais aucune n'est
+        reconnue par le dictionnaire de niveaux (intitulé atypique,
+        diplôme étranger, école non répertoriée...) -> ce n'est pas
+        une preuve de sous-qualification, juste une limite du
+        parsing, donc désormais réglable par le recruteur
+        ("score_diplome_non_reconnu").
 
     Returns:
         (score, niveau_non_precise) — niveau_non_precise est True si
         le score a été abaissé faute de formation exploitable trouvée
-        (à distinguer d'un niveau explicitement insuffisant).
+        (à distinguer d'un niveau explicitement insuffisant), que ce
+        soit parce qu'aucune formation n'est listée ou parce qu'aucune
+        n'est reconnue.
     """
+
+    if reglages_formation is None:
+        reglages_formation = _REGLAGES_FORMATION_PAR_DEFAUT
 
     valeur_requise = _normaliser_niveau(
         niveau_requis
@@ -966,6 +1049,14 @@ def comparer_niveau_etudes(
     if valeur_requise is None:
 
         return 1.0, False
+
+    if not formations:
+
+        # Aucune formation du tout listée sur le CV : cas fixe, non
+        # configurable, toujours traité comme une information
+        # manquante (score 0.0) -- ce n'est pas un réglage de
+        # tolérance, la compétence n'apparaît juste pas dans le profil.
+        return 0.0, True
 
     valeur_candidat = 0
 
@@ -981,7 +1072,10 @@ def comparer_niveau_etudes(
 
     if valeur_candidat == 0:
 
-        return 0.0, True
+        # Formation(s) listée(s) mais diplôme non reconnu par le
+        # dictionnaire : score déterminé par le réglage du recruteur
+        # (par défaut 0.0, conservateur, comme avant ce réglage).
+        return reglages_formation["score_diplome_non_reconnu"], True
 
     if valeur_candidat >= valeur_requise:
 
@@ -995,9 +1089,9 @@ def comparer_niveau_etudes(
 
     if ecart == 1:
 
-        return 0.5, False
+        return reglages_formation["score_ecart_1_niveau"], False
 
-    return 0.0, False
+    return reglages_formation["score_ecart_2_niveaux_ou_plus"], False
 
 
 # ---------------------------------------------------------------------------
@@ -1023,6 +1117,11 @@ _SYNONYMES_PRESENT = {
 def calculer_annees_experience(
     experiences: list
 ):
+    """Additionne la duree (en annees) des experiences du candidat a partir
+    de leurs dates de debut/fin. Gere les mentions de poste en cours
+    (ex. "actuellement", "a ce jour") en les ramenant a l'annee courante,
+    et ignore les entrees dont les dates sont illisibles (comptees dans
+    nb_ignorees)."""
 
     annee_actuelle = datetime.now().year
 
@@ -1181,6 +1280,10 @@ def calculer_annees_experience(
 def extraire_annees_requises(
     experience_requise_texte: str
 ):
+    """Extrait le nombre d'annees d'experience exigees depuis le texte
+    libre de l'offre (ex. "3 ans minimum", "cinq annees"). Utilise
+    alpha2digit pour convertir les nombres ecrits en toutes lettres avant
+    la recherche par regex. Retourne None si aucun nombre n'est trouve."""
 
     if not experience_requise_texte:
 
@@ -1258,6 +1361,11 @@ def redistribuer_poids(
     scores_dimensions: dict,
     poids_initiaux: dict = POIDS_INITIAUX
 ) -> dict:
+    """Renormalise les poids des dimensions du matching (competences,
+    langues, formation, experience) en ne gardant que celles ayant un
+    score calcule, pour que leur somme fasse toujours 1.0. Evite qu'une
+    dimension absente de l'offre (ex. pas d'exigence de langue) ne fasse
+    mecaniquement baisser le score global."""
 
     dims_presentes = {
 
@@ -1299,21 +1407,37 @@ def redistribuer_poids(
 
 def appliquer_cap_anti_inflation(
     score: int,
-    taux_couverture_competences: float
+    taux_couverture_competences: float,
+    actif: bool = True,
+    seuil_couverture: float = SEUIL_CAP_ANTI_INFLATION,
+    score_max: int = SCORE_CAP_ANTI_INFLATION,
 ):
+    """Plafonne le score si la couverture des competences est trop faible,
+    pour eviter qu'un CV tres bien note sur les autres dimensions
+    (langues, formation, experience) n'obtienne un score global trompeur
+    malgre un manque criant de competences techniques.
+
+    Returns:
+        tuple (score_final, plafond_applique: bool)
+    """
+    # Le recruteur peut desactiver ce plafond, ou en ajuster la
+    # sensibilite (niveau tolerant / standard / strict) pour une offre
+    # donnee. Valeurs par defaut = comportement d'origine du code.
+    if not actif:
+        return (score, False)
 
     if (
         taux_couverture_competences
         <
-        SEUIL_CAP_ANTI_INFLATION
+        seuil_couverture
         and
         score
         >
-        SCORE_CAP_ANTI_INFLATION
+        score_max
     ):
 
         return (
-            SCORE_CAP_ANTI_INFLATION,
+            score_max,
             True
         )
 
@@ -1330,6 +1454,8 @@ def appliquer_cap_anti_inflation(
 def deriver_niveau(
     score: int
 ) -> str:
+    """Convertit le score global de matching (0-100) en niveau qualitatif
+    affiche au recruteur (ex. "Faible", "Moyen", "Fort"...)."""
 
     if score < 40:
 
@@ -1443,6 +1569,12 @@ def generer_explication(
     niveau_etudes_non_precise=False,
     experience_non_precisee=False
 ):
+    """Genere, via le LLM, l'explication textuelle du score de matching
+    affichee au recruteur (points forts / points manquants), a partir
+    de tous les elements deja calcules par les fonctions precedentes
+    (couverture competences/langues, experience, cap anti-inflation...).
+    Le LLM ne recalcule rien : il ne fait que mettre en forme des
+    resultats deja etablis, pour rester factuel."""
 
     contexte = (
 
@@ -1547,8 +1679,32 @@ def generer_explication(
 
 def calculer_matching(
     profil: dict,
-    offre: dict
+    offre: dict,
+    parametres: dict = None
 ) -> dict:
+    """Point d'entree principal de l'Agent 2 : calcule le score de
+    matching global entre un profil candidat et une offre.
+
+    Orchestre l'ensemble des etapes du module : segmentation du CV,
+    couverture des competences/langues/formation, calcul de l'experience,
+    redistribution des poids, cap anti-inflation, derivation du niveau
+    et generation de l'explication textuelle.
+
+    Args:
+        profil: profil candidat structure (sortie Agent 1).
+        offre: profil offre structure (sortie Agent 1).
+        parametres: preferences de matching du recruteur pour cette offre
+            (voir db/parametres_offre.py). Si None, les valeurs par
+            defaut (= comportement d'origine du code) sont utilisees.
+
+    Returns:
+        dict : score global, niveau, detail par dimension (competences,
+        langues, formation, experience), et explication textuelle.
+    """
+
+    # Preferences du recruteur pour cette offre (defauts = comportement
+    # d'origine du code si rien n'est fourni).
+    parametres = parametres or {}
 
     # =========================================================
     # Dimension 1 : compétences
@@ -1632,7 +1788,9 @@ def calculer_matching(
         langues_requises,
 
         profil.get("langues")
-        or []
+        or [],
+
+        reglages_langues=resoudre_reglages_langues(parametres)
     )
 
     score_langues = (
@@ -1667,7 +1825,9 @@ def calculer_matching(
             profil.get(
                 "formations"
             )
-            or []
+            or [],
+
+            reglages_formation=resoudre_reglages_formation(parametres)
         )
 
     else:
@@ -1735,9 +1895,9 @@ def calculer_matching(
     # =========================================================
 
     poids_finaux = redistribuer_poids(
-        scores_dimensions
+        scores_dimensions,
+        poids_initiaux=resoudre_ponderation(parametres),
     )
-
 
     # =========================================================
     # Aucune dimension calculable
@@ -1845,6 +2005,11 @@ def calculer_matching(
         else 1.0
     )
 
+    plafond_actif = parametres.get(
+        "plafond_anti_inflation_actif", True
+    )
+    valeurs_plafond = resoudre_plafond_anti_inflation(parametres)
+
     (
         score_final,
         cap_applique
@@ -1852,7 +2017,11 @@ def calculer_matching(
 
         score_brut,
 
-        couverture_pour_cap
+        couverture_pour_cap,
+
+        actif=plafond_actif,
+        seuil_couverture=valeurs_plafond["seuil_couverture"],
+        score_max=valeurs_plafond["score_max"],
     )
 
     if MODE_DIAGNOSTIC and cap_applique:

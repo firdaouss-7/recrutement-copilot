@@ -77,6 +77,33 @@ NB_POINTS_FORTS_RETENUS = 2
 NB_QUESTIONS_BASE = 4
 NB_QUESTIONS_MAX = 8
 
+# NOUVEAU (etape 3) : consigne de difficulte injectee dans le prompt.
+# "moyen" reproduit exactement la formulation implicite du prompt
+# d'origine (aucune consigne de difficulte explicite) : c'est le
+# niveau par defaut, sans changement de comportement pour ce niveau.
+NIVEAUX_DIFFICULTE = {
+    "facile": (
+        "Niveau de difficulte demande : FACILE. Pose des questions "
+        "d'introduction/decouverte, formulees simplement, qui permettent "
+        "au candidat de reformuler ce qu'il connait deja sans piege ni "
+        "cas limite. Evite les questions a plusieurs niveaux de "
+        "profondeur ou les mises en situation complexes."
+    ),
+    "moyen": (
+        "Niveau de difficulte demande : MOYEN. Pose des questions "
+        "standard d'entretien technique, qui demandent une explication "
+        "ou une justification claire, sans etre des cas limites ou des "
+        "pieges."
+    ),
+    "difficile": (
+        "Niveau de difficulte demande : DIFFICILE. Pose des questions "
+        "exigeantes qui demandent une analyse approfondie, une mise en "
+        "situation concrete avec contraintes, ou la comparaison de "
+        "plusieurs approches/compromis. Vise a distinguer un candidat "
+        "confirme d'un candidat qui ne maitrise le sujet qu'en surface."
+    ),
+}
+
 
 def calculer_nb_questions(resultat_agent2: dict | None) -> int:
     """nb_questions = base + 1 par point_manquant, plafonne a
@@ -257,6 +284,7 @@ def construire_prompt(
     pool_questions: list,
     points_manquants: list | None = None,
     nb_questions: int = 5,
+    niveau_difficulte: str = "moyen",
 ) -> str:
     """Construit le prompt final envoye a Gemini, base sur le prompt du
     rapport (section 4.3), complete par deux regles ajoutees suite au
@@ -275,6 +303,10 @@ def construire_prompt(
         f"- ({q['domaine']}, {q['type']}) {q['texte']}"
         for q in pool_questions
     ) or "(aucune question similaire disponible)"
+
+    consigne_difficulte = NIVEAUX_DIFFICULTE.get(
+        niveau_difficulte, NIVEAUX_DIFFICULTE["moyen"]
+    )
 
     points_manquants = points_manquants or []
     if points_manquants:
@@ -327,6 +359,8 @@ Regles strictes :
 
 {consigne_ecarts}
 
+{consigne_difficulte}
+
 Profil candidat (JSON) :
 {json.dumps(profil, ensure_ascii=False, indent=2)}
 
@@ -347,6 +381,7 @@ def generer_questions_entretien(
     offre: dict,
     resultat_agent2: dict | None = None,
     nb_questions: int | None = None,
+    niveau_difficulte: str = "moyen",
 ) -> dict:
     """
     Point d'entree de l'Agent 3.
@@ -360,11 +395,14 @@ def generer_questions_entretien(
             exploratoire generique), auquel cas le retrieval se base
             uniquement sur les competences cles de l'offre.
         nb_questions: nombre de questions a generer par Gemini. Si
-            None (recommande), calcule dynamiquement selon le nombre
-            de points_manquants (cf. calculer_nb_questions) : un
-            nombre fixe force Gemini a sacrifier certains ecarts
-            quand ils sont nombreux (observe en test sur un candidat
-            a 3 ecarts, un des trois n'etait jamais couvert).
+            None, calcule dynamiquement selon le nombre de
+            points_manquants (cf. calculer_nb_questions). Depuis
+            l'etape 3, ce choix est fait explicitement par le
+            recruteur (via app.py) et n'est plus laisse a None dans
+            le flux normal.
+        niveau_difficulte: "facile" | "moyen" | "difficile" (etape 3).
+            Choisi par le recruteur au moment de l'envoi. "moyen"
+            reproduit exactement le comportement du prompt d'origine.
 
     Returns:
         dict conforme au schema SCHEMA_QUESTIONS_ENTRETIEN :
@@ -380,9 +418,10 @@ def generer_questions_entretien(
     pool_questions = construire_pool_questions(profil, offre, resultat_agent2)
 
     logger.info(
-        "Pool de %d questions candidates apres dedoublonnage (nb_questions=%d).",
+        "Pool de %d questions candidates apres dedoublonnage (nb_questions=%d, difficulte=%s).",
         len(pool_questions),
         nb_questions,
+        niveau_difficulte,
     )
 
     prompt = construire_prompt(
@@ -391,6 +430,7 @@ def generer_questions_entretien(
         pool_questions,
         points_manquants=points_manquants,
         nb_questions=nb_questions,
+        niveau_difficulte=niveau_difficulte,
     )
 
     resultat = appeler_gemini_json(
@@ -408,6 +448,7 @@ def generer_questions_entretien_sans_rag(
     offre: dict,
     resultat_agent2: dict | None = None,
     nb_questions: int | None = None,
+    niveau_difficulte: str = "moyen",
 ) -> dict:
     """
     Version "sans RAG" de l'Agent 3, utilisee UNIQUEMENT pour le test
@@ -439,6 +480,7 @@ def generer_questions_entretien_sans_rag(
         pool_questions=[],
         points_manquants=points_manquants,
         nb_questions=nb_questions,
+        niveau_difficulte=niveau_difficulte,
     )
 
     resultat = appeler_gemini_json(

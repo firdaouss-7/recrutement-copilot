@@ -1,0 +1,51 @@
+{
+  "date_test": "2026-09-15T15:40:14.468739",
+  "question": "Vous êtes chargé de mettre en production une application Python de Machine Learning.\nExpliquez comment vous construiriez un Dockerfile permettant de garantir un environnement\nreproductible, léger et adapté à une application ML. Vous devez notamment expliquer le choix\nde l'image de base, l'installation des dépendances, la réduction de la taille de l'image,\nla gestion des versions et la vérification du bon fonctionnement du conteneur.",
+  "resultats": [
+    {
+      "scenario": "Réponse forte",
+      "score": 88,
+      "niveau_reponse": "Très bon",
+      "points_forts": [
+        "Utilisation d'une image de base Python slim",
+        "Gestion rigoureuse des versions via un requirements.txt figé",
+        "Mise en place d'une construction multi-stage pour réduire la taille",
+        "Optimisation du cache Docker en séparant dépendances et code",
+        "Intégration d'un healthcheck et vision globale (CI/CD, monitoring)"
+      ],
+      "axes_amelioration": [
+        "Aurait pu aborder la gestion spécifique des dépendances ML lourdes et des fichiers de modèles (poids)"
+      ],
+      "feedback": "Le candidat propose une excellente maîtrise des bonnes pratiques Docker appliquées au Machine Learning, couvrant la légèreté, la reproductibilité, l'optimisation du cache et l'intégration continue."
+    },
+    {
+      "scenario": "Réponse moyenne",
+      "score": 45,
+      "niveau_reponse": "Moyen",
+      "points_forts": [
+        "Connaissance des etapes generales d'un Dockerfile (choix d'image, requirements.txt, copie du code, execution)",
+        "Conscience de l'importance du versioning des dependances et des tests pre-deploiement"
+      ],
+      "axes_amelioration": [
+        "Manque de details techniques sur l'optimisation et la reduction de la taille de l'image (ex: images slim, builds multi-etapes)",
+        "Absence de mention des specificites liees au Machine Learning (gestion des modeles lourds, bibliotheques comme PyTorch ou TensorFlow)",
+        "Pas d'explication concrete sur la verification du bon fonctionnement du conteneur (HEALTHCHECK, tests)",
+        "Experience pratique semble limitee et deleguee a l'equipe DevOps"
+      ],
+      "feedback": "Le candidat montre une comprehension theorique des etapes de base d'un Dockerfile et souligne a juste titre l'importance des versions et des tests. Neanmoins, la reponse est trop generique et ne repond pas aux exigences specifiques d'une application de Machine Learning (gestion des dependances lourdes, taille de l'image, verification de l'environnement). L'experience pratique sur le sujet parait limitee."
+    },
+    {
+      "scenario": "Réponse faible",
+      "score": 0,
+      "niveau_reponse": "Insuffisant",
+      "points_forts": [
+        "Transparence sur le niveau de compétence"
+      ],
+      "axes_amelioration": [
+        "Acquérir des compétences fondamentales sur Docker et la conteneurisation",
+        "Se former aux bonnes pratiques de déploiement d'applications de Machine Learning"
+      ],
+      "feedback": "Le candidat indique ne pas maîtriser Docker et n'avoir aucune expérience en déploiement d'applications ML avec cet outil. Aucun des aspects techniques demandés n'a pu être abordé."
+    }
+  ]
+}

@@ -6,11 +6,11 @@
 
 import os
 import tempfile
-
+from db.parametres_offre import obtenir_parametres_offre, mettre_a_jour_parametres_offre, PARAMETRES_PAR_DEFAUT, POIDS_PONDERATION_DEFAUT, resoudre_ponderation, NIVEAUX_LANGUE_CHOIX
 import streamlit as st
 
 from db.db import (
-    initialiser_db, creer_session, lister_sessions,
+    initialiser_db, creer_session, lister_sessions, supprimer_session,
     get_offre_session, lister_candidats_session, get_candidat,
     lister_entretiens_session, get_entretien_par_token,
     get_entretien_par_candidat,
@@ -20,6 +20,7 @@ from graph.pipeline import (
     traiter_premier_cv, traiter_cv_suivant,
     lancer_entretien, traiter_reponses_candidat,
 )
+from agents.agent3_generation import calculer_nb_questions
 from utils.pdf_reader import extraire_texte_pdf
 from ui.components import (
     injecter_style, en_tete, badge, badge_statut_entretien,
@@ -30,12 +31,20 @@ st.set_page_config(page_title="Copilote Recrutement IT/IA", layout="wide")
 initialiser_db()
 injecter_style()
 
+# etape 4 : libelles affiches au recruteur pour les 3 choix de couverture
+# de langue (le score numerique associe -- 1.0/0.5/0.0 -- n'est jamais
+# montre, voir db.parametres_offre.SCORES_NIVEAU_LANGUE).
+LABELS_NIVEAU_LANGUE = {"acquise": "Acquise", "partielle": "Partielle", "manquante": "Manquante"}
+
 
 # ---------------------------------------------------------------------------
 # Utilitaire : sauver un fichier uploade dans un fichier temporaire
 # ---------------------------------------------------------------------------
 
 def _texte_depuis_upload(fichier_uploade) -> str:
+    """Ecrit temporairement un fichier PDF uploade sur disque (necessaire
+    car extraire_texte_pdf lit depuis un chemin de fichier), en extrait
+    le texte, puis supprime le fichier temporaire."""
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
         tmp.write(fichier_uploade.getbuffer())
         chemin_tmp = tmp.name
@@ -57,6 +66,9 @@ def _email_extrait(candidat: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def vue_candidat(token: str):
+    """Ecran affiche au candidat lorsqu'il ouvre son lien d'entretien
+    (?token=...) : liste les questions, recueille les reponses via un
+    formulaire, puis declenche l'evaluation (Agent 4) a l'envoi."""
     st.markdown(
         '<div class="app-eyebrow">Entretien</div>', unsafe_allow_html=True
     )
@@ -116,6 +128,8 @@ def vue_candidat(token: str):
 # ---------------------------------------------------------------------------
 
 def barre_navigation():
+    """Affiche la barre laterale (logo + menu) de l'espace recruteur et
+    retourne l'ecran actuellement selectionne par l'utilisateur."""
     with st.sidebar:
         st.markdown(
             '<div style="padding: 0.3rem 0 1.1rem 0;">'
@@ -141,10 +155,30 @@ def barre_navigation():
                 nom_offre = offre["json_extrait"].get("titre_poste") or offre["json_extrait"].get("titre")
 
             st.markdown(
-                '<div class="section-label" style="margin-top:1.1rem;">Session en cours</div>'
-                f'<div style="font-size:0.86rem; color:#C7CBE0; margin-bottom:0.6rem;">{nom_offre or "Offre sans titre"}</div>',
+                '<div class="section-label" style="margin-top:1.1rem;">Session en cours</div>',
                 unsafe_allow_html=True,
             )
+
+            sessions = lister_sessions()
+            if len(sessions) > 1:
+                options = [s["id"] for s in sessions]
+                labels = {s["id"]: s["nom_offre"] for s in sessions}
+                choix = st.selectbox(
+                    "Changer de session", options,
+                    index=options.index(st.session_state["session_id"])
+                        if st.session_state["session_id"] in options else 0,
+                    format_func=lambda sid: labels[sid],
+                    key="selecteur_session",
+                    label_visibility="collapsed",
+                )
+                if choix != st.session_state["session_id"]:
+                    st.session_state["session_id"] = choix
+                    st.rerun()
+            else:
+                st.markdown(
+                    f'<div style="font-size:0.86rem; color:#C7CBE0; margin-bottom:0.6rem;">{nom_offre or "Offre sans titre"}</div>',
+                    unsafe_allow_html=True,
+                )
 
             if st.button(
                 "Tableau de bord", key="nav_dashboard",
@@ -166,7 +200,9 @@ def barre_navigation():
 # ---------------------------------------------------------------------------
 
 def ecran_accueil():
-    en_tete("Espace recruteur", "Sessions de recrutement", "Retrouvez vos campagnes en cours ou lancez-en une nouvelle.")
+    """Ecran d'accueil recruteur : liste les sessions existantes (avec
+    ouverture/suppression) et permet d'en creer une nouvelle."""
+    en_tete("Espace recruteur", "Sessions de recrutement")
 
     sessions = lister_sessions()
     if not sessions:
@@ -174,7 +210,7 @@ def ecran_accueil():
     else:
         for s in sessions:
             with st.container(key=f"carte-session-{s['id']}"):
-                col1, col2 = st.columns([5, 1])
+                col1, col2, col3 = st.columns([5, 1, 1])
                 with col1:
                     st.markdown(f"**{s['nom_offre']}**")
                     nb = s.get("nb_candidats", 0)
@@ -188,6 +224,19 @@ def ecran_accueil():
                         st.session_state["session_id"] = s["id"]
                         st.session_state["ecran"] = "dashboard"
                         st.rerun()
+                with col3:
+                    if st.session_state.get(f"confirmer_suppr_{s['id']}"):
+                        if st.button("Confirmer ?", key=f"confirmer_suppr_btn_{s['id']}", type="primary"):
+                            supprimer_session(s["id"])
+                            if st.session_state.get("session_id") == s["id"]:
+                                del st.session_state["session_id"]
+                                st.session_state["ecran"] = "accueil"
+                            st.session_state[f"confirmer_suppr_{s['id']}"] = False
+                            st.rerun()
+                    else:
+                        if st.button("Supprimer", key=f"supprimer_{s['id']}", type="secondary"):
+                            st.session_state[f"confirmer_suppr_{s['id']}"] = True
+                            st.rerun()
 
     st.write("")
     if st.button("+ Nouvelle session", type="primary"):
@@ -196,7 +245,10 @@ def ecran_accueil():
 
 
 def ecran_nouvelle_session():
-    en_tete("Nouvelle campagne", "Deposer une offre et des CV", "L'extraction et le matching se lancent automatiquement pour chaque candidat.")
+    """Ecran de creation d'une campagne : formulaire de depot de l'offre
+    et des CV en PDF, puis lancement du pipeline (Agent 1 + Agent 2) sur
+    chaque CV depose."""
+    en_tete("Nouvelle campagne", "Déposer une offre et des CV")
 
     with st.container(key="carte-nouvelle-session"):
         st.markdown(etiquette_section("Intitule de l'offre"), unsafe_allow_html=True)
@@ -213,6 +265,113 @@ def ecran_nouvelle_session():
             "CV des candidats (PDF)", type="pdf", accept_multiple_files=True, label_visibility="collapsed"
         )
 
+        with st.expander("Réglages du matching"):
+
+            st.markdown(etiquette_section("Plafond anti-inflation"), unsafe_allow_html=True)
+            col_plafond_1, col_plafond_2 = st.columns(2)
+            with col_plafond_1:
+                plafond_actif = st.toggle(
+                    "Actif",
+                    value=PARAMETRES_PAR_DEFAUT["plafond_anti_inflation_actif"],
+                    key="nouvelle_session_plafond_actif",
+                    help="Limite le score quand la couverture technique du CV est trop faible.",
+                )
+            with col_plafond_2:
+                niveaux = ["tolerant", "standard", "strict"]
+                niveau_choisi = st.selectbox(
+                    "Niveau",
+                    niveaux,
+                    index=niveaux.index(PARAMETRES_PAR_DEFAUT["plafond_anti_inflation_niveau"]),
+                    key="nouvelle_session_plafond_niveau",
+                    disabled=not plafond_actif,
+                    format_func=lambda n: {"tolerant": "Tolérant", "standard": "Standard", "strict": "Strict"}[n],
+                )
+
+            st.markdown(etiquette_section("Couverture des langues"), unsafe_allow_html=True)
+            col_l1, col_l2, col_l3 = st.columns(3)
+            with col_l1:
+                langue_niveau_non_precise_choisi = st.selectbox(
+                    "Niveau non précisé",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["langue_niveau_non_precise"]),
+                    key="nouvelle_session_langue_niveau_non_precise",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                    help="Langue mentionnée sur le CV, niveau illisible ou absent.",
+                )
+            with col_l2:
+                langue_ecart_1_choisi = st.selectbox(
+                    "Écart d'1 niveau",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["langue_ecart_1_niveau"]),
+                    key="nouvelle_session_langue_ecart_1",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                    help="Ex. candidat B1, poste exige B2.",
+                )
+            with col_l3:
+                langue_ecart_2_plus_choisi = st.selectbox(
+                    "Écart de 2 niveaux ou plus",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["langue_ecart_2_niveaux_plus"]),
+                    key="nouvelle_session_langue_ecart_2_plus",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                )
+
+            st.markdown(etiquette_section("Couverture de la formation"), unsafe_allow_html=True)
+            col_f1, col_f2, col_f3 = st.columns(3)
+            with col_f1:
+                formation_diplome_non_reconnu_choisi = st.selectbox(
+                    "Diplôme non reconnu",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["formation_diplome_non_reconnu"]),
+                    key="nouvelle_session_formation_diplome_non_reconnu",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                    help="Formation listée sur le CV, intitulé non reconnu (diplôme étranger, atypique...).",
+                )
+            with col_f2:
+                formation_ecart_1_choisi = st.selectbox(
+                    "Écart d'1 niveau",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["formation_ecart_1_niveau"]),
+                    key="nouvelle_session_formation_ecart_1",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                    help="Ex. candidat Licence, poste exige Master.",
+                )
+            with col_f3:
+                formation_ecart_2_plus_choisi = st.selectbox(
+                    "Écart de 2 niveaux ou plus",
+                    NIVEAUX_LANGUE_CHOIX,
+                    index=NIVEAUX_LANGUE_CHOIX.index(PARAMETRES_PAR_DEFAUT["formation_ecart_2_niveaux_plus"]),
+                    key="nouvelle_session_formation_ecart_2_plus",
+                    format_func=lambda n: LABELS_NIVEAU_LANGUE[n],
+                )
+
+            st.markdown(etiquette_section("Pondération des critères"), unsafe_allow_html=True)
+            col_p1, col_p2, col_p3, col_p4 = st.columns(4)
+            with col_p1:
+                poids_competences = st.slider(
+                    "Compétences", 0, 100,
+                    value=POIDS_PONDERATION_DEFAUT["competences"],
+                    key="nouvelle_session_poids_competences",
+                )
+            with col_p2:
+                poids_langues = st.slider(
+                    "Langues", 0, 100,
+                    value=POIDS_PONDERATION_DEFAUT["langues"],
+                    key="nouvelle_session_poids_langues",
+                )
+            with col_p3:
+                poids_formation = st.slider(
+                    "Formation", 0, 100,
+                    value=POIDS_PONDERATION_DEFAUT["niveau_etudes"],
+                    key="nouvelle_session_poids_formation",
+                )
+            with col_p4:
+                poids_experience = st.slider(
+                    "Expérience", 0, 100,
+                    value=POIDS_PONDERATION_DEFAUT["experience"],
+                    key="nouvelle_session_poids_experience",
+                )
+
         col1, col2 = st.columns([1, 5])
         with col1:
             lancer = st.button("Lancer l'analyse", type="primary")
@@ -224,20 +383,42 @@ def ecran_nouvelle_session():
             st.error("Merci de renseigner le nom de l'offre, l'offre et au moins un CV.")
             return
 
+        parametres_initiaux = {
+            "plafond_anti_inflation_actif": plafond_actif,
+            "plafond_anti_inflation_niveau": niveau_choisi,
+            "langue_niveau_non_precise": langue_niveau_non_precise_choisi,
+            "langue_ecart_1_niveau": langue_ecart_1_choisi,
+            "langue_ecart_2_niveaux_plus": langue_ecart_2_plus_choisi,
+            "formation_diplome_non_reconnu": formation_diplome_non_reconnu_choisi,
+            "formation_ecart_1_niveau": formation_ecart_1_choisi,
+            "formation_ecart_2_niveaux_plus": formation_ecart_2_plus_choisi,
+            "ponderation_dimensions": {
+                "competences": poids_competences,
+                "langues": poids_langues,
+                "niveau_etudes": poids_formation,
+                "experience": poids_experience,
+            },
+        }
+
         session_id = creer_session(nom_offre)
         texte_offre = _texte_depuis_upload(fichier_offre)
 
         barre = st.progress(0.0, text="Traitement en cours...")
         offre_json = None
+        offre_id = None
         for i, fichier_cv in enumerate(fichiers_cv):
             texte_cv = _texte_depuis_upload(fichier_cv)
             barre.progress((i) / len(fichiers_cv), text=f"Traitement de {fichier_cv.name}...")
 
             if offre_json is None:
-                etat = traiter_premier_cv(session_id, texte_offre, fichier_cv.name, texte_cv)
+                etat = traiter_premier_cv(
+                    session_id, texte_offre, fichier_cv.name, texte_cv,
+                    parametres_initiaux=parametres_initiaux,
+                )
                 offre_json = etat["offre_json"]
+                offre_id = etat["offre_id"]
             else:
-                traiter_cv_suivant(session_id, offre_json, fichier_cv.name, texte_cv)
+                traiter_cv_suivant(session_id, offre_json, fichier_cv.name, texte_cv, offre_id=offre_id)
 
         barre.progress(1.0, text="Termine !")
         st.session_state["session_id"] = session_id
@@ -250,6 +431,9 @@ def ecran_nouvelle_session():
 
 
 def ecran_dashboard():
+    """Tableau de bord d'une session : classement des candidats par score
+    de matching, configuration des parametres de matching de l'offre,
+    et declenchement de l'envoi des entretiens."""
     session_id = st.session_state["session_id"]
     offre = get_offre_session(session_id)
     candidats = lister_candidats_session(session_id)
@@ -257,6 +441,9 @@ def ecran_dashboard():
     titre_offre = "Offre sans titre"
     if offre and offre.get("json_extrait"):
         titre_offre = offre["json_extrait"].get("titre_poste") or offre["json_extrait"].get("titre") or titre_offre
+    
+    offre_id = offre["id"]
+    parametres = obtenir_parametres_offre(offre_id)
 
     en_tete("Tableau de bord", "Classement des candidats", titre_offre)
 
@@ -287,7 +474,60 @@ def ecran_dashboard():
 
     st.write("")
 
-    for c in candidats:
+    with st.expander("Réglages du matching pour cette offre"):
+        niveaux_labels = {"tolerant": "Tolérant", "standard": "Standard", "strict": "Strict"}
+
+        st.markdown(etiquette_section("Plafond anti-inflation"), unsafe_allow_html=True)
+        col_r1, col_r2 = st.columns(2)
+        with col_r1:
+            st.markdown(f"Actif : **{'Oui' if parametres['plafond_anti_inflation_actif'] else 'Non'}**")
+        with col_r2:
+            if parametres["plafond_anti_inflation_actif"]:
+                st.markdown(f"Niveau : **{niveaux_labels.get(parametres['plafond_anti_inflation_niveau'], parametres['plafond_anti_inflation_niveau'])}**")
+
+        poids_utilises = resoudre_ponderation(parametres)
+        st.markdown(etiquette_section("Pondération des critères"), unsafe_allow_html=True)
+        col_p1, col_p2, col_p3, col_p4 = st.columns(4)
+        with col_p1:
+            st.markdown(f"Compétences : **{poids_utilises['competences']}**")
+        with col_p2:
+            st.markdown(f"Langues : **{poids_utilises['langues']}**")
+        with col_p3:
+            st.markdown(f"Formation : **{poids_utilises['niveau_etudes']}**")
+        with col_p4:
+            st.markdown(f"Expérience : **{poids_utilises['experience']}**")
+
+        st.markdown(etiquette_section("Couverture des langues"), unsafe_allow_html=True)
+        col_l1, col_l2, col_l3 = st.columns(3)
+        with col_l1:
+            st.markdown(f"Niveau non précisé : **{LABELS_NIVEAU_LANGUE[parametres['langue_niveau_non_precise']]}**")
+        with col_l2:
+            st.markdown(f"Écart d'1 niveau : **{LABELS_NIVEAU_LANGUE[parametres['langue_ecart_1_niveau']]}**")
+        with col_l3:
+            st.markdown(f"Écart de 2+ niveaux : **{LABELS_NIVEAU_LANGUE[parametres['langue_ecart_2_niveaux_plus']]}**")
+
+        st.markdown(etiquette_section("Couverture de la formation"), unsafe_allow_html=True)
+        col_f1, col_f2, col_f3 = st.columns(3)
+        with col_f1:
+            st.markdown(f"Diplôme non reconnu : **{LABELS_NIVEAU_LANGUE[parametres['formation_diplome_non_reconnu']]}**")
+        with col_f2:
+            st.markdown(f"Écart d'1 niveau : **{LABELS_NIVEAU_LANGUE[parametres['formation_ecart_1_niveau']]}**")
+        with col_f3:
+            st.markdown(f"Écart de 2+ niveaux : **{LABELS_NIVEAU_LANGUE[parametres['formation_ecart_2_niveaux_plus']]}**")
+
+        st.caption("Figé pour cette session.")
+
+    seuil_defaut = parametres["score_minimal_affichage"] or 0
+    seuil = st.slider("Score minimum affiché", 0, 100, value=seuil_defaut, step=5)
+    if seuil != seuil_defaut:
+        mettre_a_jour_parametres_offre(offre_id, {"score_minimal_affichage": seuil or None})
+        st.rerun()
+
+    if parametres["score_minimal_affichage"]:
+        candidats_affiches = [c for c in candidats if (c["score_matching"] or 0) >= parametres["score_minimal_affichage"]]
+    else:
+        candidats_affiches = candidats
+    for c in candidats_affiches:
         with st.container(key=f"carte-candidat-{c['id']}"):
             nom_affiche = (c["json_extrait"] or {}).get("nom") or c["nom_fichier"]
             titre_pro = (c["json_extrait"] or {}).get("titre_professionnel")
@@ -333,28 +573,52 @@ def ecran_dashboard():
             if st.session_state.get(f"afficher_envoi_{c['id']}"):
                 email_defaut = _email_extrait(c)
                 st.markdown(etiquette_section("Adresse email du candidat"), unsafe_allow_html=True)
-                if email_defaut:
-                    st.caption("Adresse recuperee automatiquement depuis le CV — modifiable si besoin.")
-                else:
-                    st.caption("Aucune adresse n'a ete trouvee dans le CV : merci de la renseigner.")
                 email_candidat = st.text_input(
                     "Email du candidat", value=email_defaut, key=f"email_{c['id']}",
                     label_visibility="collapsed", placeholder="candidat@exemple.com",
+                    help="Récupérée automatiquement depuis le CV si trouvée." if email_defaut else None,
                 )
+
+                suggestion_auto = calculer_nb_questions(c.get("json_matching"))
+
+                col_nb, col_diff = st.columns(2)
+                with col_nb:
+                    nb_questions_choisi = st.selectbox(
+                        "Nombre de questions",
+                        options=["-- Choisir --", 3, 4, 5, 6, 7, 8],
+                        key=f"nb_questions_{c['id']}",
+                        help=f"Suggestion automatique : {suggestion_auto}",
+                    )
+                with col_diff:
+                    niveau_difficulte_choisi = st.selectbox(
+                        "Difficulte",
+                        options=["-- Choisir --", "facile", "moyen", "difficile"],
+                        key=f"difficulte_{c['id']}",
+                    )
+
                 if st.button("Confirmer l'envoi", key=f"confirmer_envoi_{c['id']}", type="primary"):
                     if not email_candidat:
                         st.error("Merci de renseigner l'email du candidat.")
+                    elif nb_questions_choisi == "-- Choisir --" or niveau_difficulte_choisi == "-- Choisir --":
+                        st.error("Merci de choisir le nombre de questions et la difficulte avant d'envoyer.")
                     else:
                         with st.spinner("Generation des questions et envoi de l'email..."):
-                            lancer_entretien(c, offre["json_extrait"], email_candidat)
+                            lancer_entretien(
+                                c, offre["json_extrait"], email_candidat,
+                                nb_questions=nb_questions_choisi,
+                                niveau_difficulte=niveau_difficulte_choisi,
+                            )
                         st.session_state[f"afficher_envoi_{c['id']}"] = False
                         st.success(f"Entretien envoye a {nom_affiche}.")
                         st.rerun()
 
 
 def ecran_resultats():
+    """Ecran de suivi des entretiens envoyes : statut de chaque entretien,
+    et pour ceux deja repondus, detail des reponses et evaluations
+    (Agent 4) par question."""
     session_id = st.session_state["session_id"]
-    en_tete("Suivi", "Resultats des entretiens", "Consultez les reponses et evaluations generees par l'Agent 4.")
+    en_tete("Suivi", "Resultats des entretiens")
 
     if st.button("Actualiser", type="secondary"):
         st.rerun()
@@ -377,6 +641,17 @@ def ecran_resultats():
                 )
             with col3:
                 st.markdown(badge_statut_entretien(e["statut"]), unsafe_allow_html=True)
+
+            # NOUVEAU (etape 3) : badge historique des reglages utilises
+            # pour CET entretien. e["nb_questions_utilise"] /
+            # e["niveau_difficulte_utilise"] valent None pour les
+            # entretiens crees avant l'etape 3 -> badge simplement omis.
+            if e.get("nb_questions_utilise") and e.get("niveau_difficulte_utilise"):
+                labels_difficulte = {"facile": "Facile", "moyen": "Moyen", "difficile": "Difficile"}
+                niveau_affiche = labels_difficulte.get(
+                    e["niveau_difficulte_utilise"], e["niveau_difficulte_utilise"]
+                )
+                st.caption(f"{e['nb_questions_utilise']} questions · Difficulte : {niveau_affiche}")
 
             if e["statut"] == "repondu":
                 reponses = lister_reponses_entretien(e["id"])
@@ -403,6 +678,9 @@ def ecran_resultats():
 
 
 def vue_recruteur():
+    """Routeur de l'espace recruteur : affiche la barre de navigation puis
+    l'ecran selectionne (accueil / nouvelle session / dashboard / resultats)
+    selon st.session_state["ecran"]."""
     if "ecran" not in st.session_state:
         st.session_state["ecran"] = "accueil"
 

@@ -22,6 +22,8 @@ import streamlit as st
 
 
 def _normaliser(texte: str | None) -> str:
+    """Normalise une chaine (minuscules, sans accents) pour comparer les
+    libelles de niveau de facon fiable (voir _NIVEAU_TONE)."""
     if not texte:
         return ""
     sans_accents = "".join(
@@ -31,6 +33,8 @@ def _normaliser(texte: str | None) -> str:
 
 
 def _e(texte) -> str:
+    """Echappe une valeur pour insertion sure dans du HTML (evite toute
+    injection via un champ libre venant du LLM ou du candidat)."""
     return _html.escape(str(texte)) if texte is not None else ""
 
 
@@ -56,6 +60,8 @@ _TONE_COLORS = {
 
 
 def tone_pour_niveau(niveau: str | None) -> str:
+    """Associe un niveau qualitatif (matching ou reponse) a une teinte
+    semantique (success/info/warning/danger...) pour l'affichage."""
     return _NIVEAU_TONE.get(_normaliser(niveau), "neutral")
 
 
@@ -64,6 +70,8 @@ def tone_pour_niveau(niveau: str | None) -> str:
 # ---------------------------------------------------------------------------
 
 def injecter_style() -> None:
+    """Injecte le CSS global de l'application (une seule fois, en haut de
+    app.py) : polices, couleurs, cartes, badges, barre de score, etc."""
     st.markdown(
         """
         <style>
@@ -211,6 +219,8 @@ def injecter_style() -> None:
 # ---------------------------------------------------------------------------
 
 def en_tete(eyebrow: str, titre: str, sous_titre: str | None = None) -> None:
+    """Affiche l'en-tete standard d'un ecran : petit libelle (eyebrow),
+    titre principal, et sous-titre optionnel."""
     st.markdown(f'<div class="app-eyebrow">{_e(eyebrow)}</div>', unsafe_allow_html=True)
     st.title(titre)
     if sous_titre:
@@ -218,6 +228,8 @@ def en_tete(eyebrow: str, titre: str, sous_titre: str | None = None) -> None:
 
 
 def badge(texte: str, tone: str = "neutral") -> str:
+    """Retourne le HTML d'un badge colore (pastille arrondie) pour le
+    texte et la teinte semantique donnes."""
     couleur, fond, bordure = _TONE_COLORS.get(tone, _TONE_COLORS["neutral"])
     return (
         f'<span class="badge" style="color:{couleur}; background:{fond}; '
@@ -226,18 +238,24 @@ def badge(texte: str, tone: str = "neutral") -> str:
 
 
 def badge_niveau(niveau: str | None) -> str:
+    """Retourne le HTML d'un badge de niveau (matching ou reponse), avec
+    la teinte semantique associee automatiquement (voir tone_pour_niveau)."""
     if not niveau:
         return badge("Non evalue", "neutral")
     return badge(niveau, tone_pour_niveau(niveau))
 
 
 def badge_statut_entretien(statut: str) -> str:
+    """Retourne le HTML du badge de statut d'un entretien
+    ("Reponse recue" en vert, ou "En attente de reponse" en orange)."""
     if statut == "repondu":
         return badge("Reponse recue", "success")
     return badge("En attente de reponse", "warning")
 
 
 def barre_score(score: int | None, niveau: str | None = None) -> str:
+    """Retourne le HTML d'une barre de score (valeur numerique + piste
+    remplie proportionnellement), coloree selon le niveau qualitatif."""
     valeur = 0 if score is None else max(0, min(100, score))
     tone = tone_pour_niveau(niveau) if niveau else "info"
     couleur, _, _ = _TONE_COLORS.get(tone, _TONE_COLORS["info"])
@@ -256,6 +274,9 @@ def barre_score(score: int | None, niveau: str | None = None) -> str:
 
 
 def liste_chips(items: list, tone: str = "neutral") -> str:
+    """Retourne le HTML d'une liste de puces colorees (ex. points forts /
+    manquants) a partir d'une liste de chaines. Affiche un message neutre
+    si la liste est vide."""
     couleur, fond, bordure = _TONE_COLORS.get(tone, _TONE_COLORS["neutral"])
     if not items:
         return '<div class="chip-empty">Aucun element identifie.</div>'
@@ -268,4 +289,6 @@ def liste_chips(items: list, tone: str = "neutral") -> str:
 
 
 def etiquette_section(texte: str) -> str:
+    """Retourne le HTML d'un petit libelle de section (majuscules,
+    espacement large) utilise au-dessus d'un bloc de contenu."""
     return f'<div class="section-label">{_e(texte)}</div>'

@@ -31,7 +31,7 @@ print(resultat)
 
 try:
     parsed = json.loads(resultat)
-    print("\n✅ JSON valide, parsing réussi :")
+    print("\n JSON valide, parsing réussi :")
     print(parsed)
 except json.JSONDecodeError as e:
     print(f"\n❌ Erreur de parsing JSON : {e}")

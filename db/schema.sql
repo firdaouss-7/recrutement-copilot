@@ -16,9 +16,9 @@ CREATE TABLE IF NOT EXISTS offres (
     session_id INTEGER NOT NULL,
     texte_brut TEXT NOT NULL,
     json_extrait TEXT,
+    parametres_matching TEXT,   -- NOUVEAU : preferences recruteur (JSON), voir db/parametres_offre.py
     FOREIGN KEY (session_id) REFERENCES sessions(id)
 );
-
 -- Un candidat = un CV traite dans une session
 CREATE TABLE IF NOT EXISTS candidats (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -41,6 +41,8 @@ CREATE TABLE IF NOT EXISTS entretiens (
     statut TEXT NOT NULL DEFAULT 'en_attente',   -- en_attente | repondu
     date_creation TEXT NOT NULL DEFAULT (datetime('now')),
     date_reponse TEXT,
+    nb_questions_utilise INTEGER,        -- NOUVEAU (etape 3) : choix recruteur au moment de l'envoi
+    niveau_difficulte_utilise TEXT,      -- NOUVEAU (etape 3) : "facile" | "moyen" | "difficile"
     FOREIGN KEY (candidat_id) REFERENCES candidats(id)
 );
 
